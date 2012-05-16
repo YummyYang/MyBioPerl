@@ -1,0 +1,91 @@
+#!/usr/bin/perl -w 
+use strict;
+use MyBioPerl;
+
+my $filename = "NM_021964fragment.pep";
+die "$filename dosen't exist." unless(-e $filename);
+die "open $filename fail." unless(open(PROTEIN_FILE,$filename));
+my @protein = <PROTEIN_FILE>;
+close PROTEIN_FILE;
+
+my $protein = join('',@protein);
+$protein =~ s/\s//g;
+print "protein:$protein \n";
+
+my $hydrophobic = count_hydrophobic($protein); 
+print "hydrophobic : $hydrophobic.\n";
+print "percentage  :". percentage_hydrophobic($protein)."\n";
+
+#is_reverse_complement('ATCG','CGAT');
+#my $dna1 = "ATCG";
+#my $dna2 = "CGTAA";
+#is_reverse_complement($dna1,$dna2);
+
+print "display amino acid:\n";
+display_amino_acid();
+
+print "display amino acid sort by '3 letter name':\n";
+display_amino_acid_sort_by_3();
+
+print "display amino acid sort by '1 letter name':\n";
+display_amino_acid_sort_by_1();
+
+#my %amino = get_amino_acid_table();
+#foreach my $key (sort keys %amino){
+#	print "$key => $amino{$key}";
+#}
+
+print "\n";
+print "display genetic codons:\n";
+my %genetic_codons = get_genetic_codons();
+my $i =0;
+foreach my $key (sort keys %genetic_codons){
+	++$i;
+	print "($i) $key -> $genetic_codons{$key} \n";
+}
+print "\n";
+
+print "is protein:";
+print is_protein($protein)."\n";
+
+#test codon
+my $codon = 'CAT';
+
+print "codon2aa:$codon\n";
+print codon2aa($codon)."\n";
+
+print "mutate codons:$codon\n";
+my @mutated_codons = mutate_codons($codon);
+print "@mutated_codons \n";
+
+print "mutated and translated :$codon\n";
+my @translated_codons = codon_mutated_and_translated($codon);
+print "translated codons : @translated_codons \n ";
+
+my $peptide = 'a';
+print "\n random mutate aa: $peptide\n";
+print random_mutate_aa("$peptide");
+print "\n\n";
+
+my $aa = 'C';
+print "$aa 's probability:".aa_probability($aa)."\n";
+
+print "mutated aa:".aa2mutated_aa($aa,2,'A')."\n\n";
+
+my %aa1 = get_reversed_genetic_codon();
+my @aa1 = keys %aa1;
+
+my %aa2 = get_reversed_genetic_codon();
+my @aa2 = keys %aa2;
+
+foreach my $aa1 (@aa1) {
+	foreach my $aa2(@aa2) {
+		print "probability of $aa1 with $aa2 :".mutation_probability($aa1,$aa2);
+	print "\n";
+	}
+}
+print "\n";
+
+#my $aa1="A";
+#my $aa2="Q";
+#print "probability of $aa1 with $aa2 :".mutation_probability($aa1,$aa2);
