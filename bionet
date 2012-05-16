@@ -1,0 +1,52 @@
+ 
+REBASE version 104                                              bionet.104
+ 
+    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    REBASE, The Restriction Enzyme Database   http://rebase.neb.com
+    Copyright (c)  Dr. Richard J. Roberts, 2001.   All rights reserved.
+    =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ 
+Rich Roberts                                                    Mar 30 2001
+ 
+AaaI (XmaIII)                     C^GGCCG
+AacI (BamHI)                      GGATCC
+AaeI (BamHI)                      GGATCC
+AagI (ClaI)                       AT^CGAT
+AaqI (ApaLI)                      GTGCAC
+AarI                              CACCTGCNNNN^
+AarI                              ^NNNNNNNNGCAGGTG
+AatI (StuI)                       AGG^CCT
+AatII                             GACGT^C
+AauI (Bsp1407I)                   T^GTACA
+AbaI (BclI)                       T^GATCA
+AbeI (BbvCI)                      CC^TCAGC
+AbeI (BbvCI)                      GC^TGAGG
+AbrI (XhoI)                       C^TCGAG
+AcaI (AsuII)                      TTCGAA
+AcaII (BamHI)                     GGATCC
+AcaIII (MstI)                     TGCGCA
+AcaIV (HaeIII)                    GGCC
+AccI                              GT^MKAC
+AccII (FnuDII)                    CG^CG
+AccIII (BspMII)                   T^CCGGA
+Acc16I (MstI)                     TGC^GCA
+Acc36I (BspMI)                    ACCTGCNNNN^
+Acc36I (BspMI)                    ^NNNNNNNNGCAGGT
+Acc38I (EcoRII)                   CCWGG
+Acc65I (KpnI)                     G^GTACC
+Acc113I (ScaI)                    AGT^ACT
+AccB1I (HgiCI)                    G^GYRCC
+AccB2I (HaeII)                    RGCGC^Y
+AccB7I (PflMI)                    CCANNNN^NTGG
+AccBSI (BsrBI)                    CCG^CTC
+AccBSI (BsrBI)                    GAG^CGG
+AccEBI (BamHI)                    G^GATCC
+AceI (TseI)                       G^CWGC
+AceII (NheI)                      GCTAG^C
+AceIII                            CAGCTCNNNNNNN^
+AceIII                            ^NNNNNNNNNNNGAGCTG
+AciI                              C^CGC
+AciI                              G^CGG
+AclI                              AA^CGTT
+AclNI (SpeI)                      A^CTAGT
+AclWI (BinI)                      GGATCNNNN^

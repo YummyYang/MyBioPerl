@@ -1,0 +1,124 @@
+#!/usr/bin/perl -w
+use strict;
+use MyBioPerl;
+
+info();
+
+my $dna = "TTAtTTATTTTTTTTTTTTATCGGCATTTAACCGGGCCACTGGAACCT";
+print "cg percentage:".cg_percentage($dna)."\n";
+
+print "has poly_t:".dna_has_poly_t($dna)."\n";
+
+print "rna:".dna2rna($dna)."\n";
+print "dna:".rna2dna(dna2rna($dna))."\n";
+
+print "dna:              :".$dna."\n";
+print "reverse complement:".reverse_complement($dna)."\n";
+
+my $str = to_lower_string($dna);
+print "lower:".$str."\n";
+print "lower:".to_upper_string($str)."\n";
+
+print "is_reverse_complement:\n";
+#is_reverse_complement("atcg");		#test argument number exception.
+#is_reverse_complement('ATCG','CGATc');	#test argument length exception.
+my $dna1 = "ATCG";
+my $dna2 = "CGAT";
+is_reverse_complement($dna1,$dna2);
+print "\n";
+print "switch_two_bases_by_substr:\n";
+switch_two_bases_by_substr($dna,3,5);
+print "\n";
+print "switch_two_bases_by_splice:\n";
+print switch_two_bases_by_splice($dna,3,5);
+print "\n";
+print "switch_two_bases_by_array:\n";
+switch_two_bases_by_array($dna,3,5);
+print"\n";
+print "frequency of nucleotides:\n";
+frequency_of_nucleotides("sample.dna");
+print "\n";
+print "random_coden:".random_codon("ATC")."\n";
+print "isDNA:";
+print is_DNA($dna)."\n";
+
+print "\n\n search gene name:\n";
+my @genes = qw(xgene1  ygene2  zgene3  agene4  bgene5);
+my $gene_name = "zgene3";
+
+#print "please input gene name:";
+#my $gene_name = <>;
+#chomp $gene_name;
+
+search_gene_name($gene_name,@genes);	#ok, $ first , @ second.
+#search_gene_name(\@genes,$gene_name);	#ok. @ first , $ second.
+
+#search_gene_name_by_binarysearch(\@genes,$gene_name);
+
+my @new_genes = insert_an_element_into_sorted_array(\@genes,$gene_name);
+print "new:@new_genes \n";
+
+print "dna to peptide : ";
+print dna2peptide($dna)."\n\n";
+
+my @filedata = get_file_data("sample.dna");
+
+if(is_fasta(@filedata)) {
+	print "is fasta data\n";
+	my $dna= extract_sequence_from_fasta_data(@filedata);
+	print "is dna:".is_DNA($dna)."\n";
+print "\n ---------------frame 1---------------------\n\n";
+	my $protein = dna2peptide($dna);
+	print_sequence($protein,30);
+print "\n ---------------frame 1---------------------\n\n";
+	my $protein = dna2peptide($dna);
+	print_sequence($protein,30);
+print "\n ---------------frame 1---------------------\n\n";
+	my $protein = dna2peptide($dna);
+	print_sequence($protein,30);
+}else{
+	print "not fasta data\n";
+}
+
+print "\n ---------------reading frame 1---------------------\n\n";
+	my $protein = translate_frame($dna,1);
+	print_sequence($protein,70);
+print "\n ---------------reading frame 2---------------------\n\n";
+	$protein = translate_frame($dna,2);
+	print_sequence($protein,70);
+print "\n ---------------reading frame 3---------------------\n\n";
+	$protein = translate_frame($dna,3);
+	print_sequence($protein,70);
+# calculate reverse complement
+	my $revcom = reverse_complement($dna);
+
+print "\n ---------------reading frame 4---------------------\n\n";
+	$protein = translate_frame($revcom,1);
+	print_sequence($protein,70);
+print "\n ---------------reading frame 5---------------------\n\n";
+	$protein = translate_frame($revcom,2);
+	print_sequence($protein,70);
+print "\n ---------------reading frame 6---------------------\n\n";
+	$protein = translate_frame($revcom,3);
+	print_sequence($protein,70);
+
+print "\n Amino Acid and its codons:\n\n";
+my %reversed_genetic_code = get_reversed_genetic_codon();
+foreach my $aa (keys %reversed_genetic_code){
+	print "$aa:" . (split (' ', $reversed_genetic_code{$aa}))."\n";
+}
+
+print "print IUB table:\n";
+print_iub_table();
+
+#print "iub2regexp:\n";
+#print iub2regexp("ARYCMKGSWBTDHVN")."\n";
+
+#print "parseREBASE:\n";
+#parseREBASE("bionet");
+
+#print "make restriction map from user queries.\n";
+#make_restriction_map_from_user_queries();
+
+print "get restriction digest:\n";
+get_restriction_digest();

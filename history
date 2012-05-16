@@ -1,0 +1,34 @@
+2012-04-25 : init.
+2012-04-26 : first push.
+2012-04-27 : clone for backup.
+2012-05-10 : found bug : exer08.09, sub random_mutate_aa
+			 return $possible_amino_acids[rand @possible_codons];
+			 the 'rand @possible_codons' are not right.
+			 is better to use 'rand @possible_amino_acids'
+
+			 for example , if mutate amino acid 'A',
+			 it will have 4 possible codons:
+			 	GCA GCC GCG GCT
+			 but have 8 possible mutated amino acid:
+			 	S A T D P G E V
+2012-05-16 : use git config --global user.name "Yummy.Yang"
+		 git config --global user.email cn.yummy@gmail.com
+		 git log --graph --oneline
+		 git log --oneline
+		 git log --oneline --decorate
+
+	     brush history :
+	     1. use A^{tree} access the tree .
+	     git cat-file -p xxxx^{tree}
+
+	     2. use git commit-tree commit form the tree.
+	     echo "commit from tree of tag xxxx." | git commit-tree xxxx^{tree}
+
+	     3. the output of commit-tree is a hash value of SHA1 (new_xxx)
+	     git log --pretty=raw new_xxx
+
+	     4. rebase
+	     git rebase --onto new_xxx xxxx master
+
+	     4. see log to comfirm
+	     git log --oneline --decorate
