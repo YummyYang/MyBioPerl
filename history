@@ -32,3 +32,6 @@
 
 	     4. see log to comfirm
 	     git log --oneline --decorate
+
+	     ---------
+	     vim :set tabstop=4
