@@ -17,3 +17,18 @@
 		 git log --oneline
 		 git log --oneline --decorate
 
+	     brush history :
+	     1. use A^{tree} access the tree .
+	     git cat-file -p xxxx^{tree}
+
+	     2. use git commit-tree commit form the tree.
+	     echo "commit from tree of tag xxxx." | git commit-tree xxxx^{tree}
+
+	     3. the output of commit-tree is a hash value of SHA1 (new_xxx)
+	     git log --pretty=raw new_xxx
+
+	     4. rebase
+	     git rebase --onto new_xxx xxxx master
+
+	     4. see log to comfirm
+	     git log --oneline --decorate
