@@ -13,3 +13,7 @@
 			 	S A T D P G E V
 2012-05-16 : use git config --global user.name "Yummy.Yang"
 		 git config --global user.email cn.yummy@gmail.com
+		 git log --graph --oneline
+		 git log --oneline
+		 git log --oneline --decorate
+
