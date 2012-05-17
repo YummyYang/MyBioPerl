@@ -50,6 +50,25 @@ sub iub2regexp{
 }
 
 #######################################################################
+# IUB to complement.
+#######################################################################
+sub complementIUB{
+	my($seq) = @_;
+	(my $com = $seq) =~ tr[ACGTRYMKSWBDHVNacgtrymkswbdhvn]
+							[TGCAYRKMWSVHDBNtgcayrkmwsvhdbn];
+	return $com;
+}
+
+#######################################################################
+# IUB to reverse complement.
+#######################################################################
+sub revcomIUB{
+	my($seq) = @_;
+	my $revcom = reverse complementIUB($seq);
+	return $revcom;
+}
+
+#######################################################################
 # Parse REBASE bionet file
 # input : bionet file
 # output: a hash
@@ -71,7 +90,7 @@ sub parseREBASE{
 		# discard header lines
 		# the range operator(..),(1 .. /Rich Roberts/) are interesting.
 		# strange:
-		# if openfile to @lines and foreach @lines,it doesn't work
+		# if openfile to @lines then foreach @lines,it doesn't work
 		( 1 .. /Rich Roberts/ ) and next;
 
 		# discard blank lines
@@ -263,8 +282,8 @@ sub make_restriction_map_from_user_queries{
 # get restriction digest.
 # the fragments of DNA left after performing a restriction reaction
 # parse the REBASE bionet in a different manner,
-# ignore restriction enzymes that are not given 
-# with a ^ indicating a cut site.
+# ignore restriction enzymes that are not given with a ^ 
+# ( ^ indicating a cut site.)
 #######################################################################
 sub get_restriction_digest{
     my %rebase_hash = ();
@@ -283,8 +302,9 @@ sub get_restriction_digest{
     if(@ARGV){
 	$dna = $ARGV[0];
     }else{
-	print "Input a FASTA filename:";
-	my $filename = <>;
+	#print "Input a FASTA filename:";
+	#my $filename = <>;
+	my $filename = "sample.dna";
 	chomp $filename;
 
 	die "$filename doesn't exist!\n" unless(-e $filename);
@@ -313,11 +333,17 @@ sub get_restriction_digest{
 	    # find the offset of the cut site in the recognition site
 	    my $cut_site_offset = index($recognition_site,'^');
 
+	    print ">recognition_site:$recognition_site," 
+	    	   ."regexp:$regexp,cut_site_offset:$cut_site_offset\n";
+
+
 	    # create the restriction map (?)
 	    @locations = match_positions($regexp, $dna);
+	    print ">>locations:@locations\n";
 
 	    # add the cut site offset to the @locations
 	    @locations = grep($_ += $cut_site_offset, @locations);
+	    print ">>>locations:@locations\n";
 
 	    # calculate and report the restriction digest to the user.
 	    if(@locations){
@@ -330,6 +356,7 @@ sub get_restriction_digest{
 		for( my $i = 1, my $j = shift(@locations);@locations;$i=$j,$j=shift(@locations)){
 		    push(@digest,substr($dna, $i-1, $j-$i));
 		}
+
 		print "the resulting restriction digest:\n";
 		print join("\n",@digest),"\n";
 
@@ -340,6 +367,191 @@ sub get_restriction_digest{
 	}
 	print "\n";
     }until($query =~ /quit/);
+}
+
+#######################################################################
+# parseREBASE2 , parse REBASE bionet file, version 2
+# A subroutine to return a hash where
+# 	key = restriction enzyme name
+# 	value = whitespace-separated recognition sites
+# 	( the regular expressions will be calculated on the fly)
+# Version2 handles multiple definition lines for an enzyme name
+# Version2 also handles alternate enzyme names on a line
+#######################################################################
+sub parseREBASE2{
+	my($rebasefile) = @_;
+
+	my @rebasefile = ();
+	my %rebase_hash = ();
+	my $site;
+	my $regexp;
+
+	# read in the REBASE file
+	my $rebase_filehandle = open_file($rebasefile);
+	
+	while(<$rebase_filehandle>){
+		my @names = ();
+
+		# discard header lines
+		(1 .. /Rich Roberts/) and next;
+
+		# discard blank lines
+		/^\s*$/ and next;
+
+		# split the two( or three if includes parenthesized name) fields
+		my @fields = split(" ", $_);
+
+		# get and store the recognition site
+		$site = pop @fields;
+
+		# for the purposes of this exercise, we'll ignore cut sites (^)
+		# this is not something you'd want to do in general.
+		$site =~ s/\^//g;
+
+		# Get and store the name and the recognition site.
+		# and alternate (parenthesized) names
+		# from the middle field, if any
+		foreach my $name (@fields){
+			if($name =~ /\(.*\)/){
+				$name =~ s/\((.*)\)/$1/;	# the s is different to m
+			}
+			push @names, $name;
+		}
+		print ">>>>>>>>>@names\n";
+
+		# Store the data into the hash, avoiding duplicates
+		# (ignoring ^ cut sites)
+		# and ignoring reverse complements
+		foreach my $name (@names){
+
+			# Add new enzyme definition
+			if(not defined $rebase_hash{$name}){
+				$rebase_hash{$name} = "$site";
+				next;
+			}
+			my(@defined_sites) = split(" ",$rebase_hash{$name});
+
+			# Omit already defined sites
+			if(grep {$site eq $_} @defined_sites){
+				next;
+				
+			# Omit reverse complements of already defined sites
+			}elsif(grep {revcomIUB($site) eq $_} @defined_sites){
+				next;
+
+			# Add the additional site
+			}else{
+				$rebase_hash{$name} .= " $site";
+			}
+		}
+	}
+
+	# Return the hash containing the reformatted REBASE data.
+	return %rebase_hash;
+}
+
+#######################################################################
+# get nonpalindromic recognition site
+# Extend the restriction map software to take into account the opposite
+# strand for nonpalindromic recognition sites.
+#######################################################################
+sub get_nonpalindromic_recognition_site{
+	my %rebase_hash = ();
+	my @file_data = ();
+	my $query = '';
+	my $dna = '';
+	my @recognition_sites = ();
+	my $recognition_site = '';
+	my $regexp = '';
+
+	# if there is a command-line argument, assume it's dna
+	if(@ARGV){
+		$dna = $ARGV[0];
+	}else{
+		#print "input a FASTA filename:";
+		#my $filename = <>;
+		my $filename = 'sample.dna';
+		chomp $filename;
+
+		die "$filename doesn't exist!\n" unless(-e $filename);
+
+		@file_data = get_file_data($filename);
+
+		$dna = extract_sequence_from_fasta_data(@file_data);	
+	}
+
+	# new version of parseREBASE
+	%rebase_hash = parseREBASE2('bionet.110');
+	#my $i=0;
+	#foreach my $key (keys %rebase_hash){
+	#	print "$key -> $rebase_hash{$key}\n";
+	#	$i++;
+	#}
+	#print "total:$i\n";
+
+	#prompt user for restriction enzyme names, create restriction map.
+	do{
+		print "search for what restriction site (or quit)?: ";
+		$query = <>;
+		chomp $query;
+
+		if($query =~ /^\s*$/ ){
+			exit;
+		}
+
+		# translating the recognition sites to regular expressions
+		if ( exists $rebase_hash{$query} ){
+	my @locations = ();
+			@recognition_sites = split(" ", $rebase_hash{$query});
+
+			foreach $recognition_site (@recognition_sites){
+			
+				$regexp = iub2regexp($recognition_site);
+
+				# create the restriction map
+				# store these positons with a leading + sign, like "+324"
+				push @locations, map($_ = "+$_", match_positions($regexp,$dna));
+				
+				# for non-palindromic recognition sites,
+				# search for the complement in the sequence
+				if($recognition_site ne revcomIUB($recognition_site)){
+
+					# calculate the regular expression for the complement
+					(my $complement = $recognition_site)=~ tr/ACGTRYMKSWBDHVNacgtrymkswbdhvn/TGCAYRKMWSVHDBNtgcayrkmwsvhdbn/;
+					
+					my $regular_expression_com = iub2regexp($complement);
+
+					# Get the matching positions for the complement
+					# Store these in @positions with a leading-sign,
+					# like "-324"
+					push @locations,map($_="-$_",match_positions($regular_expression_com,$dna));
+
+				}
+
+				# Sort the locations, ignoring the leading '+' and '-' sign
+				@locations = sort {
+					my($A,$B); 
+					($A=$a)=~s/^.//;
+					($B=$b)=~s/^.//;
+					$A<=>$B;
+				}@locations;
+
+				# report the restriction map to the user
+				if(@locations){
+					print "searching for $query $recognition_site $regexp\n";
+					print "A restriction site for $query at locations:\n";
+					print join(" ",@locations),"\n";
+				}else{
+					print "A restriction enzyme $query is not in the DNA:\n";
+				}
+			}
+		}else{
+			print "$query is not in hash!\n";
+		}
+
+		print "\n";
+	}until( $query =~ /quit/ );
+
 }
 
 #######################################################################
@@ -832,6 +1044,148 @@ sub insert_an_element_into_sorted_array{
 	splice(@sorted_array , $i , 0 , $element);
 	print "new sorted array :@sorted_array\n";
 	return @sorted_array;
+}
+
+############################################################### 
+# read database
+# read in the data and then do a fast lookup
+# on the information associated with a gene name.
+############################################################### 
+sub read_database{
+	my($dbfile) =@_;
+
+	# open the database file
+	die "can't open $dbfile!\n" unless( open(DATAFILE,"<$dbfile") );
+
+	my %database = ();
+
+	# Set input separator	
+	# This allows us to get an entire record as one scalar value
+	# A blank line is just a newline following another newline.
+	$/ = "\n\n";
+
+	# Read data
+	while(my $record = <DATAFILE>){
+		# Get the first line as a key, and the remaining lines as the value
+		# Trun the scalar $record back into an array of lines to get the key
+		my @lines = split(/\n/,$record);
+		my $key = shift @lines;
+
+		# And trun the remaining array into a scalar for storing as a value
+		# in the hash
+		my $value = join("\n", @lines) . "\n";
+		$database{$key} = $value;
+	}
+
+	close(DATABASE);
+
+	# Reset input separator to normal default value
+	$/ = "\n";
+
+	return %database;
+}
+
+############################################################### 
+# input new record
+############################################################### 
+sub input_new_record{
+	print "Input a new record (end with a blank line):\n";
+	$/ = "\n\n";
+
+	my $new_record = <>;
+	$/ = "\n";
+
+	return join("\n", split("\n", $new_record) ),"\n";
+}
+
+############################################################### 
+# input new record
+############################################################### 
+sub add_record{
+	my($dbfile, @record) = @_;
+
+	die "Can't write to $dbfile!\n" unless(open(DATAFILE,">>$dbfile"));
+
+	print DATAFILE "\n", @record;
+	close DATAFILE;
+
+}
+
+############################################################### 
+# db demo
+############################################################### 
+sub db_demo{
+	# the ASCII flat file that holds the database
+	my $dbfile = 'db.demo';
+
+	# Read in the db from the flat file to a hash
+	my %data = read_database($dbfile);
+
+	# Test by examing a key-value pair
+	print "See what entry?: ";
+	my $ans = <>;
+	chomp $ans;
+	print $data{$ans};
+
+	# Get a new record for the database from the user
+	my @new_record = input_new_record();
+
+	# Add a new record to db
+	add_record($dbfile,@new_record);
+
+	# Reload the database from the database file
+	%data = read_database($dbfile);
+
+	# Test by examining a key-value pair
+	print "See what entry?: ";
+	$ans = <>;
+	chomp $ans;
+	print $data{$ans};
+}
+
+############################################################### 
+# Print Word frequence
+# takes a long DNA sequence as input 
+# output : the counts of all four-base subsequences, sorted by frequency.
+############################################################### 
+sub print_word_frequence{
+	my $fastafile = 'sample.dna';
+	my @file_data = get_file_data($fastafile);
+	my $sequence = extract_sequence_from_fasta_data(@file_data);
+
+	# get count of tetramers
+	my $size = 4;
+	my %count = mercount($size, $sequence);
+
+	# sort the keys by the count, and output results
+	my @sortedkeys = sort {$count{$b} <=> $count{$a}} keys %count;
+
+	foreach my $key (@sortedkeys){
+		print "$key ", $count{$key}, "\n";
+	}
+}
+
+############################################################### 
+# Mercount
+# count all 'mers'
+#  --subsequences of specified size -- in a sequence
+############################################################### 
+sub mercount{
+	my($size, $seq) = @_;
+	my %count = ();
+
+	# iterate through each subsequence
+	for(my $i = 0; $i < length($seq) -3; ++$i){
+		my $mer = substr($seq, $i, $size);
+
+		if(defined $count{$mer}){
+			$count{$mer}++;
+		}else{
+			$count{$mer} = 1;
+		}
+	}
+	print "total:$total\n";
+	return %count;
 }
 
 #---------------------------------------------------------------------------#

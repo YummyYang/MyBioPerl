@@ -120,5 +120,12 @@ print_iub_table();
 #print "make restriction map from user queries.\n";
 #make_restriction_map_from_user_queries();
 
-print "get restriction digest:\n";
-get_restriction_digest();
+#print "get restriction digest:\n";
+#get_restriction_digest();
+
+#print "get nonpalindromic restriction site:\n";
+#get_nonpalindromic_recognition_site();
+
+#db_demo();
+
+print_word_frequence();
