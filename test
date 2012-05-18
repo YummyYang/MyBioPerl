@@ -123,5 +123,9 @@ print_iub_table();
 #print "get restriction digest:\n";
 #get_restriction_digest();
 
-print "get nonpalindromic restriction site:\n";
-get_nonpalindromic_recognition_site();
+#print "get nonpalindromic restriction site:\n";
+#get_nonpalindromic_recognition_site();
+
+print "extract annotation and sequence from genebank lib:\n";
+extract_annotation_and_sequence_from_genebank_file();
+
