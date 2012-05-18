@@ -30,8 +30,9 @@
 	     4. rebase
 	     git rebase --onto new_xxx xxxx master
 
-	     4. see log to comfirm
+	     5. see log to comfirm
 	     git log --oneline --decorate
 
+	     6. git push -u origin master --force
 	     ---------
 	     vim :set tabstop=4

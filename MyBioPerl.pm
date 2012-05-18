@@ -417,7 +417,6 @@ sub parseREBASE2{
 			}
 			push @names, $name;
 		}
-		print ">>>>>>>>>@names\n";
 
 		# Store the data into the hash, avoiding duplicates
 		# (ignoring ^ cut sites)
