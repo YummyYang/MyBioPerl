@@ -1294,6 +1294,57 @@ sub display_amino_acid_sort_by_1{
 		}
 	}
 }
+
+############################################################### 
+# Extract annotation and sequence from GeneBank file
+############################################################### 
+sub extract_annotation_and_sequence_from_genebank_file{
+	my @annotation =();
+	my @sequence ='';
+	my $filename = 'record.gb';
+
+	parse1(\@annotation, \$sequence, $filename);
+
+	print "\nannotation:\n";
+	print @annotation;
+
+	print "\nsequence:\n";
+	print_sequence($sequence, 50);
+}
+
+############################################################### 
+# open file 
+############################################################### 
+sub parse1{
+	my($annotation, $dna, $filename) = @_;
+
+	# $annotation 	--reference to array
+	# $dna 		--reference to scalar
+	# $filename 	--scalar
+
+	# declare and initialize variables
+	my $in_sequence = 0;
+	my @genebank_file =();
+
+	# Get the genebank data into an array from a file
+	@genebank_file = get_file_data($filename);
+
+	# Extract all the sequence lines
+	foreach my $line (@genebank_file){
+
+		if($line =~ /^\/\/\n/){
+			last;
+		}elsif($in_sequence){
+			$$dna .= $line;
+		}elsif($line =~ /^ORIGIN/){
+			$in_sequence = 1;
+		}else{
+			push( @$annotation, $line);
+		}
+	}
+	$$dna =~ s/[\s0-9]//g;
+}
+
 ############################################################### 
 # open file 
 ############################################################### 

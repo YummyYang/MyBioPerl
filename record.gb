@@ -1,0 +1,102 @@
+LOCUS       AB031069     2487 bp    mRNA            PRI       27-MAY-2000
+DEFINITION  Homo sapiens PCCX1 mRNA for protein containing CXXC domain 1,
+            complete cds.
+ACCESSION   AB031069
+VERSION     AB031069.1  GI:8100074
+KEYWORDS    .
+SOURCE      Homo sapiens embryo male lung fibroblast cell_line:HuS-L12 cDNA to
+            mRNA.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (sites)
+  AUTHORS   Fujino,T., Hasegawa,M., Shibata,S., Kishimoto,T., Imai,Si. and
+            Takano,T.
+  TITLE     PCCX1, a novel DNA-binding protein with PHD finger and CXXC domain,
+            is regulated by proteolysis
+  JOURNAL   Biochem. Biophys. Res. Commun. 271 (2), 305-310 (2000)
+  MEDLINE   20261256
+REFERENCE   2  (bases 1 to 2487)
+  AUTHORS   Fujino,T., Hasegawa,M., Shibata,S., Kishimoto,T., Imai,S. and
+            Takano,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (15-AUG-1999) to the DDBJ/EMBL/GenBank databases.
+            Tadahiro Fujino, Keio University School of Medicine, Department of
+            Microbiology; Shinanomachi 35, Shinjuku-ku, Tokyo 160-8582, Japan
+            (E-mail:fujino@microb.med.keio.ac.jp,
+            Tel:+81-3-3353-1211(ex.62692), Fax:+81-3-5360-1508)
+FEATURES             Location/Qualifiers
+     source          1..2487
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /sex="male"
+                     /cell_line="HuS-L12"
+                     /cell_type="lung fibroblast"
+                     /dev_stage="embryo"
+     gene            229..2199
+                     /gene="PCCX1"
+     CDS             229..2199
+                     /gene="PCCX1"
+                     /note="a nuclear protein carrying a PHD finger and a CXXC
+                     domain"
+                     /codon_start=1
+                     /product="protein containing CXXC domain 1"
+                     /protein_id="BAA96307.1"
+                     /db_xref="GI:8100075"
+                     /translation="MEGDGSDPEPPDAGEDSKSENGENAPIYCICRKPDINCFMIGCD
+                     NCNEWFHGDCIRITEKMAKAIREWYCRECREKDPKLEIRYRHKKSRERDGNERDSSEP
+                     RDEGGGRKRPVPDPDLQRRAGSGTGVGAMLARGSASPHKSSPQPLVATPSQHHQQQQQ
+                     QIKRSARMCGECEACRRTEDCGHCDFCRDMKKFGGPNKIRQKCRLRQCQLRARESYKY
+                     FPSSLSPVTPSESLPRPRRPLPTQQQPQPSQKLGRIREDEGAVASSTVKEPPEATATP
+                     EPLSDEDLPLDPDLYQDFCAGAFDDHGLPWMSDTEESPFLDPALRKRAVKVKHVKRRE
+                     KKSEKKKEERYKRHRQKQKHKDKWKHPERADAKDPASLPQCLGPGCVRPAQPSSKYCS
+                     DDCGMKLAANRIYEILPQRIQQWQQSPCIAEEHGKKLLERIRREQQSARTRLQEMERR
+                     FHELEAIILRAKQQAVREDEESNEGDSDDTDLQIFCVSCGHPINPRVALRHMERCYAK
+                     YESQTSFGSMYPTRIEGATRLFCDVYNPQSKTYCKRLQVLCPEHSRDPKVPADEVCGC
+                     PLVRDVFELTGDFCRLPKRQCNRHYCWEKLRRAEVDLERVRVWYKLDELFEQERNVRT
+                     AMTNRAGLLALMLHQTIQHDPLTTDLRSSADR"
+BASE COUNT      564 a    715 c    768 g    440 t
+ORIGIN      
+        1 agatggcggc gctgaggggt cttgggggct ctaggccggc cacctactgg tttgcagcgg
+       61 agacgacgca tggggcctgc gcaataggag tacgctgcct gggaggcgtg actagaagcg
+      121 gaagtagttg tgggcgcctt tgcaaccgcc tgggacgccg ccgagtggtc tgtgcaggtt
+      181 cgcgggtcgc tggcgggggt cgtgagggag tgcgccggga gcggagatat ggagggagat
+      241 ggttcagacc cagagcctcc agatgccggg gaggacagca agtccgagaa tggggagaat
+      301 gcgcccatct actgcatctg ccgcaaaccg gacatcaact gcttcatgat cgggtgtgac
+      361 aactgcaatg agtggttcca tggggactgc atccggatca ctgagaagat ggccaaggcc
+      421 atccgggagt ggtactgtcg ggagtgcaga gagaaagacc ccaagctaga gattcgctat
+      481 cggcacaaga agtcacggga gcgggatggc aatgagcggg acagcagtga gccccgggat
+      541 gagggtggag ggcgcaagag gcctgtccct gatccagacc tgcagcgccg ggcagggtca
+      601 gggacagggg ttggggccat gcttgctcgg ggctctgctt cgccccacaa atcctctccg
+      661 cagcccttgg tggccacacc cagccagcat caccagcagc agcagcagca gatcaaacgg
+      721 tcagcccgca tgtgtggtga gtgtgaggca tgtcggcgca ctgaggactg tggtcactgt
+      781 gatttctgtc gggacatgaa gaagttcggg ggccccaaca agatccggca gaagtgccgg
+      841 ctgcgccagt gccagctgcg ggcccgggaa tcgtacaagt acttcccttc ctcgctctca
+      901 ccagtgacgc cctcagagtc cctgccaagg ccccgccggc cactgcccac ccaacagcag
+      961 ccacagccat cacagaagtt agggcgcatc cgtgaagatg agggggcagt ggcgtcatca
+     1021 acagtcaagg agcctcctga ggctacagcc acacctgagc cactctcaga tgaggaccta
+     1081 cctctggatc ctgacctgta tcaggacttc tgtgcagggg cctttgatga ccatggcctg
+     1141 ccctggatga gcgacacaga agagtcccca ttcctggacc ccgcgctgcg gaagagggca
+     1201 gtgaaagtga agcatgtgaa gcgtcgggag aagaagtctg agaagaagaa ggaggagcga
+     1261 tacaagcggc atcggcagaa gcagaagcac aaggataaat ggaaacaccc agagagggct
+     1321 gatgccaagg accctgcgtc actgccccag tgcctggggc ccggctgtgt gcgccccgcc
+     1381 cagcccagct ccaagtattg ctcagatgac tgtggcatga agctggcagc caaccgcatc
+     1441 tacgagatcc tcccccagcg catccagcag tggcagcaga gcccttgcat tgctgaagag
+     1501 cacggcaaga agctgctcga acgcattcgc cgagagcagc agagtgcccg cactcgcctt
+     1561 caggaaatgg aacgccgatt ccatgagctt gaggccatca ttctacgtgc caagcagcag
+     1621 gctgtgcgcg aggatgagga gagcaacgag ggtgacagtg atgacacaga cctgcagatc
+     1681 ttctgtgttt cctgtgggca ccccatcaac ccacgtgttg ccttgcgcca catggagcgc
+     1741 tgctacgcca agtatgagag ccagacgtcc tttgggtcca tgtaccccac acgcattgaa
+     1801 ggggccacac gactcttctg tgatgtgtat aatcctcaga gcaaaacata ctgtaagcgg
+     1861 ctccaggtgc tgtgccccga gcactcacgg gaccccaaag tgccagctga cgaggtatgc
+     1921 gggtgccccc ttgtacgtga tgtctttgag ctcacgggtg acttctgccg cctgcccaag
+     1981 cgccagtgca atcgccatta ctgctgggag aagctgcggc gtgcggaagt ggacttggag
+     2041 cgcgtgcgtg tgtggtacaa gctggacgag ctgtttgagc aggagcgcaa tgtgcgcaca
+     2101 gccatgacaa accgcgcggg attgctggcc ctgatgctgc accagacgat ccagcacgat
+     2161 cccctcacta ccgacctgcg ctccagtgcc gaccgctgag cctcctggcc cggacccctt
+     2221 acaccctgca ttccagatgg gggagccgcc cggtgcccgt gtgtccgttc ctccactcat
+     2281 ctgtttctcc ggttctccct gtgcccatcc accggttgac cgcccatctg cctttatcag
+     2341 agggactgtc cccgtcgaca tgttcagtgc ctggtggggc tgcggagtcc actcatcctt
+     2401 gcctcctctc cctgggtttt gttaataaaa ttttgaagaa accaaaaaaa aaaaaaaaaa
+     2461 aaaaaaaaaa aaaaaaaaaa aaaaaaa
+//

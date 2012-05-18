@@ -127,5 +127,8 @@ print_iub_table();
 #get_nonpalindromic_recognition_site();
 
 #db_demo();
+#print_word_frequence();
 
-print_word_frequence();
+print "extract annotation and sequence from genebank lib:\n";
+extract_annotation_and_sequence_from_genebank_file();
+
