@@ -1348,6 +1348,42 @@ sub parse1{
 }
 
 ############################################################### 
+# Parse annotation 
+############################################################### 
+sub parse_annotation{
+	my($annotation) = @_;
+	my(%results) = ();
+
+	while($annotation =~ /^[A-Z].*\n(^\s.*\n)*/gm ){
+		print "-".$&."\n";
+		
+		my $value = $&;
+		(my $key = $value) =~ s/^([A-Z]+).*/$1/s;
+
+		print "--".$1."\n";
+		print "key:$key\n";
+		print "value:$value\n";
+
+		$results{$key} = $value;
+	}
+	return %results;
+}
+############################################################### 
+# Parse features
+############################################################### 
+sub parse_features{
+	my($features) = @_;
+	my @features = ();
+
+	#extract the features
+	while($features =~ /^ {5}\S.*\n(^ {21}\S.*\n)*/gm){
+		my $feature = $&;
+		push @features, $feature;
+	}
+	return @features;
+}
+
+############################################################### 
 # extract annotation and sequence section from a genebank record
 # extract the annotation and sequence sections
 # from the first record of a Genbank library.
@@ -1381,6 +1417,59 @@ sub extract_annotation_and_sequence_section{
 
 }
 ############################################################### 
+# get annotation and dna
+# input  : filehandle
+# output : annotation and dna
+############################################################### 
+sub get_annotation_and_dna{
+	my($record) = @_;
+
+	my($annotation) = '';
+	my($dna) = '';
+
+	#print $record;
+
+	# separate the annotation from the sequence data
+	# foolish mistake..................................................|.
+	#($annotation, $dna) = ($record =~ /^(LOCUS.*ORIGIN\s*\n)(.*)\/\/\n\s);
+
+	($annotation, $dna) = ($record =~ /^(LOCUS.*ORIGIN\s*\n)(.*)\/\/\n/s);
+
+	# Clean the sequence of any whitespace or / characters
+	$dna =~ s/[\s\/]//g;	#'s///g' 
+
+	return ($annotation,$dna);
+}
+
+############################################################### 
+# Search sequence
+# - search sequence with regular expression
+############################################################### 
+sub search_sequence{
+	my($sequence, $regexp) = @_;
+	my(@locations) = ();
+	while($sequence =~ /$regexp/ig){
+		push(@locations , pos);		# pos.
+	}
+	return @locations;
+}
+
+############################################################### 
+# Search annotation
+# 	- search annotation with regular expression
+############################################################### 
+sub search_annotation{
+	my($annotation, $regexp) = @_;
+	my(@locations) = ();
+
+	# note the /s modifier --matches any characters including newline
+	while($annotation =~ /$regexp/isg){
+		push(@locations, pos);
+	}
+	return @locations;
+}
+
+############################################################### 
 # Now with library
 ############################################################### 
 sub search_genebank_library{
@@ -1396,7 +1485,158 @@ sub search_genebank_library{
 
 	$offset = tell($fh);
 
-	print "offset:$offset\n";
+
+	while( $record = get_next_fh_record($fh) ){
+		($annotation, $dna) = get_annotation_and_dna($record);
+
+		if(search_sequence($dna, 'AAA[CG].')){
+			print "Sequence found in record at offset $offset\n";
+		}
+		if( search_annotation($annotation, 'homo sapiens')){
+			print "Annotation found in record at offset $offset\n";
+		}
+
+		$offset = tell($fh);
+	}
+
+	# remember close fh
+	close($fh);
+}
+############################################################### 
+# parse annotation's keys.
+############################################################### 
+sub get_annotation_keys{
+	my $fh;
+	my $record;
+	my $dna;
+	my $annotation;
+	my %fields;
+	my $library = 'library.gb';
+	my @features;
+
+	# open library 
+	$fh = open_file($library);
+
+	$record = get_next_fh_record($fh);
+
+	# Parse the sequence and annotation
+	($annotation, $dna) = get_annotation_and_dna($record);
+
+	# Extract the fields of the annotation
+	%fields = parse_annotation($annotation);
+
+	foreach my $key (keys %fields){
+		print "**key**\n";
+		print $fields{$key};
+	}
+
+	print "\n---parse 'FEATURES'----\n";
+	@features = parse_features($fields{'FEATURES'});
+
+	#print the feature
+	foreach my $feature (@features){
+		# Extract the name of the feature 
+		my($feature_name) = ($feature =~ /^ {5}(\S+)/);
+
+		print "-------$feature_name--------\n";
+		print $feature;
+	}
+}
+
+############################################################### 
+# get next record from filehandle
+# it is simple to handle this:
+# just changethe 'separator',get record, and change it back.
+############################################################### 
+sub get_next_fh_record{
+	my($fh) = @_;
+	my($offset);
+	my $record = '';
+
+	my $save_input_separator = $/;
+
+	$/ = "//\n";
+	$record = <$fh>;
+	$/ = $save_input_separator;
+
+	return $record;
+}
+
+############################################################### 
+# make a DBM index of a GeneBank library
+# and demostrate its use interactively
+############################################################### 
+sub db_demo_with_genebank{
+	my $fh;
+	my $record;
+	my $dna;
+	my $annotation;
+
+	my %fields;
+	my %dbm;
+	my $ans;
+	my $offset;
+	my $library = 'library.gb';
+
+	# open DBM, create if necessary
+	die "Can't open DBM GB with 0644\n" unless(dbmopen(%dbm, 'GB',0644));
+
+	# Parse GeneBank library , saving accession number and offset in DBM.
+	$fh = open_file($library);
+	$offset = tell($fh);
+
+	while($record = get_next_fh_record($fh)){
+		# Get accession field for this record.
+		($annotation, $dna) = get_annotation_and_dna($record);
+
+		%fields = parse_annotation($annotation); 
+
+		my $accession = $fields{'ACCESSION'};
+
+		# Extract just accession number 
+		$accession =~ s/^ACCESSION\s*//;
+		$accession =~ s/\s*$//;
+
+		# Store the key/value of accession/offset
+		$dbm{$accession} = $offset;
+
+		# Get offset for next record
+		$offset = tell($fh);
+	}
+
+	# Now interactively query the DBM database with accession numbers
+	# to see associated records
+
+	print "Here are the available accession numbers:\n";
+	print join("\n", keys %dbm),"\n";
+
+	print "Enter accession number :";
+
+	while ($ans = <>){
+		chomp $ans;
+		if($ans =~ /^\s*q/){
+			last;
+		}
+		$offset = $dbm{$ans};
+		
+		if(defined $offset){
+			seek($fh, $offset, 0);
+			$record = get_next_fh_record($fh);
+			print $record;
+		}else{
+			print "do NOT have entry for accession number $ans\n";
+		}
+
+		print "Here are the available accession numbers:\n";
+		print join("\n", keys %dbm),"\n";
+		print "Enter accession number :";
+	}
+
+	# Remember close DBM
+	dbmclose(%dbm);
+
+	# and Remember close fh
+	close($fh);
 }
 
 ############################################################### 

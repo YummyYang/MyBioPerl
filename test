@@ -136,9 +136,13 @@ print_iub_table();
 
 #extract_annotation_and_sequence_section();
 
-print "\nparsing genebank annotation:\n";
-parsing_genebank_annotation();
+#print "\nparsing genebank annotation:\n";
+#parsing_genebank_annotation();
 
 print "search genebank library:\n";
 search_genebank_library();
 
+get_annotation_keys();
+
+print "\ndb demo with genebank:\n";
+db_demo_with_genebank();
