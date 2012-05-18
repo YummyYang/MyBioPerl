@@ -1348,7 +1348,7 @@ sub parse1{
 }
 
 ############################################################### 
-# 
+# extract annotation and sequence section from a genebank record
 # extract the annotation and sequence sections
 # from the first record of a Genbank library.
 # using regular expression to get two sections.
@@ -1381,6 +1381,25 @@ sub extract_annotation_and_sequence_section{
 
 }
 ############################################################### 
+# Now with library
+############################################################### 
+sub search_genebank_library{
+	my $fh;
+	my $record;
+	my $dna;
+	my $annotation;
+	my $offset;
+	my $library = 'library.gb';
+
+	# Open
+	$fh = open_file($library);
+
+	$offset = tell($fh);
+
+	print "offset:$offset\n";
+}
+
+############################################################### 
 # Parsing Genbank annotation using array
 ############################################################### 
 sub parsing_genebank_annotation{
@@ -1408,7 +1427,7 @@ sub parsing_genebank_annotation{
 			$flag = 0;
 		}elsif($flag){
 			chomp($definition);
-			$line = tr/\s*//;
+			$line =~ s/^\s*//;	
 			$definition .= $line;
 		}elsif($line =~ /^  ORGANISM/){
 			$line =~ s/\s*ORGANISM\s*//;
@@ -1473,6 +1492,9 @@ sub extract_sequence_from_fasta_data{
 	return $sequence;
 }
 
+############################################################### 
+# Print sequence with length.
+############################################################### 
 sub print_sequence{
 	my($sequence, $length) = @_;
 	for( my $pos = 0; $pos < length($sequence); $pos +=$length){

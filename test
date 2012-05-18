@@ -71,10 +71,10 @@ print "\n ---------------frame 1---------------------\n\n";
 	my $protein = dna2peptide($dna);
 	print_sequence($protein,30);
 print "\n ---------------frame 1---------------------\n\n";
-	my $protein = dna2peptide($dna);
+	$protein = dna2peptide($dna);
 	print_sequence($protein,30);
 print "\n ---------------frame 1---------------------\n\n";
-	my $protein = dna2peptide($dna);
+	$protein = dna2peptide($dna);
 	print_sequence($protein,30);
 }else{
 	print "not fasta data\n";
@@ -105,7 +105,9 @@ print "\n ---------------reading frame 6---------------------\n\n";
 print "\n Amino Acid and its codons:\n\n";
 my %reversed_genetic_code = get_reversed_genetic_codon();
 foreach my $aa (keys %reversed_genetic_code){
-	print "$aa:" . (split (' ', $reversed_genetic_code{$aa}))."\n";
+	my $reversed_genetic_code =  $reversed_genetic_code{$aa};
+	my @reversed_genetic_code =  split (' ', $reversed_genetic_code );
+	print "$aa: @reversed_genetic_code  \n";
 }
 
 print "print IUB table:\n";
@@ -136,3 +138,7 @@ print_iub_table();
 
 print "\nparsing genebank annotation:\n";
 parsing_genebank_annotation();
+
+print "search genebank library:\n";
+search_genebank_library();
+
