@@ -1313,7 +1313,9 @@ sub extract_annotation_and_sequence_from_genebank_file{
 }
 
 ############################################################### 
-# open file 
+# parse 1
+# extract the annotation and sequence sections
+# from the first record of a Genbank library
 ############################################################### 
 sub parse1{
 	my($annotation, $dna, $filename) = @_;
@@ -1343,6 +1345,86 @@ sub parse1{
 		}
 	}
 	$$dna =~ s/[\s0-9]//g;
+}
+
+############################################################### 
+# 
+# extract the annotation and sequence sections
+# from the first record of a Genbank library.
+# using regular expression to get two sections.
+############################################################### 
+sub extract_annotation_and_sequence_section{
+	my $annotation = '';
+	my $dna = '';
+	my $record = '';
+	my $filename = 'record.gb';
+	my $save_input_separator = $/;
+
+	# Open GenBank library file
+	die "Can't open GenBank file:$filename!\n" unless(open(GBFILE,$filename));
+
+	# Set input separator to "//\n" and read in a record to a scalar.
+	$/ = "//\n";
+
+	# Well,not <> anymore.
+	$record = <GBFILE>;
+
+	# Reset input separator
+	$/ = $save_input_separator;
+
+	# Separator the annotation from the sequence data.
+	# maybe use # instead / is better.
+	($annotation, $dna) = ($record =~ /^(LOCUS.*ORIGIN\s*\n)(.*)\/\/\n/s);
+
+	# print the two pieces
+	print "annotation:\n$annotation \ndna:\n$dna\n";
+
+}
+############################################################### 
+# Parsing Genbank annotation using array
+############################################################### 
+sub parsing_genebank_annotation{
+	my @genebank = ();
+	my $locus = '';
+	my $accession = '';
+	my $organism = '';
+	my $flag = 0;	# use flag to...
+
+	# get genbank filedata.
+	@genebank = get_file_data('record.gb');
+
+	# Get some of the identifying information.
+	foreach my $line (@genebank){
+		if($line =~ /^LOCUS/){
+			$line =~ s/^LOCUS\s*//;
+			$locus = $line;
+		}elsif($line =~ /^DEFINITION/){
+			$line =~ s/^DEFINITION\s*//;
+			$definition = $line;
+			$flag = 1;
+		}elsif($line =~ /^ACCESSION/){
+			$line =~ s/ACCESSION\s*//;
+			$accession = $line;
+			$flag = 0;
+		}elsif($flag){
+			chomp($definition);
+			$line = tr/\s*//;
+			$definition .= $line;
+		}elsif($line =~ /^  ORGANISM/){
+			$line =~ s/\s*ORGANISM\s*//;
+			$organism = $line;
+		}
+	}
+
+	print "*LOCUS*\n";
+	print $locus;
+	print "*DEFINITION*\n";
+	print $definition;
+	print "*ACCESSION*\n";
+	print $accession;
+	print "*ORGANISM*\n";
+	print $organism;
+
 }
 
 ############################################################### 

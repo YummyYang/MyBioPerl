@@ -129,6 +129,10 @@ print_iub_table();
 #db_demo();
 #print_word_frequence();
 
-print "extract annotation and sequence from genebank lib:\n";
-extract_annotation_and_sequence_from_genebank_file();
+#print "extract annotation and sequence from genebank lib:\n";
+#extract_annotation_and_sequence_from_genebank_file();
 
+#extract_annotation_and_sequence_section();
+
+print "\nparsing genebank annotation:\n";
+parsing_genebank_annotation();
