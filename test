@@ -161,6 +161,8 @@ print_iub_table();
 #print "\ndb demo with genebank:\n";
 #db_demo_with_genebank();
 
-print "print amino acid frequence\n";
-print_amino_acid_frequence();
+#print "print amino acid frequence\n";
+#print_amino_acid_frequence();
+
+extract_words_from_genbank_lib();
 

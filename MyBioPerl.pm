@@ -2307,6 +2307,103 @@ sub count_adjacent_amino_acid{
 }
 
 ############################################################### 
+# Extract all the words from the annotation of a library
+# of GenBank records.
+# For each word found , add the offset of the GenBank record
+# in the library to a DBM file that has keys equal to the words
+# and values that are strings with offset separated by spaces.
+# one key can have a space-separated list of offsets for a value  
+############################################################### 
+sub extract_words_from_genbank_lib{
+	my $filename= 'library.gb';
+	my $fh;
+
+	die "can't open library $filename" unless(open($fh,$filename));
+	
+	# A hash to store the byte offsets of records.
+	# keyed by a word appearing in the record
+	my %words = ();
+
+	# A clearly inadequate list of words to ignore
+	my %ignore = (
+		'and'=> 1,
+		'or' => 1,
+		'organism' => 1,
+		'id' => 1,
+		'if' => 1,
+		'species' => 1,
+	);
+
+	# Get the GenBank records and their byte offsets
+	for( my $byte_offset = tell($fh); my $record = get_next_fh_record($fh);
+		$byte_offset = tell($fh)){
+		# Extract annotation
+		my( $annotation, undef) = get_annotation_and_dna($record);
+		
+		# Only need to handle each word once   per GenBank record
+		my %seen = ();
+
+		# Extract words, saving the byte offset for found words
+		# what's the definition of a word for GenBank annotations?
+		while($annotation =~ /(\w[\w'-]*)/g){	#\w and \w'-   ???
+			# Store everything in lowercase
+			my $word = lc $1;
+			
+			# Skip unwanted words , or words already found in this record
+			defined $ignore{$word} and next;
+			defined $seen{$word} and next;
+
+			# Mark this new word as seen
+			$seen{$word} = 1;
+
+			# Add the byte offset of this record to the value for this word in hash
+			if(defined $words{$word}){
+				$words{$word} .= " $byte_offset";
+			}else{
+				$words{$word} = $byte_offset;
+			}
+		}
+	}
+	
+	# Interact with the user, asking for words and showing the GenBank records
+	# containing them
+	while(my $query = lc get_user_input("search for what word? (space for quit): ")){
+		# ask again if the requested word doesn't appare in the lib
+		unless(defined $words{$query}){
+			print "The word \"$query\" is not in the lib $filename\n";
+			next;
+		}
+
+		# Make an array of the byte offsets of the GenBank records
+		# containing the query word
+		my @offsets = split " ", $words{$query};
+			
+		print "there are ". @offsets ." record. ,  >>offsets : @offsets\n";
+
+		# If the user wants to see any of the records for the requested work.
+		if(get_user_input("Display the records containing that word? (y or n) ")
+			=~ /^\s*y/i){
+			# Display each GenBank record beginning at a saved byte offset in the lib
+			do{
+				my $offset = shift @offsets;
+				
+				# Point the filehandle at the offset
+				seek($fh, $offset, 0);
+
+				# Print the record at that offset
+				print get_next_fh_record($fh);
+				if(@offsets > 0){
+					print "there are ". @offsets ." record,  >>offsets : @offsets\n";
+				}
+			# If there is another ,and if ther user wnat to see it ,loop agin
+			}while(@offsets and (get_user_input("Would u like see the next record? (y or n): ") =~ /^\s*y/i));
+		}
+	}
+	close($fh);
+
+}
+
+############################################################### 
 # get user input
 ############################################################### 
 sub get_user_input{
