@@ -1,0 +1,383 @@
+HEADER    TEXTURE OF CONNECTIVE TISSUE            23-MAY-78   1C4S      1C4S   3
+COMPND    CHONDROITIN-4-SULFATE (AN ALTERNATING COPOLYMER OF            1C4S   4
+COMPND   2 BETA-D-GLUCURONIC ACID AND                                   1C4S   5
+COMPND   3 2-DEOXY-2-ACETAMIDO-BETA-D-GALACTOSE-4-SULFATE) SODIUM SALT  1C4S   6
+SOURCE    BOVINE (BOS TAURUS) NASAL SEPTA                               1C4S   7
+AUTHOR    S.ARNOTT                                                      1C4S   8
+REVDAT   4   15-JUL-92 1C4SC   1       FORMUL                           1C4SC  1
+REVDAT   3   30-SEP-83 1C4SB   1       REVDAT                           1C4SB  1
+REVDAT   2   01-OCT-80 1C4SA   1       REMARK                           1C4SB  2
+REVDAT   1   28-MAR-80 1C4S    0                                        1C4SB  3
+JRNL        AUTH   W.T.WINTER,S.ARNOTT,D.H.ISAAC,E.D.T.ATKINS           1C4S   9
+JRNL        TITL   CHONDROITIN-4-SULFATE.  THE STRUCTURE OF A SULFATED  1C4S  10
+JRNL        TITL 2 GLYCOSAMINOGLYCAN                                    1C4S  11
+JRNL        REF    J.MOL.BIOL.                   V. 125     1 1978      1C4S  12
+JRNL        REFN   ASTM JMOBAK  UK ISSN 0022-2836                  070  1C4S  13
+REMARK   1                                                              1C4S  14
+REMARK   1 REFERENCE 1                                                  1C4S  15
+REMARK   1  AUTH   P.J.C.SMITH,S.ARNOTT                                 1C4S  16
+REMARK   1  TITL   /LALS$, A LINKED-*ATOM LEAST-*SQUARES                1C4S  17
+REMARK   1  TITL 2 RECIPROCAL-*SPACE REFINEMENT SYSTEM INCORPORATING    1C4S  18
+REMARK   1  TITL 3 STEREOCHEMICAL RESTRAINTS TO SUPPLEMENT SPARSE       1C4S  19
+REMARK   1  TITL 4 DIFFRACTION DATA                                     1C4S  20
+REMARK   1  REF    ACTA CRYSTALLOGR.,SECT.A      V.  34     3 1978      1C4S  21
+REMARK   1  REFN   ASTM ACACBN  DK ISSN 0567-7394                  108  1C4SA  1
+REMARK   2                                                              1C4S  23
+REMARK   2 RESOLUTION. 3.0 ANGSTROMS.                                   1C4S  24
+REMARK   3                                                              1C4S  25
+REMARK   3 REFINEMENT. BY A LINKED-ATOM LEAST-SQUARES MODEL-BUILDING    1C4S  26
+REMARK   3  PROCEDURE.  SEE REFERENCE 1 ABOVE.                          1C4S  27
+REMARK   4                                                              1C4S  28
+REMARK   4 THE CRYSTALLOGRAPHIC ASYMMETRIC UNIT OF THIS STRUCTURE       1C4S  29
+REMARK   4 COMPRISES ONE GCU-ASG PAIR OF RESIDUES.  IN ORDER TO ALLOW   1C4S  30
+REMARK   4 FACILE GENERATION OF THE LONG HELICAL CHAIN WHICH            1C4S  31
+REMARK   4 REALISTICALLY REPRESENTS THIS STRUCTURE, COORDINATES FOR     1C4S  32
+REMARK   4 THE CHAIN SEGMENT LIMITED BY THE UNIT-CELL REPEAT DISTANCE   1C4S  33
+REMARK   4 IN THE Z DIRECTION ARE GIVEN HERE.  BY REPEATED TRANSLATION  1C4S  34
+REMARK   4 OF 28.32 ANGSTROMS IN THE Z DIRECTION THE FULL STRUCTURE     1C4S  35
+REMARK   4 MAY BE OBTAINED.                                             1C4S  36
+REMARK   5                                                              1C4S  37
+REMARK   5 THE SIX-RESIDUE CHAIN SEGMENT GIVEN HERE WAS OBTAINED FROM   1C4S  38
+REMARK   5 THE PUBLISHED COORDINATES FOR A TWO-RESIDUE FRAGMENT BY THE  1C4S  39
+REMARK   5 ACTION OF A 31 SCREW AXIS AS GIVEN IN THE PAPER CITED IN     1C4S  40
+REMARK   5 JRNL RECORDS ABOVE.                                          1C4S  41
+REMARK   6                                                              1C4S  42
+REMARK   6 RESIDUE *ASG* IS 2-DEOXY-2-ACETAMIDO-BETA-D-GALACTOSE-4-     1C4S  43
+REMARK   6 SULFATE.                                                     1C4S  44
+REMARK   7                                                              1C4SA  2
+REMARK   7 CORRECTION. CHANGE ISSN CODE FOR REFERENCE 1.  01-OCT-80.    1C4SA  3
+REMARK   8                                                              1C4SB  4
+REMARK   8 CORRECTION. INSERT REVDAT RECORDS. 30-SEP-83.                1C4SB  5
+REMARK   9                                                              1C4SC  2
+REMARK   9 CORRECTION. INSERT MISSING * IN FORMUL RECORD FOR HOH.       1C4SC  3
+REMARK   9  15-JUL-92.                                                  1C4SC  4
+SEQRES   1      6  GCU ASG GCU ASG GCU ASG                              1C4S  45
+HET    GCU   -999      17     D-GLUCURONIC ACID                         1C4S  46
+HET    ASG   -999      29     THIS RESIDUE IS DEFINED IN REMARK 6       1C4S  47
+HET     NA   -999       2     NA +1 COUNTER ION                         1C4S  48
+FORMUL   1  GCU    3(C6 H10 O7)                                         1C4S  49
+FORMUL   1  ASG    3(C8 H14 N1 O9 S1)                                   1C4S  50
+FORMUL   2   NA    6(NA1 +)                                             1C4S  51
+FORMUL   3  HOH   *30(H2 O1)                                            1C4SC  5
+CRYST1   14.520   14.520   28.320  90.00  90.00 120.00 P 32 2 1      6  1C4S  53
+ORIGX1       .068871   .039762  0.000000        0.00000                 1C4S  54
+ORIGX2      0.000000   .079525  0.000000        0.00000                 1C4S  55
+ORIGX3      0.000000  0.000000   .035311        0.00000                 1C4S  56
+SCALE1       .068871   .039762  0.000000        0.00000                 1C4S  57
+SCALE2      0.000000   .079525  0.000000        0.00000                 1C4S  58
+SCALE3      0.000000  0.000000   .035311        0.00000                 1C4S  59
+TVECT        0.00000   0.00000  28.32000                                1C4S  60
+HETATM    1  C1  GCU     1       7.728   5.466  -1.946  1.00  0.00      1C4S  61
+HETATM    2  C2  GCU     1       9.133   5.744  -1.430  1.00  0.00      1C4S  62
+HETATM    3  C3  GCU     1       9.441   4.871   -.224  1.00  0.00      1C4S  63
+HETATM    4  C4  GCU     1       8.355   5.030    .833  1.00  0.00      1C4S  64
+HETATM    5  C5  GCU     1       6.981   4.804    .212  1.00  0.00      1C4S  65
+HETATM    6  C6  GCU     1       5.851   5.059   1.187  1.00  0.00      1C4S  66
+HETATM    7  O1  GCU     1       7.445   6.374  -2.959  1.00  0.00      1C4S  67
+HETATM    8  O2  GCU     1      10.073   5.510  -2.475  1.00  0.00      1C4S  68
+HETATM    9  O3  GCU     1      10.707   5.241    .326  1.00  0.00      1C4S  69
+HETATM   10  O5  GCU     1       6.785   5.694   -.898  1.00  0.00      1C4S  70
+HETATM   11  O6A GCU     1       5.084   4.088   1.376  1.00  0.00      1C4S  71
+HETATM   12  O6B GCU     1       5.826   6.208   1.677  1.00  0.00      1C4S  72
+HETATM   13  H1  GCU     1       7.658   4.421  -2.283  1.00  0.00      1C4S  73
+HETATM   14  H2  GCU     1       9.220   6.803  -1.150  1.00  0.00      1C4S  74
+HETATM   15  H3  GCU     1       9.498   3.818   -.538  1.00  0.00      1C4S  75
+HETATM   16  H4  GCU     1       8.403   6.042   1.260  1.00  0.00      1C4S  76
+HETATM   17  H5  GCU     1       6.901   3.762   -.136  1.00  0.00      1C4S  77
+HETATM   18  C1  ASG     2       8.940   4.592   3.112  1.00  0.00      1C4S  78
+HETATM   19  C2  ASG     2       8.660   3.544   4.180  1.00  0.00      1C4S  79
+HETATM   20  C3  ASG     2       9.209   3.992   5.525  1.00  0.00      1C4S  80
+HETATM   21  C4  ASG     2      10.680   4.365   5.398  1.00  0.00      1C4S  81
+HETATM   22  C5  ASG     2      10.875   5.363   4.262  1.00  0.00      1C4S  82
+HETATM   23  C6  ASG     2      12.332   5.686   4.010  1.00  0.00      1C4S  83
+HETATM   24  C7  ASG     2       6.729   2.016   4.112  1.00  0.00      1C4S  84
+HETATM   25  C8  ASG     2       5.226   1.919   4.217  1.00  0.00      1C4S  85
+HETATM   26  O1  ASG     2       8.543   4.083   1.883  1.00  0.00      1C4S  86
+HETATM   27  N   ASG     2       7.203   3.303   4.262  1.00  0.00      1C4S  87
+HETATM   28  O4  ASG     2      11.466   3.204   5.137  1.00  0.00      1C4S  88
+HETATM   29  O5  ASG     2      10.348   4.829   3.039  1.00  0.00      1C4S  89
+HETATM   30  O6  ASG     2      12.791   5.138   2.775  1.00  0.00      1C4S  90
+HETATM   31  O7  ASG     2       7.450   1.051   3.917  1.00  0.00      1C4S  91
+HETATM   32  OSA ASG     2      11.471   2.970   7.618  1.00  0.00      1C4S  92
+HETATM   33  OSB ASG     2      13.135   1.828   6.375  1.00  0.00      1C4S  93
+HETATM   34  OSC ASG     2      10.889   1.084   6.313  1.00  0.00      1C4S  94
+HETATM   35  S   ASG     2      11.747   2.250   6.389  1.00  0.00      1C4S  95
+HETATM   36  H1  ASG     2       8.423   5.528   3.373  1.00  0.00      1C4S  96
+HETATM   37  H2  ASG     2       9.130   2.590   3.891  1.00  0.00      1C4S  97
+HETATM   38  H3  ASG     2       8.639   4.864   5.882  1.00  0.00      1C4S  98
+HETATM   39  H4  ASG     2      11.026   4.819   6.338  1.00  0.00      1C4S  99
+HETATM   40  H5  ASG     2      10.357   6.302   4.509  1.00  0.00      1C4S 100
+HETATM   41  H6A ASG     2      12.465   6.778   3.973  1.00  0.00      1C4S 101
+HETATM   42  H6B ASG     2      12.947   5.270   4.823  1.00  0.00      1C4S 102
+HETATM   43  HN  ASG     2       6.609   4.030   4.412  1.00  0.00      1C4S 103
+HETATM   44  H8A ASG     2       4.886   2.447   5.120  1.00  0.00      1C4S 104
+HETATM   45  H8B ASG     2       4.765   2.379   3.330  1.00  0.00      1C4S 105
+HETATM   46  H8C ASG     2       4.929    .861   4.279  1.00  0.00      1C4S 106
+HETATM   47  C1  GCU     3       8.130   3.149   7.494  1.00  0.00      1C4S 107
+HETATM   48  C2  GCU     3       7.668   1.793   8.010  1.00  0.00      1C4S 108
+HETATM   49  C3  GCU     3       6.758   1.963   9.216  1.00  0.00      1C4S 109
+HETATM   50  C4  GCU     3       7.439   2.824  10.273  1.00  0.00      1C4S 110
+HETATM   51  C5  GCU     3       7.929   4.127   9.652  1.00  0.00      1C4S 111
+HETATM   52  C6  GCU     3       8.716   4.978  10.627  1.00  0.00      1C4S 112
+HETATM   53  O1  GCU     3       9.059   2.940   6.480  1.00  0.00      1C4S 113
+HETATM   54  O2  GCU     3       6.996   1.097   6.965  1.00  0.00      1C4S 114
+HETATM   55  O3  GCU     3       6.445    .682   9.766  1.00  0.00      1C4S 115
+HETATM   56  O5  GCU     3       8.798   3.852   8.542  1.00  0.00      1C4S 116
+HETATM   57  O6A GCU     3       8.258   6.128  10.816  1.00  0.00      1C4S 117
+HETATM   58  O6B GCU     3       9.723   4.425  11.116  1.00  0.00      1C4S 118
+HETATM   59  H1  GCU     3       7.260   3.732   7.157  1.00  0.00      1C4S 119
+HETATM   60  H2  GCU     3       8.541   1.188   8.290  1.00  0.00      1C4S 120
+HETATM   61  H3  GCU     3       5.817   2.441   8.902  1.00  0.00      1C4S 121
+HETATM   62  H4  GCU     3       8.291   2.276  10.700  1.00  0.00      1C4S 122
+HETATM   63  H5  GCU     3       7.068   4.717   9.304  1.00  0.00      1C4S 123
+HETATM   64  C1  ASG     4       6.767   2.536  12.552  1.00  0.00      1C4S 124
+HETATM   65  C2  ASG     4       5.999   3.303  13.620  1.00  0.00      1C4S 125
+HETATM   66  C3  ASG     4       6.113   2.603  14.965  1.00  0.00      1C4S 126
+HETATM   67  C4  ASG     4       5.700   1.143  14.838  1.00  0.00      1C4S 127
+HETATM   68  C5  ASG     4       6.467    .475  13.702  1.00  0.00      1C4S 128
+HETATM   69  C6  ASG     4       6.019   -.948  13.450  1.00  0.00      1C4S 129
+HETATM   70  C7  ASG     4       5.641   5.739  13.552  1.00  0.00      1C4S 130
+HETATM   71  C8  ASG     4       6.309   7.090  13.657  1.00  0.00      1C4S 131
+HETATM   72  O1  ASG     4       6.525   3.135  11.323  1.00  0.00      1C4S 132
+HETATM   73  N   ASG     4       6.519   4.685  13.702  1.00  0.00      1C4S 133
+HETATM   74  O4  ASG     4       4.302   1.042  14.577  1.00  0.00      1C4S 134
+HETATM   75  O5  ASG     4       6.268   1.198  12.479  1.00  0.00      1C4S 135
+HETATM   76  O6  ASG     4       5.314  -1.071  12.215  1.00  0.00      1C4S 136
+HETATM   77  O7  ASG     4       4.445   5.597  13.357  1.00  0.00      1C4S 137
+HETATM   78  OSA ASG     4       4.097   1.156  17.058  1.00  0.00      1C4S 138
+HETATM   79  OSB ASG     4       2.276    .285  15.815  1.00  0.00      1C4S 139
+HETATM   80  OSC ASG     4       2.754   2.603  15.752  1.00  0.00      1C4S 140
+HETATM   81  S   ASG     4       3.335   1.276  15.829  1.00  0.00      1C4S 141
+HETATM   82  H1  ASG     4       7.836   2.516  12.813  1.00  0.00      1C4S 142
+HETATM   83  H2  ASG     4       4.938   3.373  13.331  1.00  0.00      1C4S 143
+HETATM   84  H3  ASG     4       7.153   2.661  15.322  1.00  0.00      1C4S 144
+HETATM   85  H4  ASG     4       5.920    .616  15.778  1.00  0.00      1C4S 145
+HETATM   86  H5  ASG     4       7.540    .454  13.948  1.00  0.00      1C4S 146
+HETATM   87  H6A ASG     4       6.897  -1.610  13.413  1.00  0.00      1C4S 147
+HETATM   88  H6B ASG     4       5.351  -1.273  14.263  1.00  0.00      1C4S 148
+HETATM   89  HN  ASG     4       7.446   4.836  13.852  1.00  0.00      1C4S 149
+HETATM   90  H8A ASG     4       6.936   7.120  14.560  1.00  0.00      1C4S 150
+HETATM   91  H8B ASG     4       6.938   7.258  12.770  1.00  0.00      1C4S 151
+HETATM   92  H8C ASG     4       5.542   7.876  13.719  1.00  0.00      1C4S 152
+HETATM   93  C1  GCU     5       5.922   3.960  16.935  1.00  0.00      1C4S 153
+HETATM   94  C2  GCU     5       4.979   5.037  17.450  1.00  0.00      1C4S 154
+HETATM   95  C3  GCU     5       5.581   5.740  18.656  1.00  0.00      1C4S 155
+HETATM   96  C4  GCU     5       5.987   4.721  19.713  1.00  0.00      1C4S 156
+HETATM   97  C5  GCU     5       6.869   3.644  19.092  1.00  0.00      1C4S 157
+HETATM   98  C6  GCU     5       7.214   2.538  20.067  1.00  0.00      1C4S 158
+HETATM   99  O1  GCU     5       5.277   3.259  15.920  1.00  0.00      1C4S 159
+HETATM  100  O2  GCU     5       4.712   5.968  16.405  1.00  0.00      1C4S 160
+HETATM  101  O3  GCU     5       4.628   6.652  19.206  1.00  0.00      1C4S 161
+HETATM  102  O5  GCU     5       6.196   3.029  17.982  1.00  0.00      1C4S 162
+HETATM  103  O6A GCU     5       8.438   2.359  20.256  1.00  0.00      1C4S 163
+HETATM  104  O6B GCU     5       6.231   1.942  20.557  1.00  0.00      1C4S 164
+HETATM  105  H1  GCU     5       6.862   4.421  16.598  1.00  0.00      1C4S 165
+HETATM  106  H2  GCU     5       4.018   4.583  17.730  1.00  0.00      1C4S 166
+HETATM  107  H3  GCU     5       6.465   6.316  18.342  1.00  0.00      1C4S 167
+HETATM  108  H4  GCU     5       5.086   4.257  20.140  1.00  0.00      1C4S 168
+HETATM  109  H5  GCU     5       7.811   4.096  18.744  1.00  0.00      1C4S 169
+HETATM  110  C1  ASG     6       6.073   5.446  21.992  1.00  0.00      1C4S 170
+HETATM  111  C2  ASG     6       7.121   5.728  23.060  1.00  0.00      1C4S 171
+HETATM  112  C3  ASG     6       6.458   5.979  24.405  1.00  0.00      1C4S 172
+HETATM  113  C4  ASG     6       5.400   7.067  24.278  1.00  0.00      1C4S 173
+HETATM  114  C5  ASG     6       4.438   6.736  23.142  1.00  0.00      1C4S 174
+HETATM  115  C6  ASG     6       3.430   7.837  22.890  1.00  0.00      1C4S 175
+HETATM  116  C7  ASG     6       9.410   4.820  22.992  1.00  0.00      1C4S 176
+HETATM  117  C8  ASG     6      10.245   3.566  23.097  1.00  0.00      1C4S 177
+HETATM  118  O1  ASG     6       6.713   5.357  20.763  1.00  0.00      1C4S 178
+HETATM  119  N   ASG     6       8.058   4.586  23.142  1.00  0.00      1C4S 179
+HETATM  120  O4  ASG     6       6.012   8.328  24.017  1.00  0.00      1C4S 180
+HETATM  121  O5  ASG     6       5.164   6.548  21.919  1.00  0.00      1C4S 181
+HETATM  122  O6  ASG     6       3.675   8.508  21.655  1.00  0.00      1C4S 182
+HETATM  123  O7  ASG     6       9.884   5.926  22.797  1.00  0.00      1C4S 183
+HETATM  124  OSA ASG     6       6.212   8.449  26.498  1.00  0.00      1C4S 184
+HETATM  125  OSB ASG     6       6.369  10.461  25.255  1.00  0.00      1C4S 185
+HETATM  126  OSC ASG     6       8.137   8.888  25.193  1.00  0.00      1C4S 186
+HETATM  127  S   ASG     6       6.698   9.049  25.269  1.00  0.00      1C4S 187
+HETATM  128  H1  ASG     6       5.521   4.531  22.253  1.00  0.00      1C4S 188
+HETATM  129  H2  ASG     6       7.712   6.612  22.771  1.00  0.00      1C4S 189
+HETATM  130  H3  ASG     6       5.988   5.050  24.762  1.00  0.00      1C4S 190
+HETATM  131  H4  ASG     6       4.834   7.140  25.218  1.00  0.00      1C4S 191
+HETATM  132  H5  ASG     6       3.883   5.818  23.389  1.00  0.00      1C4S 192
+HETATM  133  H6A ASG     6       2.418   7.406  22.853  1.00  0.00      1C4S 193
+HETATM  134  H6B ASG     6       3.483   8.577  23.703  1.00  0.00      1C4S 194
+HETATM  135  HN  ASG     6       7.725   3.708  23.292  1.00  0.00      1C4S 195
+HETATM  136  H8A ASG     6       9.958   3.008  24.000  1.00  0.00      1C4S 196
+HETATM  137  H8B ASG     6      10.077   2.937  22.211  1.00  0.00      1C4S 197
+HETATM  138  H8C ASG     6      11.310   3.838  23.159  1.00  0.00      1C4S 198
+HETATM  139 NA    NA     1      13.940  -2.770   6.998  1.00  0.00      1C4S 199
+HETATM  140 NA    NA     2      10.877    .267  -3.243  1.00  0.00      1C4S 200
+HETATM  141 NA    NA     3      -2.109   1.887  16.438  1.00  0.00      1C4S 201
+HETATM  142 NA    NA     4       2.052   3.022   6.197  1.00  0.00      1C4S 202
+HETATM  143 NA    NA     5       9.949  13.457  25.878  1.00  0.00      1C4S 203
+HETATM  144 NA    NA     6       8.851   9.286  15.637  1.00  0.00      1C4S 204
+HETATM  145  O   HOH     7      16.042  -3.961   7.627  1.00  0.00      1C4S 205
+HETATM  146  O   HOH     8      12.852  -3.586   9.096  1.00  0.00      1C4S 206
+HETATM  147  O   HOH     9      14.733   -.729   8.204  1.00  0.00      1C4S 207
+HETATM  148  O   HOH    10      11.834  -1.579   6.369  1.00  0.00      1C4S 208
+HETATM  149  O   HOH    11      15.028  -1.954   4.899  1.00  0.00      1C4S 209
+HETATM  150  O   HOH    12      12.420   -.489  -1.427  1.00  0.00      1C4S 210
+HETATM  151  O   HOH    13      11.933   2.533  -3.197  1.00  0.00      1C4S 211
+HETATM  152  O   HOH    14       9.217   1.006  -1.526  1.00  0.00      1C4S 212
+HETATM  153  O   HOH    15       9.336   1.022  -5.061  1.00  0.00      1C4S 213
+HETATM  154  O   HOH    16       8.513    .267  -3.291  1.00  0.00      1C4S 214
+HETATM  155  O   HOH    17      -4.191    .663  17.066  1.00  0.00      1C4S 215
+HETATM  156  O   HOH    18      -2.272   3.238  18.536  1.00  0.00      1C4S 216
+HETATM  157  O   HOH    19       -.738    .180  17.644  1.00  0.00      1C4S 217
+HETATM  158  O   HOH    20       -.025   3.116  15.809  1.00  0.00      1C4S 218
+HETATM  159  O   HOH    21      -1.946    .537  14.339  1.00  0.00      1C4S 219
+HETATM  160  O   HOH    22        .627   2.064   8.013  1.00  0.00      1C4S 220
+HETATM  161  O   HOH    23       3.487    .975   6.243  1.00  0.00      1C4S 221
+HETATM  162  O   HOH    24       3.523   4.089   7.913  1.00  0.00      1C4S 222
+HETATM  163  O   HOH    25       3.478   3.979   4.379  1.00  0.00      1C4S 223
+HETATM  164  O   HOH    26       3.234   5.069   6.149  1.00  0.00      1C4S 224
+HETATM  165  O   HOH    27       9.930  15.873  26.507  1.00  0.00      1C4S 225
+HETATM  166  O   HOH    28      11.200  12.923  27.976  1.00  0.00      1C4S 226
+HETATM  167  O   HOH    29       7.785  13.124  27.084  1.00  0.00      1C4S 227
+HETATM  168  O   HOH    30       9.971  11.038  25.249  1.00  0.00      1C4S 228
+HETATM  169  O   HOH    31       8.698  13.992  23.779  1.00  0.00      1C4S 229
+HETATM  170  O   HOH    32       8.734  11.000  17.453  1.00  0.00      1C4S 230
+HETATM  171  O   HOH    33       6.360   9.068  15.683  1.00  0.00      1C4S 231
+HETATM  172  O   HOH    34       9.040   7.479  17.354  1.00  0.00      1C4S 232
+HETATM  173  O   HOH    35       8.967   7.574  13.819  1.00  0.00      1C4S 233
+HETATM  174  O   HOH    36      10.033   7.239  15.589  1.00  0.00      1C4S 234
+CONECT    1    2    7   10   13                                         1C4S 235
+CONECT    2    1    3    8   14                                         1C4S 236
+CONECT    3    2    4    9   15                                         1C4S 237
+CONECT    4    3    5   16   26                                         1C4S 238
+CONECT    5    4    6   10   17                                         1C4S 239
+CONECT    6    5   11   12                                              1C4S 240
+CONECT    7    1 -112                                                   1C4S 241
+CONECT    8    2                                                        1C4S 242
+CONECT    9    3                                                        1C4S 243
+CONECT   10    1    5                                                   1C4S 244
+CONECT   11    6                                                        1C4S 245
+CONECT   12    6                                                        1C4S 246
+CONECT   13    1                                                        1C4S 247
+CONECT   14    2                                                        1C4S 248
+CONECT   15    3                                                        1C4S 249
+CONECT   16    4                                                        1C4S 250
+CONECT   17    5                                                        1C4S 251
+CONECT   18   19   26   29   36                                         1C4S 252
+CONECT   19   18   20   27   37                                         1C4S 253
+CONECT   20   19   21   38   53                                         1C4S 254
+CONECT   21   20   22   28   39                                         1C4S 255
+CONECT   22   21   23   29   40                                         1C4S 256
+CONECT   23   22   30   41   42                                         1C4S 257
+CONECT   24   25   27   31                                              1C4S 258
+CONECT   25   24   44   45   46                                         1C4S 259
+CONECT   26    4   18                                                   1C4S 260
+CONECT   27   19   24   43                                              1C4S 261
+CONECT   28   21   35                                                   1C4S 262
+CONECT   29   18   22                                                   1C4S 263
+CONECT   30   23                                                        1C4S 264
+CONECT   31   24                                                        1C4S 265
+CONECT   32   35                                                        1C4S 266
+CONECT   33   35                                                        1C4S 267
+CONECT   34   35                                                        1C4S 268
+CONECT   35   28   32   33   34                                         1C4S 269
+CONECT   36   18                                                        1C4S 270
+CONECT   37   19                                                        1C4S 271
+CONECT   38   20                                                        1C4S 272
+CONECT   39   21                                                        1C4S 273
+CONECT   40   22                                                        1C4S 274
+CONECT   41   23                                                        1C4S 275
+CONECT   42   23                                                        1C4S 276
+CONECT   43   27                                                        1C4S 277
+CONECT   44   25                                                        1C4S 278
+CONECT   45   25                                                        1C4S 279
+CONECT   46   25                                                        1C4S 280
+CONECT   47   48   53   56   59                                         1C4S 281
+CONECT   48   47   49   54   60                                         1C4S 282
+CONECT   49   48   50   55   61                                         1C4S 283
+CONECT   50   49   51   62   72                                         1C4S 284
+CONECT   51   50   52   56   63                                         1C4S 285
+CONECT   52   51   57   58                                              1C4S 286
+CONECT   53   20   47                                                   1C4S 287
+CONECT   54   48                                                        1C4S 288
+CONECT   55   49                                                        1C4S 289
+CONECT   56   47   51                                                   1C4S 290
+CONECT   57   52                                                        1C4S 291
+CONECT   58   52                                                        1C4S 292
+CONECT   59   47                                                        1C4S 293
+CONECT   60   48                                                        1C4S 294
+CONECT   61   49                                                        1C4S 295
+CONECT   62   50                                                        1C4S 296
+CONECT   63   51                                                        1C4S 297
+CONECT   64   65   72   75   82                                         1C4S 298
+CONECT   65   64   66   73   83                                         1C4S 299
+CONECT   66   65   67   84   99                                         1C4S 300
+CONECT   67   66   68   74   85                                         1C4S 301
+CONECT   68   67   69   75   86                                         1C4S 302
+CONECT   69   68   76   87   88                                         1C4S 303
+CONECT   70   71   73   77                                              1C4S 304
+CONECT   71   70   90   91   92                                         1C4S 305
+CONECT   72   50   64                                                   1C4S 306
+CONECT   73   65   70   89                                              1C4S 307
+CONECT   74   67   81                                                   1C4S 308
+CONECT   75   64   68                                                   1C4S 309
+CONECT   76   69                                                        1C4S 310
+CONECT   77   70                                                        1C4S 311
+CONECT   78   81                                                        1C4S 312
+CONECT   79   81                                                        1C4S 313
+CONECT   80   81                                                        1C4S 314
+CONECT   81   74   78   79   80                                         1C4S 315
+CONECT   82   64                                                        1C4S 316
+CONECT   83   65                                                        1C4S 317
+CONECT   84   66                                                        1C4S 318
+CONECT   85   67                                                        1C4S 319
+CONECT   86   68                                                        1C4S 320
+CONECT   87   69                                                        1C4S 321
+CONECT   88   69                                                        1C4S 322
+CONECT   89   73                                                        1C4S 323
+CONECT   90   71                                                        1C4S 324
+CONECT   91   71                                                        1C4S 325
+CONECT   92   71                                                        1C4S 326
+CONECT   93   94   99  102  105                                         1C4S 327
+CONECT   94   93   95  100  106                                         1C4S 328
+CONECT   95   94   96  101  107                                         1C4S 329
+CONECT   96   95   97  108  118                                         1C4S 330
+CONECT   97   96   98  102  109                                         1C4S 331
+CONECT   98   97  103  104                                              1C4S 332
+CONECT   99   66   93                                                   1C4S 333
+CONECT  100   94                                                        1C4S 334
+CONECT  101   95                                                        1C4S 335
+CONECT  102   93   97                                                   1C4S 336
+CONECT  103   98                                                        1C4S 337
+CONECT  104   98                                                        1C4S 338
+CONECT  105   93                                                        1C4S 339
+CONECT  106   94                                                        1C4S 340
+CONECT  107   95                                                        1C4S 341
+CONECT  108   96                                                        1C4S 342
+CONECT  109   97                                                        1C4S 343
+CONECT  110  111  118  121  128                                         1C4S 344
+CONECT  111  110  112  119  129                                         1C4S 345
+CONECT  112   -7  111  113  130                                         1C4S 346
+CONECT  113  112  114  120  131                                         1C4S 347
+CONECT  114  113  115  121  132                                         1C4S 348
+CONECT  115  114  122  133  134                                         1C4S 349
+CONECT  116  117  119  123                                              1C4S 350
+CONECT  117  116  136  137  138                                         1C4S 351
+CONECT  118   96  110                                                   1C4S 352
+CONECT  119  111  116  135                                              1C4S 353
+CONECT  120  113  127                                                   1C4S 354
+CONECT  121  110  114                                                   1C4S 355
+CONECT  122  115                                                        1C4S 356
+CONECT  123  116                                                        1C4S 357
+CONECT  124  127                                                        1C4S 358
+CONECT  125  127                                                        1C4S 359
+CONECT  126  127                                                        1C4S 360
+CONECT  127  120  124  125  126                                         1C4S 361
+CONECT  128  110                                                        1C4S 362
+CONECT  129  111                                                        1C4S 363
+CONECT  130  112                                                        1C4S 364
+CONECT  131  113                                                        1C4S 365
+CONECT  132  114                                                        1C4S 366
+CONECT  133  115                                                        1C4S 367
+CONECT  134  115                                                        1C4S 368
+CONECT  135  119                                                        1C4S 369
+CONECT  136  117                                                        1C4S 370
+CONECT  137  117                                                        1C4S 371
+CONECT  138  117                                                        1C4S 372
+MASTER       38    0    3    0    0    0    0    6  174    0  138    1  1C4SC  6
+END                                                                     1C4S 374
