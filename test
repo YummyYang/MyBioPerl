@@ -164,5 +164,9 @@ print_iub_table();
 #print "print amino acid frequence\n";
 #print_amino_acid_frequence();
 
-extract_words_from_genbank_lib();
+#print "Extract words from genebank library.\n";
+#extract_words_from_genbank_lib();
+
+print "List contets of folder :\n";
+list_contents_of_folder("/");
 

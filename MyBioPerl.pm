@@ -2424,4 +2424,54 @@ sub get_user_input{
 	}	
 }
 
+#---------------------------------------------------------------------------#
+# File operation							    #	
+#---------------------------------------------------------------------------#
 
+############################################################### 
+# Demonstrationg how to open a floder and list its contents.
+############################################################### 
+sub list_contents_of_folder{
+	my @files = ();
+	my($folder)= @_;
+
+	# Open folder
+	die "can't open folder $folder\n" unless(opendir(FOLDER, $folder));	
+	
+	# Read the contents of the folder ( the files and subfolders)
+	@files = readdir(FOLDER);
+
+	# Close the folder
+	closedir(FOLDER);
+
+	# Use grep to filter out the array entries '.' and '..'
+	@files = grep(!/^\.\.?$/, @files);
+
+	# Or use the 'combinded two lines' statement.
+	# @files = grep(!/^\.\.?$/, readdir(FOLDER));
+
+	# Print single level folder's files.
+	#	print join("\n", @files), "\n";
+
+	# If file , print filename
+	# If folder , print its name and contents
+	# Notice we need to prepend the folder name.
+	foreach my $file (@files){
+		if(-f "$folder/$file"){
+			print "$folder/$file\n";
+		}elsif(-d "$folder/$file"){
+			
+			my $folder = "$folder/$file";
+
+			# Open the subfolder and list its contents
+			list_contents_of_folder($folder);
+		}
+	}
+
+}
+
+
+
+
+
+1
