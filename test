@@ -167,6 +167,14 @@ print_iub_table();
 #print "Extract words from genebank library.\n";
 #extract_words_from_genbank_lib();
 
-print "List contets of folder :\n";
-list_contents_of_folder("/");
+#print "List contets of folder :\n";
+#list_contents_of_folder("/");
 
+#print "extract sequence chains from pdb file:\n";
+#extract_sequence_chains_from_pdb_file();
+
+#print "extract_atomic_coordinates_from_pdb_file:\n";
+#extract_atomic_coordinates_from_pdb_file();
+
+print "call_stride_for_secondary_structure_prediction:\n";
+call_stride_for_secondary_structure_prediction();

@@ -2404,6 +2404,258 @@ sub extract_words_from_genbank_lib{
 }
 
 ############################################################### 
+# Extract sequence chains from PDB file
+############################################################### 
+sub extract_sequence_chains_from_pdb_file{
+	# Read in PDB file ( some file may very large! )
+	# and attention the '1' and 'l'
+	my @file = get_file_data('pdb/c1/pdb1c1f.ent');
+	
+	# Parse the record types of the PDB file
+	my %record_types = parse_pdb_record_types(@file);
+	
+	# Extract the amino acid sequences of all chains in the protein
+	my @chains = extract_seqres($record_types{'SEQRES'});
+	
+	# Translate the 3-character codes to 1-character codes,and print.
+	foreach my $chain (@chains){
+	#	print "***chain $chain***\n\n";
+	#	print "$chain\n";
+		print iub3to1($chain),"\n";
+	}
+}
+
+############################################################### 
+# Extract sequence chains from PDB file
+############################################################### 
+sub extract_atomic_coordinates_from_pdb_file{
+	# Read in PDB file ( some file may very large! )
+	# and attention the '1' and 'l'
+	my @file = get_file_data('pdb/c1/pdb1c1f.ent');
+	
+	# Parse the record types of the PDB file
+	my %record_types = parse_pdb_record_types(@file);
+	
+	# Extract the amino acid sequences of all chains in the protein
+	my %atoms = parse_atom($record_types{'ATOM'});
+
+	# Print out a couple of the atoms.
+	print $atoms{'1'},"\n";
+	print $atoms{'1078'},"\n";
+	
+}
+
+############################################################### 
+# Extract sequence chains from PDB file
+############################################################### 
+sub parse_atom{
+	my($atom_record) = @_;
+	my %results = ();
+	
+	my(@atom_record) = split(/\n/,$atom_record);
+
+	foreach my $record (@atom_record){
+		my $number = substr($record, 6, 5);	# columns 7-11
+		my $x = substr($record, 30, 8);	# columns 31-38
+		my $y = substr($record, 38, 8);	# columns 39-46
+		my $z = substr($record, 46, 8);	# columns 47-54
+		my $element  = substr($record, 76, 2);	# columns 77-78
+		
+		# $number and $element may have leading spaces,strip them
+		$number =~ s/^\s*//;
+		$element =~ s/^\s*//;
+
+		# Store information in hash
+		$results{$number} = "$x $y $z $element";
+	}
+	return %results;
+}
+
+############################################################### 
+# Extract sequence chains from PDB file
+# Input : an array of a PDB file,
+# output: a hash with 
+#			key = record type names
+#			value = scalar containing lines for that record type
+############################################################### 
+sub parse_pdb_record_types{
+	my @file = @_;
+	my %record_types = ();
+
+	foreach my $line (@file){
+		# Get the record type name which begins at the
+		# start of the line and ends at the first space
+		my($record_type) = ($line =~ /^(\S+)/);
+		
+		if(defined $record_types{$record_type}){
+			$record_types{$record_type} .= $line;
+		}else{
+			$record_types{$record_type} = $line;
+		}
+	}
+	return %record_types;
+}
+
+############################################################### 
+# Extract SEQRES
+# Input : scalar containing SEQRES lines.
+# output: an array containing the chains of the sequence.
+############################################################### 
+sub extract_seqres{
+	my($seqres) =@_;
+	my $last_chain = '';
+	my $sequence = '';
+	my @results = ();
+
+	# Make array of lines
+	my @records = split(/\n/, $seqres);
+		
+	foreach my $line (@records){
+		# Chain is in column 12,(A,B,C,D) residues start in column 20.
+		my $this_chain = substr($line, 11, 1);
+		my $residues = substr($line, 19, 52);	# space at end
+		
+		# Check if new chain, or continuation of previous chain
+		if("$last_chain" eq ""){	# can delete the " ?	# new chain
+			$sequence = $residues;	# new chain
+		}elsif("$this_chain" eq "$last_chain"){				# same chain
+			$sequence .= $residues;
+		}elsif($sequence){				# Finish gathering previous chain 
+								# if the have one and just have one chian ,won't use this.
+			push(@results, $sequence);
+			$sequence = $residues;
+		}
+		$last_chain = $this_chain;
+	}
+	# Save last chain.
+	push(@results, $sequence);
+	return @results;
+}
+
+############################################################### 
+# IUB 3 to 1
+# change string of 3-character IUB amino acid codes
+# (white space separated) into a string of 1-character aa.
+############################################################### 
+sub iub3to1{
+	my($input) = @_;
+	my %three2one =(
+		'ALA' => 'A',
+		'VAL' => 'V',
+		'LEU' => 'L',
+		'ILE' => 'I',
+		'PRO' => 'P',
+		'TRP' => 'W',
+		'PHE' => 'F',
+		'MET' => 'M',
+		'GLY' => 'G',
+		'SER' => 'S',
+		'THR' => 'T',
+		'TYR' => 'Y',
+		'CYS' => 'C',
+		'ASN' => 'N',
+		'GLN' => 'Q',
+		'LYS' => 'K',
+		'ARG' => 'R',
+		'HIS' => 'H',
+		'ASP' => 'D',
+		'GLU' => 'E',
+	);
+
+	# clean up the input
+	$input =~ s/\n/ /g;
+
+	my $seq = '';
+
+	# this use of split separates on any contiguous whitespace
+	my @code3 = split(' ', $input);
+
+	foreach my $code (@code3){
+		# A little erroe checking
+		if(not defined $three2one{$code}){
+			print "Code $code not defined.\n";
+			next;
+		}
+		$seq .= $three2one{$code};
+	}
+	return $seq;
+}
+
+############################################################### 
+# call stride for secondary structure prediction
+############################################################### 
+sub call_stride_for_secondary_structure_prediction{
+	# Call "stride" on a file, collect the report
+	my(@stride_output) = call_stride('pdb/c1/pdb1c1f.ent');
+	
+	# Parse the stride report into primary sequence, 
+	# and secondary structure prediction
+	my($sequence, $structure) = parse_stride(@stride_output);
+
+	# Print out the beginnings of the sequence 
+	# and the secondary structure
+	print substr($sequence, 0 ,80), "\n";
+	print substr($structure, 0 ,80), "\n";
+}
+
+############################################################### 
+# call stride
+# input : a PDB filename,
+# output: output from the stride 
+#   	stride : secondary sturcture prediction program
+############################################################### 
+sub call_stride{
+	my($filename) = @_;
+
+	# the stride program options
+	my($stride) = '/usr/local/bin/stride';	# modify to urs.
+	my $options = '';
+	my @results = ();
+
+	# Check for presence of PDB file
+	die "File \" $filename\" doesn't exist\n" unless(-e $filename);
+
+	# Start up the program ,capture and return the output
+	@results = `$stride $options $filename`;
+	return @results;
+}
+
+############################################################### 
+# parse stride
+# extract the primary sequence and the secondary structure prediction
+# input : stride's  output , 
+# output: two-element array.
+############################################################### 
+sub parse_stride{
+	my(@stride_report) = @_;
+	my $seq = '';
+	my $str = '';
+	my $length;
+
+	# Extract the line of interest
+	my(@seq) = grep(/^SEQ/,@stride_report);
+	my(@str) = grep(/^STR/,@stride_report);
+
+	# Process those lines to discard all 
+	# but the sequence or structure information
+	for(@seq) { $_ = substr($_, 10, 50)};
+	for(@str) { $_ = substr($_, 10, 50)};
+
+	# Return the information as an array of two strings
+	$seq = join('', @seq);
+	$str = join('', @str);
+
+	# Delete unwanted spaces from the ends of the strings.
+	# ($seq has no spaces that are wanted, but $str may)
+	$seq =~ s/(\s+)$//;
+	$length = length($1);
+	$str =~ s/\s{$length}$//;
+	
+	return( ($seq,$str));
+
+}
+
+############################################################### 
 # get user input
 ############################################################### 
 sub get_user_input{
