@@ -1,6 +1,6 @@
 sub info{
-	print "just for study.\n";
-	print "report the various statistics on DNA/Protein sequences.\n";
+	print "just for fun.\n";
+	print "play with various statistics on DNA/Protein sequences.\n";
 }
 
 #-------------------------------------------------------------------------#
@@ -1076,7 +1076,7 @@ sub read_database{
 		$database{$key} = $value;
 	}
 
-	close(DATABASE);
+	close(DATAFILE);
 
 	# Reset input separator to normal default value
 	$/ = "\n";
@@ -1145,7 +1145,8 @@ sub db_demo{
 ############################################################### 
 # Print Word frequence
 # takes a long DNA sequence as input 
-# output : the counts of all four-base subsequences, sorted by frequency.
+# output the counts of all four-base subsequences,(256 in all)
+# sorted by frequency.
 ############################################################### 
 sub print_word_frequence{
 	my $fastafile = 'sample.dna';
@@ -1158,6 +1159,44 @@ sub print_word_frequence{
 
 	# sort the keys by the count, and output results
 	my @sortedkeys = sort {$count{$b} <=> $count{$a}} keys %count;
+	print "total:".@sortedkeys."\n";
+
+	foreach my $key (@sortedkeys){
+		print "$key ", $count{$key}, "\n";
+	}
+}
+
+############################################################### 
+# print DNA subsequence frequence in GenBank library
+# use mercount() count all 'mers'
+############################################################### 
+sub print_dna_frequence{
+#sub print_dna_sequence_in_genbank_lib{
+	my $genbank_lib='library.gb';
+	my $fh ;
+
+	die "can't open $genbank_lib" unless(open($fh,$genbank_lib));
+	
+	my %count = ();
+	my $size = 4;
+
+	while(my $record = get_next_fh_record($fh) ){
+		# Extract DNA sequence
+		# attention the 'undef' !!!
+		my(undef,$dna) = get_annotation_and_dna($record);
+
+		# Get count of tetramers
+		%count = mercount($size, $dna);
+	}
+
+	close($fh);	
+
+	# sort the count by the keys, and output the result
+	my @sortedkeys = sort{ $count{$b} <=> $count{$a} } keys %count;
+
+	# sort the counts by the key 'name' ,and output the result.
+	#my @sortedkeys = sort keys %count;
+	#print "total:".(keys %count)."\n";
 
 	foreach my $key (@sortedkeys){
 		print "$key ", $count{$key}, "\n";
@@ -1183,7 +1222,6 @@ sub mercount{
 			$count{$mer} = 1;
 		}
 	}
-	print "total:$total\n";
 	return %count;
 }
 
@@ -1355,19 +1393,20 @@ sub parse_annotation{
 	my(%results) = ();
 
 	while($annotation =~ /^[A-Z].*\n(^\s.*\n)*/gm ){
-		print "-".$&."\n";
+#		print "-".$&."\n";
 		
 		my $value = $&;
 		(my $key = $value) =~ s/^([A-Z]+).*/$1/s;
 
-		print "--".$1."\n";
-		print "key:$key\n";
-		print "value:$value\n";
+#		print "--".$1."\n";
+#		print "key:$key\n";
+#		print "value:$value\n";
 
 		$results{$key} = $value;
 	}
 	return %results;
 }
+
 ############################################################### 
 # Parse features
 ############################################################### 
@@ -1384,8 +1423,29 @@ sub parse_features{
 }
 
 ############################################################### 
+# Parse features
+# input : features from lib
+# output : translations in a scalar
+############################################################### 
+sub parse_translation{
+	my(@features) = @_;
+	my $translation;
+
+	foreach my $feature (@features){
+		if($feature =~ /^.*\/translation=\"(.*)\"/s){
+			$trans = $1; 
+			$trans =~ s/\s*//g;
+			$translation = $trans;
+		}
+	}
+	#print "translation : \n$translation\n";
+	return $translation;
+}
+
+
+############################################################### 
 # extract annotation and sequence section from a genebank record
-# extract the annotation and sequence sections
+# extract the annotation and sequence section
 # from the first record of a Genbank library.
 # using regular expression to get two sections.
 ############################################################### 
@@ -1435,8 +1495,9 @@ sub get_annotation_and_dna{
 
 	($annotation, $dna) = ($record =~ /^(LOCUS.*ORIGIN\s*\n)(.*)\/\/\n/s);
 
-	# Clean the sequence of any whitespace or / characters
-	$dna =~ s/[\s\/]//g;	#'s///g' 
+	# Clean the sequence of any whitespace or / characters	# will there have '/' ?
+	#$dna =~ s/[\s\/]//g;	#'s///g'	# this is mistake ? 
+	$dna =~ s/[\s0-9]//g;	#'s///g' 
 
 	return ($annotation,$dna);
 }
@@ -1523,10 +1584,11 @@ sub get_annotation_keys{
 	($annotation, $dna) = get_annotation_and_dna($record);
 
 	# Extract the fields of the annotation
+	print "\n---parse 'ANNOTATION'----\n";
 	%fields = parse_annotation($annotation);
 
 	foreach my $key (keys %fields){
-		print "**key**\n";
+		print "**$key**\n";
 		print $fields{$key};
 	}
 
@@ -1553,11 +1615,11 @@ sub get_next_fh_record{
 	my($offset);
 	my $record = '';
 
-	my $save_input_separator = $/;
+	my $saved_input_separator = $/;
 
 	$/ = "//\n";
 	$record = <$fh>;
-	$/ = $save_input_separator;
+	$/ = $saved_input_separator;
 
 	return $record;
 }
@@ -1887,6 +1949,8 @@ sub codon2aa{
 		return $genetic_code{$codon};
 	}else{
 		print STDERR "Bad codon \"$codon\"!!\n";
+		# add exit . for exception.
+		exit;
 	}
 }
 
@@ -2124,5 +2188,143 @@ sub mutation_probability{
 	return $count/(9 * @codons);
 }
 
+############################################################### 
+# find the frequency of occurrence of the adjacent amino acids
+# coded in a DNA sequence; or in a GenBank library.
+############################################################### 
+sub print_amino_acid_frequence{
+	#amino_acid_frequence_in_dna_sequence();
+	amino_acid_frequence_in_genebank_lib();
+}
 
-1;
+sub amino_acid_frequence_in_dna_sequence{
+	$fasta_file = 'sample.dna';
+	@file_data = get_file_data($fasta_file);
+	$dna = extract_sequence_from_fasta_data(@file_data);
+	
+	$peptide = translate_frame($dna,1);
+
+	while(my $aa = get_user_input("Count neighbors of what amino acid?:")){
+		my %count_adjacent_aa = ();
+		while($peptide =~ /(.)$aa(.)/g){
+			# save adjacent amino acids as $aa1 & $aa2
+			my($aa1, $aa2) = ($1, $2);	
+
+			# store $aa1
+			if(defined $count_adjacent_aa{$aa1}){
+				$count_adjacent_aa{$aa1}++;
+			}else{
+				$count_adjacent_aa{$aa1} = 1;
+			}
+			
+			# store $aa2
+		if(defined $count_adjacent_aa{$aa2}){
+				$count_adjacent_aa{$aa2}++;
+			}else{
+				$count_adjacent_aa{$aa2} = 1;
+			}
+		}
+
+		print "in this sequence , the neighbors of the amino acid $aa \n"
+			." have the following frequency:\n";
+
+		# sort the keys by the count ,and output results
+		my @sortedkeys = sort {$count_adjacent_aa{$b} <=> $count_adjacent_aa{$a}} keys %count_adjacent_aa;
+		foreach my $key (@sortedkeys) {
+			print "$key " , $count_adjacent_aa{$key}, "\n";
+		}
+	}
+}
+
+sub amino_acid_frequence_in_genebank_lib{
+	$filename = 'library.gb';
+	$fh = open_file($filename);
+	$peptide ;
+
+	# well , considered the frame window of the dna2peptide, 
+	# it is better to get ranslation from the annotation.
+	# let do a sub for that.
+
+	# get all dna from lib (the amount maybe very large)
+	while( $record = get_next_fh_record($fh) ){
+		($annotation, undef) = get_annotation_and_dna($record);
+		#parse_translation($annotation);
+
+		%fields = parse_annotation($annotation);
+		@features = parse_features($fields{'FEATURES'});
+		$peptide .= parse_translation(@features);
+	}
+
+	my %count;
+	while(my $aa = get_user_input("Count neighbors of what amino acid?:")){
+		%count = count_adjacent_amino_acid($peptide,$aa);
+		print_sorted_keys(%count);
+	}
+}
+
+############################################################### 
+# sort and print hash
+# input : hash
+# output: sorted keys
+############################################################### 
+sub print_sorted_keys{
+	my(%count) = @_;
+	my @sortedkeys = sort{$count{$b} <=> $count{$a}} keys %count;
+	foreach my $key (@sortedkeys){
+		print "$key , $count{$key}\n";
+	}
+}
+
+############################################################### 
+# count adjacent amino acid
+# input : peptide
+# output: count_adjacent_amino_acid hash
+############################################################### 
+sub count_adjacent_amino_acid{
+	my($peptide,$aa) = @_;
+	my %count_adjacent_aa = ();
+
+	while($peptide =~ /(.)$aa(.)/g){
+		# save adjacent amino acids as $aa1 & $aa2
+		my($aa1, $aa2) = ($1, $2);
+		
+		# store $aa1
+		if(defined $count_adjacent_aa{$aa1}){
+			$count_adjacent_aa{$aa1}++;
+		}else{
+			$count_adjacent_aa{$aa1} = 1;
+		}
+
+		# store $aa2
+		if(defined $count_adjacent_aa{$aa2}){
+			$count_adjacent_aa{$aa2}++;
+		}else{
+			$count_adjacent_aa{$aa2} = 1;
+		}
+	}
+	
+	return %count_adjacent_aa;
+}
+
+############################################################### 
+# get user input
+############################################################### 
+sub get_user_input{
+	my($prompt)= @_;
+	print $prompt;
+
+	my $ans = <>;
+	chomp $ans;
+
+	if($ans =~ /^\s*$/ or  $ans =~ /^\s*quit\s*$/i){
+		return ''; 	# return null if response is empyt , q , or quit.
+				#                                    ^
+				# not include q,because q is an amino acie."
+	}else{
+		$ans =~ s/^\s*//;
+		$ans =~ s/\s*$//;
+		return $ans;
+	}	
+}
+
+

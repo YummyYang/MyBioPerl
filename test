@@ -129,20 +129,38 @@ print_iub_table();
 #get_nonpalindromic_recognition_site();
 
 #db_demo();
-#print_word_frequence();
+  
+#print "print DNA sequence:\n";
+#print "takes a long DNA sequence as input and outputs the counts of"
+#	." all four-base subsequences (256 of them all),sorted by "
+#	."frequence. \nA four-base subsequence starts at each location"
+#	." 1, 2, 3, and so on. \n";
+##print_word_frequence();
+#print_dna_frequence();
 
 #print "extract annotation and sequence from genebank lib:\n";
 #extract_annotation_and_sequence_from_genebank_file();
 
+#print "Extract annotation and sequence section from GeneBank record.\n"
 #extract_annotation_and_sequence_section();
 
 #print "\nparsing genebank annotation:\n";
 #parsing_genebank_annotation();
 
-print "search genebank library:\n";
-search_genebank_library();
+#print "search genebank library:"
+# ."This exmaple shows how to use subroutines to answer a question such as :"
+# ."what are the gene on chromesome 22 that contain a given motif and"
+# ."have small exons .\n";
+#search_genebank_library();
 
-get_annotation_keys();
+#print "given the annotations section of a GeneBank record stored in a scalar,"
+#	."returns a hash with keys equal to the names of the top level fileds"
+#	." and values equal to the contents of those fields.\n";
+#get_annotation_keys();
 
-print "\ndb demo with genebank:\n";
-db_demo_with_genebank();
+#print "\ndb demo with genebank:\n";
+#db_demo_with_genebank();
+
+print "print amino acid frequence\n";
+print_amino_acid_frequence();
+
