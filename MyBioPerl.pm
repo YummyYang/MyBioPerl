@@ -2239,7 +2239,7 @@ sub amino_acid_frequence_in_dna_sequence{
 sub amino_acid_frequence_in_genebank_lib{
 	$filename = 'library.gb';
 	$fh = open_file($filename);
-	$peptide ;
+	$peptide;
 
 	# well , considered the frame window of the dna2peptide, 
 	# it is better to get ranslation from the annotation.
@@ -2740,5 +2740,38 @@ sub find_by_file_find{
 	and ( -A > 365)
 	and ( print $File::Find::name," ", -s, " bytes ", -A, " days old\n\n");
 }
+
+############################################################### 
+# find all perl files within File:Find
+############################################################### 
+sub find_all_perl_files{
+
+# Use File::Find again
+use File::Find;
+
+	find( \&isperl, ($ENV{'HOME'}) );
+}
+
+############################################################### 
+# report all perl files within File:Find
+############################################################### 
+sub isperl{
+	# Here is a method that finds command interpretation lines.
+	# like '#!/usr/bin/perl'
+
+	# Ignore files that aren't ASCII text files or aren't readable
+	-T and -r or return 0;
+
+	# Open the file and see if the first line is a command interpreter line
+	open(THISFILE,$_) or (print "$File::Find::name :can't open\n") and return 0;
+	
+	my $firstline = <THISFILE>;
+	close THISFILE ;
+
+	$firstline or return 0;
+	($firstline =~ /^#\!.*perl/) and (print $File::Find::name,"\n") and (return 1);
+	return 0;
+}
+
 
 1

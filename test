@@ -179,7 +179,10 @@ print_iub_table();
 #print "call_stride_for_secondary_structure_prediction:\n";
 #call_stride_for_secondary_structure_prediction();
 
-print "find oldest and largest files.\n";
-find_oldest_and_largest();
+#print "find oldest and largest files.\n";
+#find_oldest_and_largest();
+
+print "find all perl files:\n";
+find_all_perl_files();
 
 
