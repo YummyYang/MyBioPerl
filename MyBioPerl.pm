@@ -2749,8 +2749,8 @@ sub find_all_perl_files{
 # Use File::Find again
 use File::Find;
 
-	#find( \&isperl, ($ENV{'HOME'}) );
-	find( \&find_perl_files_by_pl, ($ENV{'HOME'}) );
+	find( \&isperl, ($ENV{'HOME'}) );
+	#find( \&find_perl_files_by_pl, ($ENV{'HOME'}) );
 }
 
 ############################################################### 
