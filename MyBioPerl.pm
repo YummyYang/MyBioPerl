@@ -2749,7 +2749,8 @@ sub find_all_perl_files{
 # Use File::Find again
 use File::Find;
 
-	find( \&isperl, ($ENV{'HOME'}) );
+	#find( \&isperl, ($ENV{'HOME'}) );
+	find( \&find_perl_files_by_pl, ($ENV{'HOME'}) );
 }
 
 ############################################################### 
@@ -2763,15 +2764,36 @@ sub isperl{
 	-T and -r or return 0;
 
 	# Open the file and see if the first line is a command interpreter line
-	open(THISFILE,$_) or (print "$File::Find::name :can't open\n") and return 0;
+	open(THISFILE,$_) 
+	or (print "$File::Find::name :can't open\n") 
+	and return 0;
 	
 	my $firstline = <THISFILE>;
 	close THISFILE ;
 
 	$firstline or return 0;
-	($firstline =~ /^#\!.*perl/) and (print $File::Find::name,"\n") and (return 1);
+
+	($firstline =~ /^#\!.*perl/) 
+	and (print $File::Find::name,"\n") 
+	and (return 1);
+
 	return 0;
 }
 
+############################################################### 
+# report all perl files by pl
+############################################################### 
+sub find_perl_files_by_pl{
+	# if doesn't use command interpretation on os
+	# this method will looks for the filename extention ".pl"
+
+	# Ignore files that aren't ASCII text files or aren't readable
+	-T and -r or return 0;
+
+	/\.pl$/ and (print $File::Find::name,"\n") and (return 1);
+
+	return 0;
+
+}
 
 1
