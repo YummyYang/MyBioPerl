@@ -176,5 +176,10 @@ print_iub_table();
 #print "extract_atomic_coordinates_from_pdb_file:\n";
 #extract_atomic_coordinates_from_pdb_file();
 
-print "call_stride_for_secondary_structure_prediction:\n";
-call_stride_for_secondary_structure_prediction();
+#print "call_stride_for_secondary_structure_prediction:\n";
+#call_stride_for_secondary_structure_prediction();
+
+print "find oldest and largest files.\n";
+find_oldest_and_largest();
+
+

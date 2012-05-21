@@ -2722,8 +2722,23 @@ sub list_contents_of_folder{
 
 }
 
+############################################################### 
+# find the oldest and largest file on the hard drive
+############################################################### 
+sub find_oldest_and_largest{
+use File::Find;
+	print "home : ". $ENV{'HOME'}."\n";
+	find( \&find_by_file_find, $ENV{'HOME'} );
+}
 
-
-
+############################################################### 
+# Report all files greater than 10 Mb and older than a year
+############################################################### 
+sub find_by_file_find{
+	-f
+	and ( -s > 10000000)
+	and ( -A > 365)
+	and ( print $File::Find::name," ", -s, " bytes ", -A, " days old\n\n");
+}
 
 1
