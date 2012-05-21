@@ -182,7 +182,9 @@ print_iub_table();
 #print "find oldest and largest files.\n";
 #find_oldest_and_largest();
 
-print "find all perl files:\n";
-find_all_perl_files();
+#print "find all perl files:\n";
+#find_all_perl_files();
 
+print "parse and search pdb files\n";
+parse_and_search_pdb_files();
 

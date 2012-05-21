@@ -2237,9 +2237,9 @@ sub amino_acid_frequence_in_dna_sequence{
 }
 
 sub amino_acid_frequence_in_genebank_lib{
-	$filename = 'library.gb';
-	$fh = open_file($filename);
-	$peptide;
+	my $filename = 'library.gb';
+	my $fh = open_file($filename);
+	my $peptide;
 
 	# well , considered the frame window of the dna2peptide, 
 	# it is better to get ranslation from the annotation.
@@ -2494,6 +2494,112 @@ sub parse_pdb_record_types{
 		}
 	}
 	return %record_types;
+}
+
+
+############################################################### 
+# the function parse_and_search_pdb_files will use global variable
+############################################################### 
+my @global_pdb_files=();
+
+############################################################### 
+# Parse HEADER, TITLE, KEYWORDS record types of all PDB files.
+# Make a hash with key as a word from those record types,
+# and value as a list of filenames that contained that word.
+############################################################### 
+sub parse_and_search_pdb_files{
+
+# Use File::Find to locate all PDB files.
+use File::Find;
+
+	# Search the directory 'pdb' for pdb files, 
+	# saving their names in the @pdbfiles array.
+	my @pdb_files = ();
+
+	find ( \&pdbfiles, ('pdb')   );
+
+#print "pdb_files >>> :@global_pdb_files\n";
+	
+	# A hash to store the filenames of records
+	# keyed by a word appearing in the record
+	my %words = ();
+
+	# A clearly inadequate list of words to ignore.
+	my %ignore = (
+		'and' 	=> 1,
+		'or' 	=> 1,
+		'organism'=>1,
+		'id'	=>1,
+		'if'	=>1,
+		'species'=>1,
+		'header'=>1,
+		'title' =>1,
+		'keywords'=>1,
+	);
+
+	foreach my $pdffile (@global_pdb_files){
+		# Read in PDB files.
+		my @file = get_file_data($pdffile);
+
+		# Parse the record types of the PDB file
+		my %record_types = parse_pdb_record_types(@file);
+
+		# Put all the three desired record types into one scalar
+		my $annotation = '';
+		(defined $record_types{'HEADER'}) and ($annotation .= $record_types{'HEADER'});
+		(defined $record_types{'TITLE'}) and ($annotation .= $record_types{'TITLE'});
+		(defined $record_types{'KEYWORDS'}) and ($annotation .= $record_types{'KEYWORDS'});
+
+		# Only need to handle each word once per PDB record
+		my %seen = ();
+
+		# Extract words, saving the byte offset for found words.
+		# !! what \w'- mean ??
+		while($annotation =~ /(\w[\w'-]*)/g){
+			# Store everything in lowercase
+			my $word = lc $1;
+
+			# skip unwanted words, or words already founded
+			defined $ignore{$word} and next;
+			defined $seen{$word} and next;
+
+			# Mark this new word and seen
+			$seen{$word} = 1;
+
+			# Add the filename of this record
+			# to the value for this word in the hash
+			if(defined $words{$word}){
+				$words{$word}.=" $pdffile";
+			}else{
+				$words{$word} = $pdffile;
+			}
+		}
+	}
+
+	# Interact with the user,
+	# asking for words and showing the names of PDB files contain them
+	while(my $query = lc get_user_input("Find the PDB files' word?: ")){
+		if(defined $words{$query}){
+			print $words{$query},"\n";
+		}else{
+			print "The word \"$query\" is not in the PDB files\n";
+		}
+	}
+}
+
+############################################################### 
+# Find all files whoes name begin with 'pdb' and end with '.ent'
+# Warning :this will use a global
+# output: 0
+############################################################### 
+sub pdbfiles{
+	# Ignore files that aren't ASCII text files or aren't readable
+	-T and -r or return 0;
+
+	/^pdb.*\.ent$/ and push(@global_pdb_files,"$File::Find::name");
+
+	#print "pdb_files : @pdb_files\n";
+	return 0;
 }
 
 ############################################################### 
@@ -2795,5 +2901,8 @@ sub find_perl_files_by_pl{
 	return 0;
 
 }
+
+
+
 
 1
