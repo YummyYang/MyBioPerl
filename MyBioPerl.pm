@@ -2456,7 +2456,7 @@ sub extract_secondary_structure_from_pdb_file{
 		$chains{$key} = iub3to1($chains{$key});
 
 		# for dbg
-		print "chains $key:$chains{$key}\n";
+		#print "chains $key:$chains{$key}\n";
 	}
 
 	# Parse the HELIX , SHEET, and TURN record types.
@@ -2465,19 +2465,19 @@ sub extract_secondary_structure_from_pdb_file{
 	$record_types{'SHEET'}?my %sheet = extractSHEET($record_types{'SHEET'}):();
 	$record_types{'TURN'} ?my %turn  = extractTURN ($record_types{'TURN'}) :();
 
-	# for dbg
-	print "helix:\n";
-	foreach my $key (sort keys %helix){
-		print "$key:$helix{$key}\n";
-	}
-	print "sheet:\n";
-	foreach my $key (sort keys %sheet){
-		print "$key:$sheet{$key}\n";
-	}
-	print "turn:\n";
-	foreach my $key (sort keys %turn){
-		print "$key:$turn{$key}\n";
-	}
+	## for dbg
+	#print "helix:\n";
+	#foreach my $key (sort keys %helix){
+	#	print "$key:$helix{$key}\n";
+	#}
+	#print "sheet:\n";
+	#foreach my $key (sort keys %sheet){
+	#	print "$key:$sheet{$key}\n";
+	#}
+	#print "turn:\n";
+	#foreach my $key (sort keys %turn){
+	#	print "$key:$turn{$key}\n";
+	#}
 
 	# Now make a annotation strings that contain the helix, sheet and turn.
 	my %annotation = ();
@@ -2488,19 +2488,11 @@ sub extract_secondary_structure_from_pdb_file{
 
 		if( defined $helix{$chain_name}){
 			foreach my $structure (split /:/, $helix{$chain_name}){
-				print "structure1:$structure\n";
 				
 				my($structure, $position) = split /;/, $structure;
 
-				print "structure2:$structure\n";
-				#dbg
-				print "annotation:$annotation{$chain_name}".
-				"position :".($position-1).
-				"length :".length($structure)."\n";
-
 				substr($annotation{$chain_name}, $position-1, 
 					length($structure)) = $structure;
-				print "helix ok\n";
 				
 			}
 		}
@@ -2541,7 +2533,6 @@ sub extractHELIX{
 	my %chain_hash = ();
 
 	foreach my $line (@record){
-print "$line\n";
 		# Chain is in column 20, starting position in column 22-25
 		# length is in column 72-76
 		# "strip_space" removes leading and trailing spaces.
@@ -2550,7 +2541,6 @@ print "$line\n";
 		my($this_chain) = strip_space(substr($line,19,1));
 		my($start) 	= strip_space(substr($line,21,4));
 		my($length) = strip_space(substr($line,71,5));
-print "this_chain:$this_chain,start:$start,length:$length\n";
 
 		if(defined $chain_hash{$this_chain}){
 			$chain_hash{$this_chain} .= ':'. 'H' x $length. ";$start";
@@ -2936,8 +2926,8 @@ sub extract_seqres_2{
 		my $residues = substr($line, 19, 52);	# space at end
 		
 		# Check if new chain, or continuation of previous chain
-		#if(not defined $last_chain ){						# if NOT defined lastchain
-		if("$last_chain" eq ""){						# if NOT defined lastchain
+		if(not defined $last_chain ){						# if NOT defined lastchain
+		#if("$last_chain" eq ""){						# this is the foolish mistake
 			$sequence = $residues;						# new chain
 		}elsif("$this_chain" eq "$last_chain"){					# same chain
 			$sequence .= $residues;
