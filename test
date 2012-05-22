@@ -185,6 +185,9 @@ print_iub_table();
 #print "find all perl files:\n";
 #find_all_perl_files();
 
-print "parse and search pdb files\n";
-parse_and_search_pdb_files();
+#print "parse and search pdb files\n";
+#parse_and_search_pdb_files();
+
+parse_pdb_record_types_by_re();
+
 

@@ -2496,6 +2496,69 @@ sub parse_pdb_record_types{
 	return %record_types;
 }
 
+############################################################### 
+# Parse out the record types of a PDB file using regular expressions
+# instead of iterating through an array of input lines.
+# 
+# This maybe not the best way to do this job.
+# Since each line of PDB files have the record type as first field.
+# It is very easy to just iterate through the lines and save the types
+# by looking at the field.
+# It is also space-efficient, since you only have to read in one line
+# at a time from the file, and some  PDB  files are very large.
+# Nevertheless, as an exercise, this approach given here maybe useful.
+############################################################### 
+sub parse_pdb_record_types_by_re{
+	# Open a PDB file and read it into a scalar variable
+	my $pdbfile = 'pdb/pdb1a4o.ent';
+
+	open(PDBFILE, "$pdbfile") or die("can't open pdbfile:$pdbfile\n");
+
+	# It's nice to warn users if the program will seen unresponsive for a while
+	print "Reading PDB file $pdbfile ... this may take a minute ...";
+
+	my $pdb_data = join('', <PDBFILE>);
+
+	print "\n";		# smart ~
+
+	# Parse the record types into a hash data structure
+	my(%record_types) = ();
+	
+	# Note the regular expression:
+	# ([A-Z]+) finds the name of the record type(without trailing digits if any)
+	# [^\n]*\n find any number of non-newlines, up to the first newline
+
+	while( $pdb_data =~ /([A-Z]+)[^\n]*\n/gs){
+
+		# $1 matches the parenthesized part of our regular expression
+		# $& matches the entire matched string of our regular expression
+
+		if( defined $record_types{$1} ){
+			$record_types{$1} .= $&;
+		}else{
+			$record_types{$1} = $&;
+		}
+	}
+
+	# Interact with the user, asking for the record types and showing the lines
+	# comprising them.
+	# 
+	# This while loop has two statements separated by a comma.
+	# such a list of statement will return the value of the last item 
+	# in the list.
+	while(print("The record types for this file are:\n",
+				join(" ", sort keys %record_types), "\n"),
+			my $query = get_user_input("Show which record type?: ")){
+
+			if(defined $record_types{$query}){
+				print $record_types{$query},"\n";
+			}else{
+				print "The record type \"$query\" is not in the PDB files\n";
+			}
+	}
+
+}
+
 
 ############################################################### 
 # the function parse_and_search_pdb_files will use global variable
