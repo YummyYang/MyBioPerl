@@ -2936,12 +2936,13 @@ sub extract_seqres_2{
 		my $residues = substr($line, 19, 52);	# space at end
 		
 		# Check if new chain, or continuation of previous chain
-		if(not defined $last_chain ){											# if NOT defined lastchain
-			$sequence = $residues;											# new chain
-		}elsif("$this_chain" eq "$last_chain"){				# same chain
+		#if(not defined $last_chain ){						# if NOT defined lastchain
+		if("$last_chain" eq ""){						# if NOT defined lastchain
+			$sequence = $residues;						# new chain
+		}elsif("$this_chain" eq "$last_chain"){					# same chain
 			$sequence .= $residues;
 		}elsif($sequence){				# Finish gathering previous chain
-															# (unless first chain) 
+								# (unless first chain) 
 								# if the have one and just have one chian ,won't use this.
 			$results{$last_chain}= $sequence;
 			$sequence = $residues;
