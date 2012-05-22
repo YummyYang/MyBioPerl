@@ -2426,6 +2426,208 @@ sub extract_sequence_chains_from_pdb_file{
 }
 
 ############################################################### 
+# Extract secondary structure information contained in the
+# HELIX, SHEET, TURN record types of PDB files.
+# Print out the secondary structure and the primary sequence together,
+# So that is't easy to see by what secondary structure a given
+# residue is included.
+# ( Consider using a special alphabet for secondary structure,
+#   so that every residue in a helix is represented by H.
+#   The main complication involves keeping track of chain names
+#   for these lines and for the SEQRES lines: we also have to
+#   modify the parseSEQRES subroutine for this.
+#   Note that if there is only one chain, the chain name is often
+#   left blank.)
+############################################################### 
+sub extract_secondary_structure_from_pdb_file{
+	my $pdb_file = 'pdb/44/pdb244l.ent';
+	
+	# Get the file data
+	my @pdb_file_data = get_file_data($pdb_file);
+
+	# Parse the record types
+	my %record_types = parse_pdb_record_types(@pdb_file_data);
+
+	# Extract the name and the sequence of each chain
+	my %chains = extract_seqres_2($record_types{'SEQRES'});
+
+	foreach my $key (keys %chains){
+		# Change the sequence from 3-letter to 1-letter amino acid codes
+		$chains{$key} = iub3to1($chains{$key});
+
+		# for dbg
+		print "chains $key:$chains{$key}\n";
+	}
+
+	# Parse the HELIX , SHEET, and TURN record types.
+	# The following three statement use the ternary operator .
+	$record_types{'HELIX'}?my %helix = extractHELIX($record_types{'HELIX'}):();
+	$record_types{'SHEET'}?my %sheet = extractSHEET($record_types{'SHEET'}):();
+	$record_types{'TURN'} ?my %turn  = extractTURN ($record_types{'TURN'}) :();
+
+	# for dbg
+	print "helix:\n";
+	foreach my $key (sort keys %helix){
+		print "$key:$helix{$key}\n";
+	}
+	print "sheet:\n";
+	foreach my $key (sort keys %sheet){
+		print "$key:$sheet{$key}\n";
+	}
+	print "turn:\n";
+	foreach my $key (sort keys %turn){
+		print "$key:$turn{$key}\n";
+	}
+
+	# Now make a annotation strings that contain the helix, sheet and turn.
+	my %annotation = ();
+	foreach my $chain_name (sort keys %chains){
+		# Make a blank annotation string, 
+		# same length as the sequence of the chain
+		$annotation{$chain_name} = ' ' x length($chains{$chain_name});
+
+		if( defined $helix{$chain_name}){
+			foreach my $structure (split /:/, $helix{$chain_name}){
+				print "structure1:$structure\n";
+				
+				my($structure, $position) = split /;/, $structure;
+
+				print "structure2:$structure\n";
+				#dbg
+				print "annotation:$annotation{$chain_name}".
+				"position :".($position-1).
+				"length :".length($structure)."\n";
+
+				substr($annotation{$chain_name}, $position-1, 
+					length($structure)) = $structure;
+				print "helix ok\n";
+				
+			}
+		}
+		if( defined $sheet{$chain_name}){
+			foreach my $structure (split /:/, $sheet{$chain_name}){
+				my($structure, $position) = split /;/, $structure;
+				substr($annotation{$chain_name}, $position-1, 
+					length($structure)) = $structure;
+				
+			}
+		}
+		if( defined $turn{$chain_name}){
+			foreach my $structure (split /:/, $turn{$chain_name}){
+				my($structure, $position) = split /;/, $structure;
+				substr($annotation{$chain_name}, $position-1, 
+					length($structure)) = $structure;
+				
+			}
+		}
+
+		print "Chain name =\" $chain_name\"\n";
+		print $chains{$chain_name},"\n";
+		print "$annotation{$chain_name}\n";
+	}
+
+
+}
+############################################################### 
+# Extract HELIX
+############################################################### 
+sub extractHELIX{
+	my($helix) = @_;
+
+	# make array of lines
+	my @record = split( /\n/, $helix);
+
+	# hash to store chains
+	my %chain_hash = ();
+
+	foreach my $line (@record){
+print "$line\n";
+		# Chain is in column 20, starting position in column 22-25
+		# length is in column 72-76
+		# "strip_space" removes leading and trailing spaces.
+		# IF there's only one chain in the PDB entry,the chain name maybe blank.
+
+		my($this_chain) = strip_space(substr($line,19,1));
+		my($start) 	= strip_space(substr($line,21,4));
+		my($length) = strip_space(substr($line,71,5));
+print "this_chain:$this_chain,start:$start,length:$length\n";
+
+		if(defined $chain_hash{$this_chain}){
+			$chain_hash{$this_chain} .= ':'. 'H' x $length. ";$start";
+		}else{
+			$chain_hash{$this_chain}  =      'H' x $length. ";$start";
+		}
+	}
+	return %chain_hash;
+}
+
+############################################################### 
+# Extract SHEET
+############################################################### 
+sub extractSHEET{
+	my($sheet) = @_;
+
+	# make array of lines
+	my @record = split( /\n/, $sheet);
+
+	# hash to store chains
+	my %chain_hash = ();
+
+	foreach my $line (@record){
+		# For sheet,
+		# Chain is in column 22, starting position in column 23-26
+		# end position is in column 34-37
+		# "strip_space" removes leading and trailing spaces.
+		# IF there's only one chain in the PDB entry,the chain name maybe blank.
+
+		my($this_chain) = strip_space(substr($line,21,1));
+		my($start) 			= strip_space(substr($line,22,4));
+		my($end) 				= strip_space(substr($line,33,4));
+		my($length) 		= $end - $start +1;
+
+		if(defined $chain_hash{$this_chain}){
+			$chain_hash{$this_chain} .= ':'. 'S' x $length. ";$start";
+		}else{
+			$chain_hash{$this_chain}  =      'S' x $length. ";$start";
+		}
+	}
+	return %chain_hash;
+}
+
+############################################################### 
+# Extract TURN
+############################################################### 
+sub extractTURN{
+	my($turn) = @_;
+
+	# make array of lines
+	my @record = split( /\n/, $turn);
+
+	# hash to store chains
+	my %chain_hash = ();
+
+	foreach my $line (@record){
+		# Chain is in column 20, starting position in column 21-24
+		# length is in column 32-35
+		# "strip_space" removes leading and trailing spaces.
+		# IF there's only one chain in the PDB entry,the chain name maybe blank.
+
+		my($this_chain) = strip_space(substr($line,19,1));
+		my($start) 			= strip_space(substr($line,20,4));
+		my($end) 		= strip_space(substr($line,31,4));
+		my($length) = $end - $start +1;
+
+		if(defined $chain_hash{$this_chain}){
+			$chain_hash{$this_chain} .= ':'. 'T' x $length. ";$start";
+		}else{
+			$chain_hash{$this_chain}  =      'T' x $length. ";$start";
+		}
+	}
+	return %chain_hash;
+}
+
+
+############################################################### 
 # Extract sequence chains from PDB file
 ############################################################### 
 sub extract_atomic_coordinates_from_pdb_file{
@@ -2510,7 +2712,8 @@ sub parse_pdb_record_types{
 ############################################################### 
 sub parse_pdb_record_types_by_re{
 	# Open a PDB file and read it into a scalar variable
-	my $pdbfile = 'pdb/pdb1a4o.ent';
+	#my $pdbfile = 'pdb/pdb1a4o.ent';
+	my $pdbfile = 'pdb/44/pdb244l.ent';
 
 	open(PDBFILE, "$pdbfile") or die("can't open pdbfile:$pdbfile\n");
 
@@ -2685,7 +2888,7 @@ sub extract_seqres{
 		my $residues = substr($line, 19, 52);	# space at end
 		
 		# Check if new chain, or continuation of previous chain
-		if("$last_chain" eq ""){	# can delete the " ?	# new chain
+		if("$last_chain" eq ""){											# new chain
 			$sequence = $residues;	# new chain
 		}elsif("$this_chain" eq "$last_chain"){				# same chain
 			$sequence .= $residues;
@@ -2699,6 +2902,56 @@ sub extract_seqres{
 	# Save last chain.
 	push(@results, $sequence);
 	return @results;
+}
+############################################################### 
+# stripe space.
+############################################################### 
+sub strip_space{
+	my($string) = @_;
+	$string =~ s/^\s*//;
+	$string =~ s/\s*$//;
+	return $string;
+}
+
+############################################################### 
+# Extract SEQRES 2
+# Modified version that reports the chain name plus the sequence.
+# returning the values as a hash.
+#
+# Input : scalar containing SEQRES lines.
+# output: an array containing the chains of the sequence.
+############################################################### 
+sub extract_seqres_2{
+	my($seqres) =@_;
+	my $last_chain ;
+	my $sequence = '';
+	my %results = ();			# result changed to hash.
+
+	# Make array of lines
+	my @records = split(/\n/, $seqres);
+		
+	foreach my $line (@records){
+		# Chain is in column 12,(A,B,C,D) residues start in column 20.
+		my $this_chain = strip_space(substr($line, 11, 1));	# need stripe_sapce?
+		my $residues = substr($line, 19, 52);	# space at end
+		
+		# Check if new chain, or continuation of previous chain
+		if(not defined $last_chain ){											# if NOT defined lastchain
+			$sequence = $residues;											# new chain
+		}elsif("$this_chain" eq "$last_chain"){				# same chain
+			$sequence .= $residues;
+		}elsif($sequence){				# Finish gathering previous chain
+															# (unless first chain) 
+								# if the have one and just have one chian ,won't use this.
+			$results{$last_chain}= $sequence;
+			$sequence = $residues;
+		}
+		$last_chain = $this_chain;
+	}
+
+	# Save last chain.
+	$results{$last_chain}= $sequence;
+	return %results;
 }
 
 ############################################################### 

@@ -188,6 +188,8 @@ print_iub_table();
 #print "parse and search pdb files\n";
 #parse_and_search_pdb_files();
 
-parse_pdb_record_types_by_re();
+#print "parse_pdb_record_types_by_re\n";
+#parse_pdb_record_types_by_re();
 
-
+print "extract secondary structure from pdb file:\n";
+extract_secondary_structure_from_pdb_file();
