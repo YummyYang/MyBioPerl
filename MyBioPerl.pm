@@ -2424,6 +2424,45 @@ sub extract_sequence_chains_from_pdb_file{
 		print iub3to1($chain),"\n";
 	}
 }
+############################################################### 
+# Extract primary amino acid sequence from the SEQRES record
+# type of a PDB file (recursively).
+# this demo will works on a PDB file that only has one chain.
+############################################################### 
+sub extract_primary_amino_acid_sequence_from_pdb_file{
+	# file only has one chain
+	my $pdb_file = 'pdb/44/pdb244l.ent';
+
+	# get the file data
+	my @pdb_file_data = get_file_data($pdb_file);
+
+	# Extract all the record types from the PDB file data
+	my %record_types = parse_pdb_record_types(@pdb_file_data);
+	
+	# Extract the sequence
+	my $sequence = extract_seqres_recursive(split /\n/,$record_types{'SEQRES'});
+	print $sequence."\n";
+}
+
+############################################################### 
+# Extract SEQRES recursive
+############################################################### 
+sub extract_seqres_recursive{
+	my(@seqres) = @_;
+
+	if(not @seqres){
+		return '';
+	}else{
+		my($line) = shift(@seqres);
+
+		# Process the first line, append the results of a recursive call
+		# on the rest of the line
+		# Residues start in column 20
+
+		return iub3to1(substr($line,19,52)).extract_seqres_recursive(@seqres);
+	}
+
+}
 
 ############################################################### 
 # Extract secondary structure to dbm
@@ -2437,12 +2476,13 @@ use File::Find;
 	my $stride = 'stride';
 
 	# search the directory 'pdb' for pdb files
-	# saving their names in the @global_pdb_files array
+	
+	# strange , can NOT saving their names in the @global_pdb_files array
 	#find( \&pdbfiles,('pdb') );
 	# strange. the value is empty.
 	#print "pdb_files >>> :@global_pdb_files \n";
 
-	find ( \&get_pdb_files, ('pdb')   );
+	find ( \&get_pdb_files, 'pdb' );
 	#print "pdb_files >>> :@another_global \n";
 
 	# A hash to store the stride output, keyed by the pdb filename
@@ -3283,7 +3323,46 @@ sub find_perl_files_by_pl{
 
 }
 
+############################################################### 
+# String over ridding.
+############################################################### 
+sub string_over_ridding{
 
+	my $str1 = "# write a subroutine that, given two strings, print them out over the other, but ";
+	my $str2 = "# with line breaks (similar to the stride program output), use this subroutine to print";
+
+	output_strings(25,$str1,$str2);
+}
+
+sub output_strings{
+	my($line_length, $str1, $str2) =@_;
+	my $str_length = length $str1;
+
+	for( my $i = 0; $i < $str_length; $i += $line_length){
+		print substr($str1, $i, $line_length), "\n";
+		print substr($str2, $i, $line_length), "\n";
+		print "\n";
+	}
+}
+
+############################################################### 
+# recursive determine the size of an array.
+############################################################### 
+sub recursive_determine_array_size{
+	my @a = ('1','2','3','4','5','6');
+	print size_of_array(@a), "\n";
+}
+
+sub size_of_array{
+	my(@array) = @_;
+
+	if(not @array){
+		return 0;
+	}else{
+		pop @array;
+		return (1 + size_of_array(@array));
+	}
+}
 
 
 1

@@ -194,5 +194,14 @@ print_iub_table();
 #print "extract secondary structure from pdb file:\n";
 #extract_secondary_structure_from_pdb_file();
 
-print "extract secondary structure to pdb:\n";
-extract_secondary_structure_to_dbm();
+#print "extract secondary structure to pdb:\n";
+#extract_secondary_structure_to_dbm();
+
+#print "string_over_ridding:\n";
+#string_over_ridding();
+
+#print "recursive_determine_array_size:\n";
+#recursive_determine_array_size();
+
+print "extract_primary_amino_acid_sequence_from_pdb_file:\n";
+extract_primary_amino_acid_sequence_from_pdb_file();
