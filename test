@@ -203,5 +203,8 @@ print_iub_table();
 #print "recursive_determine_array_size:\n";
 #recursive_determine_array_size();
 
-print "extract_primary_amino_acid_sequence_from_pdb_file:\n";
-extract_primary_amino_acid_sequence_from_pdb_file();
+#print "extract_primary_amino_acid_sequence_from_pdb_file:\n";
+#extract_primary_amino_acid_sequence_from_pdb_file();
+
+print "extract_annotation_and_alignments_from_blast_output:\n";
+extract_annotation_and_alignments_from_blast_output();

@@ -1,0 +1,517 @@
+BLASTN 2.1.3 [Apr-11-2001]
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer,
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997),
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+RID: 991533563-27495-9092
+Query=
+         (400 letters)
+
+Database: nt
+           868,831 sequences; 3,298,558,333 total letters
+
+                                                                   Score     E
+Sequences producing significant alignments:                        (bits)  Value
+
+dbj|AB031069.1|AB031069 Homo sapiens PCCX1 mRNA for protein cont...   793  0.0
+ref|NM_014593.1| Homo sapiens CpG binding protein (CGBP), mRNA        779  0.0
+gb|AF149758.1|AF149758 Homo sapiens CpG binding protein (CGBP) m...   779  0.0
+ref|XM_008699.3| Homo sapiens CpG binding protein (CGBP), mRNA        765  0.0
+emb|AL136862.1|HSM801830 Homo sapiens mRNA; cDNA DKFZp434F174 (f...   450  e-124
+emb|AJ132339.1|HSA132339 Homo sapiens CpG island sequence, subcl...   446  e-123
+emb|AJ236590.1|HSA236590 Homo sapiens chromosome 18 CpG island D...   406  e-111
+dbj|AK010337.1|AK010337 Mus musculus ES cells cDNA, RIKEN full-l...   234  3e-59
+dbj|AK017941.1|AK017941 Mus musculus adult male thymus cDNA, RIK...   210  5e-52
+gb|AC009750.7|AC009750 Drosophila melanogaster, chromosome 2L, r...    46  0.017
+gb|AE003580.2|AE003580 Drosophila melanogaster genomic scaffold ...    46  0.017
+ref|NC_001905.1| Leishmania major chromosome 1, complete sequence      40  1.0
+gb|AE001274.1|AE001274 Leishmania major chromosome 1, complete s...    40  1.0
+gb|AC008299.5|AC008299 Drosophila melanogaster, chromosome 3R, r...    38  4.1
+gb|AC018662.3|AC018662 Human Chromosome 7 clone RP11-339C9, comp...    38  4.1
+gb|AE003774.2|AE003774 Drosophila melanogaster genomic scaffold ...    38  4.1
+gb|AC008039.1|AC008039 Homo sapiens clone SCb-391H5 from 7q31, c...    38  4.1
+gb|AC005315.2|AC005315 Arabidopsis thaliana chromosome II sectio...    38  4.1
+emb|AL353748.13|AL353748 Human DNA sequence from clone RP11-317B...    38  4.1
+
+ALIGNMENTS
+>dbj|AB031069.1|AB031069 Homo sapiens PCCX1 mRNA for protein containing CXXC domain 1,
+           complete cds
+          Length = 2487
+
+ Score =  793 bits (400), Expect = 0.0
+ Identities = 400/400 (100%)
+ Strand = Plus / Plus
+
+
+Query: 1   agatggcggcgctgaggggtcttgggggctctaggccggccacctactggtttgcagcgg 60
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 1   agatggcggcgctgaggggtcttgggggctctaggccggccacctactggtttgcagcgg 60
+
+
+Query: 61  agacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagcg 120
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 61  agacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagcg 120
+
+
+Query: 121 gaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggtt 180
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 121 gaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggtt 180
+
+
+Query: 181 cgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggagat 240
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 181 cgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggagat 240
+
+
+Query: 241 ggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaat 300
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 241 ggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaat 300
+
+
+Query: 301 gcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtgac 360
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 301 gcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtgac 360
+
+
+Query: 361 aactgcaatgagtggttccatggggactgcatccggatca 400
+           ||||||||||||||||||||||||||||||||||||||||
+Sbjct: 361 aactgcaatgagtggttccatggggactgcatccggatca 400
+
+>ref|NM_014593.1| Homo sapiens CpG binding protein (CGBP), mRNA
+          Length = 2452
+
+ Score =  779 bits (393), Expect = 0.0
+ Identities = 400/401 (99%), Gaps = 1/401 (0%)
+ Strand = Plus / Plus
+
+
+Query: 1   agatggcggcg-ctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 59
+           ||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 9   agatggcggcgcctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 68
+
+
+Query: 60  gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 119
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 69  gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 128
+
+
+Query: 120 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 179
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 129 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 188
+
+
+Query: 180 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggaga 239
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 189 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggaga 248
+
+
+Query: 240 tggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaa 299
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 249 tggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaa 308
+
+
+Query: 300 tgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtga 359
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 309 tgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtga 368
+
+
+Query: 360 caactgcaatgagtggttccatggggactgcatccggatca 400
+           |||||||||||||||||||||||||||||||||||||||||
+Sbjct: 369 caactgcaatgagtggttccatggggactgcatccggatca 409
+
+>gb|AF149758.1|AF149758 Homo sapiens CpG binding protein (CGBP) mRNA, complete cds
+          Length = 2452
+
+ Score =  779 bits (393), Expect = 0.0
+ Identities = 400/401 (99%), Gaps = 1/401 (0%)
+ Strand = Plus / Plus
+
+
+Query: 1   agatggcggcg-ctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 59
+           ||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 9   agatggcggcgcctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 68
+
+
+Query: 60  gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 119
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 69  gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 128
+
+
+Query: 120 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 179
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 129 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 188
+
+
+Query: 180 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggaga 239
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 189 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggaga 248
+
+
+Query: 240 tggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaa 299
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 249 tggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggagaa 308
+
+
+Query: 300 tgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtga 359
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 309 tgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtga 368
+
+
+Query: 360 caactgcaatgagtggttccatggggactgcatccggatca 400
+           |||||||||||||||||||||||||||||||||||||||||
+Sbjct: 369 caactgcaatgagtggttccatggggactgcatccggatca 409
+
+>ref|XM_008699.3| Homo sapiens CpG binding protein (CGBP), mRNA
+          Length = 2444
+
+ Score =  765 bits (386), Expect = 0.0
+ Identities = 400/402 (99%), Gaps = 2/402 (0%)
+ Strand = Plus / Plus
+
+
+Query: 1   agatggcggcg-ctgaggggtcttg-ggggctctaggccggccacctactggtttgcagc 58
+           ||||||||||| ||||||||||||| ||||||||||||||||||||||||||||||||||
+Sbjct: 1   agatggcggcgcctgaggggtcttgtggggctctaggccggccacctactggtttgcagc 60
+
+
+Query: 59  ggagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaag 118
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 61  ggagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaag 120
+
+
+Query: 119 cggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcagg 178
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 121 cggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcagg 180
+
+
+Query: 179 ttcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggag 238
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 181 ttcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatggagggag 240
+
+
+Query: 239 atggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggaga 298
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 241 atggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggggaga 300
+
+
+Query: 299 atgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtg 358
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 301 atgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgggtgtg 360
+
+
+Query: 359 acaactgcaatgagtggttccatggggactgcatccggatca 400
+           ||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 361 acaactgcaatgagtggttccatggggactgcatccggatca 402
+
+>emb|AL136862.1|HSM801830 Homo sapiens mRNA; cDNA DKFZp434F174 (from clone DKFZp434F174);
+           complete cds
+          Length = 2320
+
+ Score =  450 bits (227), Expect = e-124
+ Identities = 227/227 (100%)
+ Strand = Plus / Plus
+
+
+Query: 174 gcaggttcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatgga 233
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 2   gcaggttcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatgga 61
+
+
+Query: 234 gggagatggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatgg 293
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 62  gggagatggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatgg 121
+
+
+Query: 294 ggagaatgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgg 353
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 122 ggagaatgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcgg 181
+
+
+Query: 354 gtgtgacaactgcaatgagtggttccatggggactgcatccggatca 400
+           |||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 182 gtgtgacaactgcaatgagtggttccatggggactgcatccggatca 228
+
+>emb|AJ132339.1|HSA132339 Homo sapiens CpG island sequence, subclone P1, genomic MseI
+           fragment
+          Length = 832
+
+ Score =  446 bits (225), Expect = e-123
+ Identities = 232/233 (99%), Gaps = 1/233 (0%)
+ Strand = Plus / Plus
+
+
+Query: 1   agatggcggcg-ctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 59
+           ||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 415 agatggcggcgcctgaggggtcttgggggctctaggccggccacctactggtttgcagcg 474
+
+
+Query: 60  gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 119
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 475 gagacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagc 534
+
+
+Query: 120 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 179
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 535 ggaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggt 594
+
+
+Query: 180 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatgg 232
+           |||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 595 tcgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatgg 647
+
+>emb|AJ236590.1|HSA236590 Homo sapiens chromosome 18 CpG island DNA, genomic Mse1 fragment,
+           clone 18CGI1D14 , complete read
+          Length = 831
+
+ Score =  406 bits (205), Expect = e-111
+ Identities = 225/232 (96%), Gaps = 2/232 (0%)
+ Strand = Plus / Minus
+
+
+Query: 1   agatggcggcgctgaggggtcttgggggctctaggccggccacctactggtttgcagcgg 60
+           |||||||||| ||||||| |||||||||||||| ||| ||||| ||||||||||||||||
+Sbjct: 416 agatggcggcsctgaggg-tcttgggggctctargccsgccac-tactggtttgcagcgg 359
+
+
+Query: 61  agacgacgcatggggcctgcgcaataggagtacgctgcctgggaggcgtgactagaagcg 120
+           |||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||
+Sbjct: 358 agacgacgcatggggcctgcscaataggagtacgctgcctgggaggcgtgactagaagcg 299
+
+
+Query: 121 gaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggtt 180
+           ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Sbjct: 298 gaagtagttgtgggcgcctttgcaaccgcctgggacgccgccgagtggtctgtgcaggtt 239
+
+
+Query: 181 cgcgggtcgctggcgggggtcgtgagggagtgcgccgggagcggagatatgg 232
+           |||||||||||||||||||| |||||||||||||||||||||||||||||||
+Sbjct: 238 cgcgggtcgctggcgggggtngtgagggagtgcgccgggagcggagatatgg 187
+
+>dbj|AK010337.1|AK010337 Mus musculus ES cells cDNA, RIKEN full-length enriched library,
+           clone:2410002I16, full insert sequence
+          Length = 2538
+
+ Score =  234 bits (118), Expect = 3e-59
+ Identities = 166/182 (91%)
+ Strand = Plus / Plus
+
+
+Query: 219 gagcggagatatggagggagatggttcagacccagagcctccagatgccggggaggacag 278
+           ||||||||||||||| |||||||| |||||||  || ||||| ||||||||||| |||||
+Sbjct: 260 gagcggagatatggaaggagatggctcagacctggaacctccggatgccggggacgacag 319
+
+
+Query: 279 caagtccgagaatggggagaatgcgcccatctactgcatctgccgcaaaccggacatcaa 338
+           |||||| |||||||||||||| || ||||||||||||||||| |||||||||||||||||
+Sbjct: 320 caagtctgagaatggggagaacgctcccatctactgcatctgtcgcaaaccggacatcaa 379
+
+
+Query: 339 ctgcttcatgatcgggtgtgacaactgcaatgagtggttccatggggactgcatccggat 398
+            ||||||||||| || |||||||||||||| |||||||||||||| ||||||||||||||
+Sbjct: 380 ttgcttcatgattggatgtgacaactgcaacgagtggttccatggagactgcatccggat 439
+
+
+Query: 399 ca 400
+           ||
+Sbjct: 440 ca 441
+
+ Score = 44.1 bits (22), Expect = 0.066
+ Identities = 25/26 (96%)
+ Strand = Plus / Plus
+
+
+Query: 118 gcggaagtagttgtgggcgcctttgc 143
+           ||||||||||||| ||||||||||||
+Sbjct: 147 gcggaagtagttgcgggcgcctttgc 172
+
+>dbj|AK017941.1|AK017941 Mus musculus adult male thymus cDNA, RIKEN full-length enriched
+            library, clone:5830420C16, full insert sequence
+          Length = 1461
+
+ Score =  210 bits (106), Expect = 5e-52
+ Identities = 151/166 (90%)
+ Strand = Plus / Plus
+
+
+Query: 235  ggagatggttcagacccagagcctccagatgccggggaggacagcaagtccgagaatggg 294
+            |||||||| |||||||  || ||||| ||||||||||| ||||||||||| |||||||||
+Sbjct: 1048 ggagatggctcagacctggaacctccggatgccggggacgacagcaagtctgagaatggg 1107
+
+
+Query: 295  gagaatgcgcccatctactgcatctgccgcaaaccggacatcaactgcttcatgatcggg 354
+            ||||| || ||||||||||||||||| ||||||||||||||||| ||||||||||| ||
+Sbjct: 1108 gagaacgctcccatctactgcatctgtcgcaaaccggacatcaattgcttcatgattgga 1167
+
+
+Query: 355  tgtgacaactgcaatgagtggttccatggggactgcatccggatca 400
+            |||||||||||||| |||||||||||||| ||||||||||||||||
+Sbjct: 1168 tgtgacaactgcaacgagtggttccatggagactgcatccggatca 1213
+
+ Score = 44.1 bits (22), Expect = 0.066
+ Identities = 25/26 (96%)
+ Strand = Plus / Plus
+
+
+Query: 118 gcggaagtagttgtgggcgcctttgc 143
+           ||||||||||||| ||||||||||||
+Sbjct: 235 gcggaagtagttgcgggcgcctttgc 260
+
+>gb|AC009750.7|AC009750 Drosophila melanogaster, chromosome 2L, region 23F-24A, BAC clone
+             BACR15P13, complete sequence
+          Length = 187049
+
+ Score = 46.1 bits (23), Expect = 0.017
+ Identities = 35/39 (89%)
+ Strand = Plus / Plus
+
+
+Query: 355   tgtgacaactgcaatgagtggttccatggggactgcatc 393
+             |||||||| ||||| |||||||||||||| || ||||||
+Sbjct: 12733 tgtgacaattgcaacgagtggttccatggagattgcatc 12771
+
+>gb|AE003580.2|AE003580 Drosophila melanogaster genomic scaffold 142000013386046 section 11 of
+              16, complete sequence
+          Length = 295214
+
+ Score = 46.1 bits (23), Expect = 0.017
+ Identities = 35/39 (89%)
+ Strand = Plus / Plus
+
+
+Query: 355    tgtgacaactgcaatgagtggttccatggggactgcatc 393
+              |||||||| ||||| |||||||||||||| || ||||||
+Sbjct: 133858 tgtgacaattgcaacgagtggttccatggagattgcatc 133896
+
+>ref|NC_001905.1| Leishmania major chromosome 1, complete sequence
+          Length = 268984
+
+ Score = 40.1 bits (20), Expect = 1.0
+ Identities = 20/20 (100%)
+ Strand = Plus / Plus
+
+
+Query: 183   cgggtcgctggcgggggtcg 202
+             ||||||||||||||||||||
+Sbjct: 21543 cgggtcgctggcgggggtcg 21562
+
+>gb|AE001274.1|AE001274 Leishmania major chromosome 1, complete sequence
+          Length = 268984
+
+ Score = 40.1 bits (20), Expect = 1.0
+ Identities = 20/20 (100%)
+ Strand = Plus / Plus
+
+
+Query: 183   cgggtcgctggcgggggtcg 202
+             ||||||||||||||||||||
+Sbjct: 21543 cgggtcgctggcgggggtcg 21562
+
+>gb|AC008299.5|AC008299 Drosophila melanogaster, chromosome 3R, region 99F4-99F11, BAC clone
+             BACR48G16, complete sequence
+          Length = 173844
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 19/19 (100%)
+ Strand = Plus / Minus
+
+
+Query: 364   tgcaatgagtggttccatg 382
+             |||||||||||||||||||
+Sbjct: 74583 tgcaatgagtggttccatg 74565
+
+>gb|AC018662.3|AC018662 Human Chromosome 7 clone RP11-339C9, complete sequence [Homo sapiens]
+          Length = 173845
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 19/19 (100%)
+ Strand = Plus / Minus
+
+
+Query: 306   catctactgcatctgccgc 324
+             |||||||||||||||||||
+Sbjct: 55518 catctactgcatctgccgc 55500
+
+>gb|AE003774.2|AE003774 Drosophila melanogaster genomic scaffold 142000013386035 section 99 of
+             105, complete sequence
+          Length = 238986
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 19/19 (100%)
+ Strand = Plus / Minus
+
+
+Query: 364   tgcaatgagtggttccatg 382
+             |||||||||||||||||||
+Sbjct: 72100 tgcaatgagtggttccatg 72082
+
+>gb|AC008039.1|AC008039 Homo sapiens clone SCb-391H5 from 7q31, complete sequence
+          Length = 197346
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 19/19 (100%)
+ Strand = Plus / Minus
+
+
+Query: 306    catctactgcatctgccgc 324
+              |||||||||||||||||||
+Sbjct: 161359 catctactgcatctgccgc 161341
+
+>gb|AC005315.2|AC005315 Arabidopsis thaliana chromosome II section 165 of 255 of the complete
+             sequence. Sequence from clones T9I4, F16P2
+          Length = 107931
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 22/23 (95%)
+ Strand = Plus / Plus
+
+
+Query: 223   ggagatatggagggagatggttc 245
+             ||||||||||| |||||||||||
+Sbjct: 67527 ggagatatggatggagatggttc 67549
+
+>emb|AL353748.13|AL353748 Human DNA sequence from clone RP11-317B17 on chromosome 9, complete
+             sequence [Homo sapiens]
+          Length = 179155
+
+ Score = 38.2 bits (19), Expect = 4.1
+ Identities = 22/23 (95%)
+ Strand = Plus / Plus
+
+
+Query: 192   ggcgggggtcgtgagggagtgcg 214
+             |||| ||||||||||||||||||
+Sbjct: 48258 ggcgtgggtcgtgagggagtgcg 48280
+
+  Database: nt
+    Posted date:  May 30, 2001  3:54 AM
+  Number of letters in database: -996,408,959
+  Number of sequences in database:  868,831
+
+Lambda     K      H
+    1.37    0.711     1.31
+
+Gapped
+Lambda     K      H
+    1.37    0.711     1.31
+
+Matrix: blastn matrix:1 -3
+Gap Penalties: Existence: 5, Extension: 2
+Number of Hits to DB: 436021
+Number of Sequences: 868831
+Number of extensions: 436021
+Number of successful extensions: 7536
+Number of sequences better than 10.0: 19
+length of query: 400
+length of database: 3,298,558,333
+effective HSP length: 20
+effective length of query: 380
+effective length of database: 3,281,181,713
+effective search space: 1246849050940
+effective search space used: 1246849050940
+T: 0
+A: 30
+X1: 6 (11.9 bits)
+X2: 15 (29.7 bits)
+S1: 12 (24.3 bits)
+S2: 19 (38.2 bits)

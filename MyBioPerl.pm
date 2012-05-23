@@ -3355,5 +3355,62 @@ sub size_of_array{
 	}
 }
 
+#---------------------------------------------------------------------------#
+# Process Blast output
+#---------------------------------------------------------------------------#
+sub extract_annotation_and_alignments_from_blast_output{
+	my $beginning_annotation = '';
+	my $ending_annotation = '';
+
+	my %alignments = ();
+	my $filename = 'blast.txt';
+
+	parse_blast(\$beginning_annotation, \$ending_annotation, \%alignments, $filename);	
+
+	# Print the annotation 
+	# and then print the DNA in new format just to check if we got it ok.
+	print $beginning_annotation;
+print ">>------------------\n";
+
+	foreach my $key (keys %alignments){
+		print "$key\n**********\n",$alignments{$key},"\n**********\n";
+	}
+print ">>------------------\n";
+	print $ending_annotation;
+}
+
+sub parse_blast{
+	my($beginning_annotation, $ending_annotation, $alignments, $filename) = @_;
+
+	my $blast_output_file = '';
+	my $alignment_section = '';
+
+	$blast_output_file = join('', get_file_data($filename));
+
+	# Extract the beginning annotation, alignments, and ending annotation
+	($$beginning_annotation, $alignment_section, $$ending_annotation)
+	= ($blast_output_file =~ /(.*^ALIGNMENTS\n)(.*)(^  Database:.*)/ms); 	# must ^  D..
+
+	%$alignments = parse_blast_alignment($alignment_section);
+}
+
+sub parse_blast_alignment{
+	my($alignment_section) = @_;
+	my %alignment_hash = ();
+
+	# loop through the scalar containing the BLAST alignments,
+	# extracting the ID and the alignment and sorting in a hash.
+	#
+	# The regular expression matches a line beginning with >,
+	# and containing the ID between the first pair of | characters
+	# followed by any number of lines that don't begin with >
+	while($alignment_section =~ /^>.*\n(^(?!>).*\n)+/gm){
+		my $value = $&;
+		my $key = (split(/\|/, $value))[1];
+		$alignment_hash{$key} = $value;
+	}
+	return %alignment_hash;
+}
+
 
 1
