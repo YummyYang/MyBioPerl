@@ -2426,6 +2426,71 @@ sub extract_sequence_chains_from_pdb_file{
 }
 
 ############################################################### 
+# Extract secondary structure to dbm
+############################################################### 
+sub extract_secondary_structure_to_dbm{
+	# use modules
+use File::Find;
+
+	print "Finding the PDB files and running \"stride\" on them...";
+	# stride path
+	my $stride = 'stride';
+
+	# search the directory 'pdb' for pdb files
+	# saving their names in the @global_pdb_files array
+	#find( \&pdbfiles,('pdb') );
+	# strange. the value is empty.
+	#print "pdb_files >>> :@global_pdb_files \n";
+
+	find ( \&get_pdb_files, ('pdb')   );
+	#print "pdb_files >>> :@another_global \n";
+
+	# A hash to store the stride output, keyed by the pdb filename
+	my %stride_outputs = ();
+	
+	# Capture the output of stride as a scalar value in a hash.
+	# Notice the use of the backtick operater` to run another program.
+	# 2>&1 causes the error output also to be saved.
+	foreach my $file (@another_global){
+		print "file: $file.\n";
+		$stride_outputs{$file} = join('',`$stride $file 2>&1`);
+	}
+	print "\n";
+
+	# Interact with user,
+	# asking for words and showing the names of pdb files containing them
+	while(my $query = lc get_user_input("Find the for what pdb file?: ")){
+		if(defined $stride_outputs{$query}){
+			print $stride_outputs{$query},"\n";
+		}else{
+			print "The stride output for pdb file \"$query\" "
+				."is not in the database\n";
+		}
+	}
+
+}
+
+############################################################### 
+# Find all files whoes name begin with 'pdb' and end with '.ent'
+# Warning :this will use a global
+# output: 0
+############################################################### 
+sub get_pdb_files{
+	# Ignore files that aren't ASCII text files or aren't readable
+	-T and -r or return 0;
+
+	/^pdb.*\.ent$/ and push(@another_global,"$File::Find::name");
+
+	#print "get_pdb_files : @another_global\n";
+	return 0;
+}
+
+############################################################### 
+# define another my global variable.
+############################################################### 
+my @another_global=();
+
+############################################################### 
 # Extract secondary structure information contained in the
 # HELIX, SHEET, TURN record types of PDB files.
 # Print out the secondary structure and the primary sequence together,
@@ -2864,7 +2929,7 @@ sub pdbfiles{
 
 	/^pdb.*\.ent$/ and push(@global_pdb_files,"$File::Find::name");
 
-	#print "pdb_files : @pdb_files\n";
+	print "pdb_files : @global_pdb_files\n";
 	return 0;
 }
 
@@ -2936,9 +3001,9 @@ sub extract_seqres_2{
 		my $residues = substr($line, 19, 52);	# space at end
 		
 		# Check if new chain, or continuation of previous chain
-		if(not defined $last_chain ){											# if NOT defined lastchain
-			$sequence = $residues;											# new chain
-		}elsif("$this_chain" eq "$last_chain"){				# same chain
+		if(not defined $last_chain ){								# if NOT defined lastchain
+			$sequence = $residues;										# new chain
+		}elsif("$this_chain" eq "$last_chain"){		# same chain
 			$sequence .= $residues;
 		}elsif($sequence){				# Finish gathering previous chain
 															# (unless first chain) 
