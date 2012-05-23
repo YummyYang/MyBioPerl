@@ -3412,5 +3412,74 @@ sub parse_blast_alignment{
 	return %alignment_hash;
 }
 
+sub parse_alignments_from_blast_output{
+	my $beginning_annotation = '';
+	my $ending_annotation = '';
+	my %alignments = ();
+	my $alignment = '';
+	my $filename = 'blast.txt';
+	my @HSPs = ();
+
+	my($expect , $query, $query_range, $subject, $subject_range) = ('','','','','');
+
+	parse_blast(\$beginning_annotation,\$ending_annotation,\%alignments,$filename);
+
+	$alignment = $alignments{'AK017941.1'};
+
+	@HSPs = parse_blast_alignment_HSP($alignment);
+
+	($expect,$query,$query_range,$subject,$subject_range)
+		= extract_HSP_information($HSPs[1]);
+	
+	print "\n -> Expect value:	$expect\n";
+	print "\n -> Query string:	$query\n";
+	print "\n -> Query range:	$query_range\n";
+	print "\n -> Subject String:	$subject\n";
+	print "\n -> Subject range:		$subject_range\n";
+
+}
+
+sub parse_blast_alignment_HSP{
+	my($alignment) = @_;
+	
+	my $beginning_annotation = '';
+	my $HSP_section = '';
+	my @HSPs = ();
+
+	# Extract the beginning annotation and HSPs
+	($beginning_annotation, $HSP_section) = ($alignment =~ /(.*?)(^ Score =.*)/ms);
+
+	# Store the $beginning_annotation as the first entry in @HSPs
+	push(@HSPs, $beginning_annotation);
+
+	# Parse the HSPs , store each HSP as an element in @HSPs
+	while($HSP_section =~ /(^ Score =.*\n)(^(?! Score =).*\n)+/gm){
+		push(@HSPs, $&);
+	}
+	
+	return(@HSPs);
+}
+
+sub extract_HSP_information{
+	my($HSP) =@_;
+	
+	my $expect = '';
+	my $query = '';
+	my $query_rangge = '';
+	my $subject = '';
+	my $subject_range = '';
+
+	($expect) = ($HSP =~ /Expect = (\S+)/);		# attention must use the ($expect).
+
+	$query = join( '', ($HSP =~ /^Query(.*)\n/gm) );
+	$subject = join( '', ($HSP =~ /^Sbjct(.*)\n/gm) );
+	$query_range = join('..', ($query =~ /(\d+).*\D(\d+)/s) );
+	$subject_range = join('..', ($subject =~ /(\d+).*\D(\d+)/s));
+	$query =~ s/[^acgt]//g;
+	$subject =~ s/[^acgt]//g;
+	
+	return ($expect, $query, $query_range, $subject, $subject_range);
+}
+
 
 1
