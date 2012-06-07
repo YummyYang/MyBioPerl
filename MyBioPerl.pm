@@ -3504,8 +3504,29 @@ sub extract_HSP_information{
 	
 	return ($expect, $query, $query_range, $subject, $subject_range);
 }
+############################################################### 
+# extract the BLAST output of the searches
+# and extract the top 10 hits in the header annotation
+# of each search.
+############################################################### 
+sub extract_blast_output_of_top_10{
+	my $beginning_annotation = "";
+	my $ending_annotation = "";
+	my %alignments = ();
 
+	my $file1 = 'XM_040728blast';
+	my $file2 = 'XM_040737blast';
+
+	parse_blast(\$beginning_annotation,\$ending_annotation,
+				\%alignments,$file1);
+
+	print "beginning_annotation:$beginning_annotation\n";
+	
+}
+
+############################################################### 
 # basic string match
+############################################################### 
 sub basic_string_match{
 	my $text = "goof through the way-gone-osphere";
 	my $query = "gone";
@@ -3533,6 +3554,7 @@ sub basic_string_match{
 	}
 
 }
+
 
 
 1

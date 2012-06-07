@@ -212,5 +212,12 @@ print_iub_table();
 #print "parse_alignments_from_blast_output:\n";
 #parse_alignments_from_blast_output();
 
-print "basic string match.\n";
-basic_string_match();
+#print "basic string match.\n";
+#basic_string_match();
+
+print "---------------------------------\n";
+print "extract_blast_output_of_top_1:\n";
+print "---------------------------------\n";
+extract_blast_output_of_top_10();
+
+
