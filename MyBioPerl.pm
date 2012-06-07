@@ -3519,11 +3519,104 @@ sub extract_blast_output_of_top_10{
 
 	parse_blast(\$beginning_annotation,\$ending_annotation,
 				\%alignments,$file1);
+	my @hits1 = get_hit_summary($beginning_annotation);
 
-	print "beginning_annotation:$beginning_annotation\n";
+	parse_blast(\$beginning_annotation,\$ending_annotation,
+				\%alignments,$file2);
+	my @hits2 = get_hit_summary($beginning_annotation);
+
+	# save the top 10 hists
+	@hits1 = @hits1[0..9];
+	@hits2 = @hits2[0..9];
 	
+	print "1st array:\n";
+	print join(",",@hits1),"\n";
+	print "\n";
+	print "2st array:\n";
+	print join(",",@hits2),"\n";
+	print "\n";
+
+	# calculate the set intersection of the two arrays
+	print "Intersection:\n";
+	my @intersection = intersection(\@hits1,\@hits2);
+	print join("\n",@intersection),"\n";
+	print "\n";
+
+	# Calculate the set difference of the two arrays
+	print "difference:\n";
+	my @difference = difference(\@hits1,\@hits2);
+	print join("\n",@difference),"\n";
+
 }
 
+############################################################### 
+# get hit summary
+# extract the summary list of significant alignments from
+# the beginning annotation.
+# just report the ID from the alignment.
+############################################################### 
+sub get_hit_summary{
+	my($beginning_annotation) = @_;
+	
+	my(@data) = split(/\n/,$beginning_annotation);
+	my(@results) = ();
+	my($flag) = 0;
+
+	# gather the alignment summary lines
+	foreach(@data){
+		# this follows the alignment summary lines
+		if(/^ALIGNMENTS/){ 
+			last;
+		}elsif($flag){
+			# ignore the empty lilnes
+			next if /^$/;
+			# extract the id (second field, delimited by | character)
+			my $id = (split /\|/)[1];
+			# save the ID from the line
+			push(@results, $id);
+		# save the ID from the alignment summary lines
+		}elsif(/Sequences producing significant alignments/){
+			$flag = 1;
+		}
+	}
+	return sort {$a <=> $b} @results;
+}
+
+############################################################### 
+# intersection
+############################################################### 
+sub intersection{
+	my($a1,$a2) = @_;	# points to the array.
+
+	my %seen = ();
+	my @results = ();
+
+	foreach (@$a1) {
+		$seen{$_} = 1;
+	}
+	foreach (@$a2) {
+		push(@results,$_) if defined $seen{$_};	
+	}	
+	return @results;
+}
+
+############################################################### 
+# difference
+############################################################### 
+sub difference{
+	my($a1,$a2) = @_;	# points to the array.
+	
+	my %intersection= ();
+	my @results = ();
+
+	foreach (intersection($a1,$a2)) {
+		$intersection{$_} = 1;
+	}
+	foreach (@$a1,@$s2) {
+		push(@results,$_) unless defined $intersection{$_};	
+	}	
+	return @results;
+}
 ############################################################### 
 # basic string match
 ############################################################### 
