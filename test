@@ -209,5 +209,8 @@ print_iub_table();
 #print "extract_annotation_and_alignments_from_blast_output:\n";
 #extract_annotation_and_alignments_from_blast_output();
 
-print "parse_alignments_from_blast_output:\n";
-parse_alignments_from_blast_output();
+#print "parse_alignments_from_blast_output:\n";
+#parse_alignments_from_blast_output();
+
+print "basic string match.\n";
+basic_string_match();

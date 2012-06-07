@@ -3505,5 +3505,34 @@ sub extract_HSP_information{
 	return ($expect, $query, $query_range, $subject, $subject_range);
 }
 
+# basic string match
+sub basic_string_match{
+	my $text = "goof through the way-gone-osphere";
+	my $query = "gone";
+	my $query_length = length $query;
+	my $target_length = length $text;
+
+	my $target_position = 0;
+
+	LOOP : while($target_position < $target_length - $query_length +1){
+		# loop through the position in the query
+		for(my $query_position=0; $query_position<$query_length; ++$query_position){
+			if(substr($query, $query_position, 1) 
+				ne substr($text,$target_position+$query_position, 1)){
+				++$target_position;
+				next LOOP;
+			}
+		}
+		# if we get here , we have matched erery character in the query
+		# and I don't thing the 'LOOP' is a good method for 'match'.
+		# I will think it over.
+		print "Found match at position ", $target_position+1, "\n";
+		print "query =$query matched string = ", 
+			substr($text,$target_position,$query_length),"\n";
+		last;
+	}
+
+}
+
 
 1
