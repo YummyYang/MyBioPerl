@@ -3379,6 +3379,14 @@ print ">>------------------\n";
 	print $ending_annotation;
 }
 
+
+############################################################### 
+# Parse BLAST
+# input:reference of beginning annotation
+#	reference of ending annotation
+#	reference of alignments
+# output: none.
+############################################################### 
 sub parse_blast{
 	my($beginning_annotation, $ending_annotation, $alignments, $filename) = @_;
 
@@ -3389,11 +3397,18 @@ sub parse_blast{
 
 	# Extract the beginning annotation, alignments, and ending annotation
 	($$beginning_annotation, $alignment_section, $$ending_annotation)
-	= ($blast_output_file =~ /(.*^ALIGNMENTS\n)(.*)(^  Database:.*)/ms); 	# must ^  D..
+	= ($blast_output_file =~ /(.*^ALIGNMENTS\n)(.*)(^  Database:.*)/ms); 	
+	
+	# must ^  D.. (^spacespaceD..)
 
 	%$alignments = parse_blast_alignment($alignment_section);
 }
 
+############################################################### 
+# Parse BLAST alignment
+# input: alignment section
+# output: alignment hash.
+############################################################### 
 sub parse_blast_alignment{
 	my($alignment_section) = @_;
 	my %alignment_hash = ();
@@ -3412,6 +3427,9 @@ sub parse_blast_alignment{
 	return %alignment_hash;
 }
 
+############################################################### 
+# Parse alignments from BLAST output
+############################################################### 
 sub parse_alignments_from_blast_output{
 	my $beginning_annotation = '';
 	my $ending_annotation = '';
@@ -3439,6 +3457,9 @@ sub parse_alignments_from_blast_output{
 
 }
 
+############################################################### 
+# Parse BLAST alignment HSP
+############################################################### 
 sub parse_blast_alignment_HSP{
 	my($alignment) = @_;
 	
@@ -3460,6 +3481,9 @@ sub parse_blast_alignment_HSP{
 	return(@HSPs);
 }
 
+############################################################### 
+# extract HSP information
+############################################################### 
 sub extract_HSP_information{
 	my($HSP) =@_;
 	
