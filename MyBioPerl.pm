@@ -1,6 +1,5 @@
 sub info{
 	print "just for fun.\n";
-	print "play with various statistics on DNA/Protein sequences.\n";
 }
 
 #-------------------------------------------------------------------------#
