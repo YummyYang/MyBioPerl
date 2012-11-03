@@ -1,0 +1,527 @@
+LOCUS       AB031069     2487 bp    mRNA            PRI       27-MAY-2000
+DEFINITION  Homo sapiens PCCX1 mRNA for protein containing CXXC domain 1,
+            complete cds.
+ACCESSION   AB031069
+VERSION     AB031069.1  GI:8100074
+KEYWORDS    .
+SOURCE      Homo sapiens embryo male lung fibroblast cell_line:HuS-L12 cDNA to
+            mRNA.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (sites)
+  AUTHORS   Fujino,T., Hasegawa,M., Shibata,S., Kishimoto,T., Imai,Si. and
+            Takano,T.
+  TITLE     PCCX1, a novel DNA-binding protein with PHD finger and CXXC domain,
+            is regulated by proteolysis
+  JOURNAL   Biochem. Biophys. Res. Commun. 271 (2), 305-310 (2000)
+  MEDLINE   20261256
+REFERENCE   2  (bases 1 to 2487)
+  AUTHORS   Fujino,T., Hasegawa,M., Shibata,S., Kishimoto,T., Imai,S. and
+            Takano,T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (15-AUG-1999) to the DDBJ/EMBL/GenBank databases.
+            Tadahiro Fujino, Keio University School of Medicine, Department of
+            Microbiology; Shinanomachi 35, Shinjuku-ku, Tokyo 160-8582, Japan
+            (E-mail:fujino@microb.med.keio.ac.jp,
+            Tel:+81-3-3353-1211(ex.62692), Fax:+81-3-5360-1508)
+FEATURES             Location/Qualifiers
+     source          1..2487
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /sex="male"
+                     /cell_line="HuS-L12"
+                     /cell_type="lung fibroblast"
+                     /dev_stage="embryo"
+     gene            229..2199
+                     /gene="PCCX1"
+     CDS             229..2199
+                     /gene="PCCX1"
+                     /note="a nuclear protein carrying a PHD finger and a CXXC
+                     domain"
+                     /codon_start=1
+                     /product="protein containing CXXC domain 1"
+                     /protein_id="BAA96307.1"
+                     /db_xref="GI:8100075"
+                     /translation="MEGDGSDPEPPDAGEDSKSENGENAPIYCICRKPDINCFMIGCD
+                     NCNEWFHGDCIRITEKMAKAIREWYCRECREKDPKLEIRYRHKKSRERDGNERDSSEP
+                     RDEGGGRKRPVPDPDLQRRAGSGTGVGAMLARGSASPHKSSPQPLVATPSQHHQQQQQ
+                     QIKRSARMCGECEACRRTEDCGHCDFCRDMKKFGGPNKIRQKCRLRQCQLRARESYKY
+                     FPSSLSPVTPSESLPRPRRPLPTQQQPQPSQKLGRIREDEGAVASSTVKEPPEATATP
+                     EPLSDEDLPLDPDLYQDFCAGAFDDHGLPWMSDTEESPFLDPALRKRAVKVKHVKRRE
+                     KKSEKKKEERYKRHRQKQKHKDKWKHPERADAKDPASLPQCLGPGCVRPAQPSSKYCS
+                     DDCGMKLAANRIYEILPQRIQQWQQSPCIAEEHGKKLLERIRREQQSARTRLQEMERR
+                     FHELEAIILRAKQQAVREDEESNEGDSDDTDLQIFCVSCGHPINPRVALRHMERCYAK
+                     YESQTSFGSMYPTRIEGATRLFCDVYNPQSKTYCKRLQVLCPEHSRDPKVPADEVCGC
+                     PLVRDVFELTGDFCRLPKRQCNRHYCWEKLRRAEVDLERVRVWYKLDELFEQERNVRT
+                     AMTNRAGLLALMLHQTIQHDPLTTDLRSSADR"
+BASE COUNT      564 a    715 c    768 g    440 t
+ORIGIN      
+        1 agatggcggc gctgaggggt cttgggggct ctaggccggc cacctactgg tttgcagcgg
+       61 agacgacgca tggggcctgc gcaataggag tacgctgcct gggaggcgtg actagaagcg
+      121 gaagtagttg tgggcgcctt tgcaaccgcc tgggacgccg ccgagtggtc tgtgcaggtt
+      181 cgcgggtcgc tggcgggggt cgtgagggag tgcgccggga gcggagatat ggagggagat
+      241 ggttcagacc cagagcctcc agatgccggg gaggacagca agtccgagaa tggggagaat
+      301 gcgcccatct actgcatctg ccgcaaaccg gacatcaact gcttcatgat cgggtgtgac
+      361 aactgcaatg agtggttcca tggggactgc atccggatca ctgagaagat ggccaaggcc
+      421 atccgggagt ggtactgtcg ggagtgcaga gagaaagacc ccaagctaga gattcgctat
+      481 cggcacaaga agtcacggga gcgggatggc aatgagcggg acagcagtga gccccgggat
+      541 gagggtggag ggcgcaagag gcctgtccct gatccagacc tgcagcgccg ggcagggtca
+      601 gggacagggg ttggggccat gcttgctcgg ggctctgctt cgccccacaa atcctctccg
+      661 cagcccttgg tggccacacc cagccagcat caccagcagc agcagcagca gatcaaacgg
+      721 tcagcccgca tgtgtggtga gtgtgaggca tgtcggcgca ctgaggactg tggtcactgt
+      781 gatttctgtc gggacatgaa gaagttcggg ggccccaaca agatccggca gaagtgccgg
+      841 ctgcgccagt gccagctgcg ggcccgggaa tcgtacaagt acttcccttc ctcgctctca
+      901 ccagtgacgc cctcagagtc cctgccaagg ccccgccggc cactgcccac ccaacagcag
+      961 ccacagccat cacagaagtt agggcgcatc cgtgaagatg agggggcagt ggcgtcatca
+     1021 acagtcaagg agcctcctga ggctacagcc acacctgagc cactctcaga tgaggaccta
+     1081 cctctggatc ctgacctgta tcaggacttc tgtgcagggg cctttgatga ccatggcctg
+     1141 ccctggatga gcgacacaga agagtcccca ttcctggacc ccgcgctgcg gaagagggca
+     1201 gtgaaagtga agcatgtgaa gcgtcgggag aagaagtctg agaagaagaa ggaggagcga
+     1261 tacaagcggc atcggcagaa gcagaagcac aaggataaat ggaaacaccc agagagggct
+     1321 gatgccaagg accctgcgtc actgccccag tgcctggggc ccggctgtgt gcgccccgcc
+     1381 cagcccagct ccaagtattg ctcagatgac tgtggcatga agctggcagc caaccgcatc
+     1441 tacgagatcc tcccccagcg catccagcag tggcagcaga gcccttgcat tgctgaagag
+     1501 cacggcaaga agctgctcga acgcattcgc cgagagcagc agagtgcccg cactcgcctt
+     1561 caggaaatgg aacgccgatt ccatgagctt gaggccatca ttctacgtgc caagcagcag
+     1621 gctgtgcgcg aggatgagga gagcaacgag ggtgacagtg atgacacaga cctgcagatc
+     1681 ttctgtgttt cctgtgggca ccccatcaac ccacgtgttg ccttgcgcca catggagcgc
+     1741 tgctacgcca agtatgagag ccagacgtcc tttgggtcca tgtaccccac acgcattgaa
+     1801 ggggccacac gactcttctg tgatgtgtat aatcctcaga gcaaaacata ctgtaagcgg
+     1861 ctccaggtgc tgtgccccga gcactcacgg gaccccaaag tgccagctga cgaggtatgc
+     1921 gggtgccccc ttgtacgtga tgtctttgag ctcacgggtg acttctgccg cctgcccaag
+     1981 cgccagtgca atcgccatta ctgctgggag aagctgcggc gtgcggaagt ggacttggag
+     2041 cgcgtgcgtg tgtggtacaa gctggacgag ctgtttgagc aggagcgcaa tgtgcgcaca
+     2101 gccatgacaa accgcgcggg attgctggcc ctgatgctgc accagacgat ccagcacgat
+     2161 cccctcacta ccgacctgcg ctccagtgcc gaccgctgag cctcctggcc cggacccctt
+     2221 acaccctgca ttccagatgg gggagccgcc cggtgcccgt gtgtccgttc ctccactcat
+     2281 ctgtttctcc ggttctccct gtgcccatcc accggttgac cgcccatctg cctttatcag
+     2341 agggactgtc cccgtcgaca tgttcagtgc ctggtggggc tgcggagtcc actcatcctt
+     2401 gcctcctctc cctgggtttt gttaataaaa ttttgaagaa accaaaaaaa aaaaaaaaaa
+     2461 aaaaaaaaaa aaaaaaaaaa aaaaaaa
+//
+LOCUS       XM_009873    2260 bp    mRNA            PRI       16-APR-2001
+DEFINITION  Homo sapiens matrix metalloproteinase 11 (stromelysin 3) (MMP11),
+            mRNA.
+ACCESSION   XM_009873
+VERSION     XM_009873.2  GI:13647850
+KEYWORDS    .
+SOURCE      human.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 2260)
+  AUTHORS   NCBI Annotation Project.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (17-APR-2001) National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+            On Apr 16, 2001 this sequence version replaced gi:11417850.
+FEATURES             Location/Qualifiers
+     source          1..2260
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /chromosome="22"
+     gene            1..2260
+                     /gene="MMP11"
+                     /note="ST3; SL-3; STMY3"
+                     /db_xref="LocusID:4320"
+                     /db_xref="MIM:185261"
+     CDS             23..1489
+                     /gene="MMP11"
+                     /codon_start=1
+                     /product="matrix metalloproteinase 11 preproprotein"
+                     /protein_id="XP_009873.1"
+                     /db_xref="GI:11417851"
+                     /translation="MAPAAWLRSAAARALLPPMLLLLLQPPPLLARALPPDAHHLHAE
+                     RRGPQPWHAALPSSPAPAPATQEAPRPASSLRPPRCGVPDPSDGLSARNRQKRFVLSG
+                     GRWEKTDLTYRILRFPWQLVQEQVRQTMAEALKVWSDVTPLTFTEVHEGRADIMIDFA
+                     RYWHGDDLPFDGPGGILAHAFFPKTHREGDVHFDYDETWTIGDDQGTDLLQVAAHEFG
+                     HVLGLQHTTAAKALMSAFYTFRYPLSLSPDDCRGVQHLYGQPWPTVTSRTPALGPQAG
+                     IDTNEIAPLEPDAPPDACEASFDAVSTIRGELFFFKAGFVWRLRGGQLQPGYPALASR
+                     HWQGLPSPVDAAFEDAQGHIWFFQGAQYWVYDGEKPVLGPAPLTELGLVRFPVHAALV
+                     WGPEKNKIYFFRGRDYWRFHPSTRRVDSPVPRRATDWRGVPSEIDAAFQDADGYAYFL
+                     RGRLYWKFDPVKVKALEGFPRLVGPDFFGCAEPANTFL"
+     misc_feature    260..622
+                     /note="Peptidase_M10; Region: Matrixin"
+     misc_feature    332..799
+                     /note="ZnMc; Region: Zinc-dependent metalloprotease"
+     misc_feature    656..769
+                     /note="Fragilysin; Region: Fragilysin metallopeptidase
+                     (M10C) enterotoxin"
+     misc_feature    914..1045
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    914..1045
+                     /note="HX; Region: Hemopexin-like repeats"
+     misc_feature    1049..1141
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    1049..1162
+                     /note="HX; Region: Hemopexin-like repeats"
+     misc_feature    1181..1324
+                     /note="HX; Region: Hemopexin-like repeats"
+     misc_feature    1181..1324
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    1328..1456
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    1328..1459
+                     /note="HX; Region: Hemopexin-like repeats"
+BASE COUNT      396 a    723 c    677 g    464 t
+ORIGIN      
+        1 aagcccagca gccccggggc ggatggctcc ggccgcctgg ctccgcagcg cggccgcgcg
+       61 cgccctcctg cccccgatgc tgctgctgct gctccagccg ccgccgctgc tggcccgggc
+      121 tctgccgccg gacgcccacc acctccatgc cgagaggagg gggccacagc cctggcatgc
+      181 agccctgccc agtagcccgg cacctgcccc tgccacgcag gaagcccccc ggcctgccag
+      241 cagcctcagg cctccccgct gtggcgtgcc cgacccatct gatgggctga gtgcccgcaa
+      301 ccgacagaag aggttcgtgc tttctggcgg gcgctgggag aagacggacc tcacctacag
+      361 gatccttcgg ttcccatggc agttggtgca ggagcaggtg cggcagacga tggcagaggc
+      421 cctaaaggta tggagcgatg tgacgccact cacctttact gaggtgcacg agggccgtgc
+      481 tgacatcatg atcgacttcg ccaggtactg gcatggggac gacctgccgt ttgatgggcc
+      541 tgggggcatc ctggcccatg ccttcttccc caagactcac cgagaagggg atgtccactt
+      601 cgactatgat gagacctgga ctatcgggga tgaccagggc acagacctgc tgcaggtggc
+      661 agcccatgaa tttggccacg tgctggggct gcagcacaca acagcagcca aggccctgat
+      721 gtccgccttc tacacctttc gctacccact gagtctcagc ccagatgact gcaggggcgt
+      781 tcaacaccta tatggccagc cctggcccac tgtcacctcc aggaccccag ccctgggccc
+      841 ccaggctggg atagacacca atgagattgc accgctggag ccagacgccc cgccagatgc
+      901 ctgtgaggcc tcctttgacg cggtctccac catccgaggc gagctctttt tcttcaaagc
+      961 gggctttgtg tggcgcctcc gtgggggcca gctgcagccc ggctacccag cattggcctc
+     1021 tcgccactgg cagggactgc ccagccctgt ggacgctgcc ttcgaggatg cccagggcca
+     1081 catttggttc ttccaaggtg ctcagtactg ggtgtacgac ggtgaaaagc cagtcctggg
+     1141 ccccgcaccc ctcaccgagc tgggcctggt gaggttcccg gtccatgctg ccttggtctg
+     1201 gggtcccgag aagaacaaga tctacttctt ccgaggcagg gactactggc gtttccaccc
+     1261 cagcacccgg cgtgtagaca gtcccgtgcc ccgcagggcc actgactgga gaggggtgcc
+     1321 ctctgagatc gacgctgcct tccaggatgc tgatggctat gcctacttcc tgcgcggccg
+     1381 cctctactgg aagtttgacc ctgtgaaggt gaaggctctg gaaggcttcc cccgtctcgt
+     1441 gggtcctgac ttctttggct gtgccgagcc tgccaacact ttcctctgac catggcttgg
+     1501 atgccctcag gggtgctgac ccctgccagg ccacgaatat caggctagag acccatggcc
+     1561 atctttgtgg ctgtgggcac caggcatggg actgagccca tgtctcctca gggggatggg
+     1621 gtggggtaca accaccatga caactgccgg gagggccacg caggtcgtgg tcacctgcca
+     1681 gcgactgtct cagactgggc agggaggctt tggcatgact taagaggaag ggcagtcttg
+     1741 ggcccgctat gcaggtcctg gcaaacctgg ctgccctgtc tccatccctg tccctcaggg
+     1801 tagcaccatg gcaggactgg gggaactgga gtgtccttgc tgtatccctg ttgtgaggtt
+     1861 ccttccaggg gctggcactg aagcaagggt gctggggccc catggccttc agccctggct
+     1921 gagcaactgg gctgtagggc agggccactt cctgaggtca ggtcttggta ggtgcctgca
+     1981 tctgtctgcc ttctggctga caatcctgga aatctgttct ccagaatcca ggccaaaaag
+     2041 ttcacagtca aatggggagg ggtattcttc atgcaggaga ccccaggccc tggaggctgc
+     2101 aacatacctc aatcctgtcc caggccggat cctcctgaag cccttttcgc agcactgcta
+     2161 tcctccaaag ccattgtaaa tgtgtgtaca gtgtgtataa accttcttct tctttttttt
+     2221 tttttaaact gaggattgtc attaaacaca gttgttttct 
+//
+LOCUS       XM_006269    1746 bp    mRNA            PRI       16-APR-2001
+DEFINITION  Homo sapiens matrix metalloproteinase 10 (stromelysin 2) (MMP10),
+            mRNA.
+ACCESSION   XM_006269
+VERSION     XM_006269.3  GI:13639675
+KEYWORDS    .
+SOURCE      human.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1746)
+  AUTHORS   NCBI Annotation Project.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (17-APR-2001) National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+            On Apr 16, 2001 this sequence version replaced gi:12736477.
+FEATURES             Location/Qualifiers
+     source          1..1746
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /chromosome="11"
+     gene            1..1746
+                     /gene="MMP10"
+                     /note="SL-2; STMY2"
+                     /db_xref="LocusID:4319"
+                     /db_xref="MIM:185260"
+     CDS             23..1456
+                     /gene="MMP10"
+                     /codon_start=1
+                     /product="matrix metalloproteinase 10"
+                     /protein_id="XP_006269.2"
+                     /db_xref="GI:13639676"
+                     /translation="MMHLAFLVLLCLPVCSAYPLSGAAKEEDSNKDLAQQYLEKYYNL
+                     EKDVKQFRRKDSNLIVKKIQGMQKFLGLEVTGKLDTDTLEVMRKPRCGVPDVGHFSSF
+                     PGMPKWRKTHLTYRIVNYTPDLPRDAVDSAIEKALKVWEEVTPLTFSRLYEGEADIMI
+                     SFAVKEHGDFYSFDGPGHSLAHAYPPGPGLYGDIHFDDDEKWTEDASGTNLFLVAAHE
+                     LGHSLGLFHSANTEALMYPLYNSFTELAQFRLSQDDVNGIQSLYGPPPASTEEPLVPT
+                     KSVPSGSEMPAKCDPALSFDAISTLRGEYLFFKDRYFWRRSHWNPEPEFHLISAFWPS
+                     LPSYLDAAYEVNSRDTVFIFKVGNEFWAIRGNEVQAGYPRGIHTLGFPPTIRKIDAAV
+                     SDKEKKKTYFFAADKYWRFDENSQSMEQGFPRLIADDFPGVEPKVDAVLQAFGFFYFF
+                     SGSSQFEFDPNARMVTHILKSNSWLHC"
+     misc_feature    131..631
+                     /note="Peptidase_M10; Region: Matrixin"
+     misc_feature    323..604
+                     /note="Methionine_synt; Region: Methionine synthase"
+     misc_feature    332..814
+                     /note="ZnMc; Region: Zinc-dependent metalloprotease"
+     misc_feature    341..703
+                     /note="Astacin; Region: Astacin (Peptidase family M12A)"
+     misc_feature    662..784
+                     /note="Fragilysin; Region: Fragilysin metallopeptidase
+                     (M10C) enterotoxin"
+     misc_feature    905..1033
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    905..1033
+                     /note="HX; Region: Hemopexin-like repeats"
+     misc_feature    1037..1171
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    1184..1312
+                     /note="hemopexin; Region: Hemopexin"
+     misc_feature    1184..1321
+                     /note="HX; Region: Hemopexin-like repeats"
+BASE COUNT      486 a    360 c    401 g    499 t
+ORIGIN      
+        1 aaagaaggta agggcagtga gaatgatgca tcttgcattc cttgtgctgt tgtgtctgcc
+       61 agtctgctct gcctatcctc tgagtggggc agcaaaagag gaggactcca acaaggatct
+      121 tgcccagcaa tacctagaaa agtactacaa cctcgaaaag gatgtgaaac agtttagaag
+      181 aaaggacagt aatctcattg ttaaaaaaat ccaaggaatg cagaagttcc ttgggttgga
+      241 ggtgacaggg aagctagaca ctgacactct ggaggtgatg cgcaagccca ggtgtggagt
+      301 tcctgacgtt ggtcacttca gctcctttcc tggcatgccg aagtggagga aaacccacct
+      361 tacatacagg attgtgaatt atacaccaga tttgccaaga gatgctgttg attctgccat
+      421 tgagaaagct ctgaaagtct gggaagaggt gactccactc acattctcca ggctgtatga
+      481 aggagaggct gatataatga tctcttttgc agttaaagaa catggagact tttactcttt
+      541 tgatggccca ggacacagtt tggctcatgc ctacccacct ggacctgggc tttatggaga
+      601 tattcacttt gatgatgatg aaaaatggac agaagatgca tcaggcacca atttattcct
+      661 cgttgctgct catgaacttg gccactccct ggggctcttt cactcagcca acactgaagc
+      721 tttgatgtac ccactctaca actcattcac agagctcgcc cagttccgcc tttcgcaaga
+      781 tgatgtgaat ggcattcagt ctctctacgg acctccccct gcctctactg aggaacccct
+      841 ggtgcccaca aaatctgttc cttcgggatc tgagatgcca gccaagtgtg atcctgcttt
+      901 gtccttcgat gccatcagca ctctgagggg agaatatctg ttctttaaag acagatattt
+      961 ttggcgaaga tcccactgga accctgaacc tgaatttcat ttgatttctg cattttggcc
+     1021 ctctcttcca tcatatttgg atgctgcata tgaagttaac agcagggaca ccgtttttat
+     1081 ttttaaagta ggaaatgagt tctgggccat cagaggaaat gaggtacaag caggttatcc
+     1141 aagaggcatc cataccctgg gttttcctcc aaccataagg aaaattgatg cagctgtttc
+     1201 tgacaaggaa aagaagaaaa catacttctt tgcagcggac aaatactgga gatttgatga
+     1261 aaatagccag tccatggagc aaggcttccc tagactaata gctgatgact ttccaggagt
+     1321 tgagcctaag gttgatgctg tattacaggc atttggattt ttctacttct tcagtggatc
+     1381 atcacagttt gagtttgacc ccaatgccag gatggtgaca cacatattaa agagtaacag
+     1441 ctggttacat tgctaggcga gataggggga agacagatat gggtgttttt aataaatcta
+     1501 ataattattc atctaatgta ttatgaggca aaatggttaa tttttcctgc atgttctgtg
+     1561 actgaagaag atgagccttg cagatatctg catgtgttat gaagaatgtt tctggaattc
+     1621 ttcacttgct tttgaattgc actgaacaga attaagaaat actcatgtgc aataggtgag
+     1681 agaatgtatt ttcatagatg tgttattact tcctcaataa aaagttttat tttgggcctg
+     1741 ttcctt
+//
+LOCUS       XM_006271    1819 bp    mRNA            PRI       16-APR-2001
+DEFINITION  Homo sapiens matrix metalloproteinase 3 (stromelysin 1,
+            progelatinase) (MMP3), mRNA.
+ACCESSION   XM_006271
+VERSION     XM_006271.3  GI:13639667
+KEYWORDS    .
+SOURCE      human.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 1819)
+  AUTHORS   NCBI Annotation Project.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (17-APR-2001) National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+            On Apr 16, 2001 this sequence version replaced gi:12736476.
+FEATURES             Location/Qualifiers
+     source          1..1819
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /chromosome="11"
+     gene            1..1819
+                     /gene="MMP3"
+                     /note="SL-1; STMY; STR1; STMY1"
+                     /db_xref="LocusID:4314"
+                     /db_xref="MIM:185250"
+     misc_feature    261..674
+                     /note="Peptidase_M10; Region: Matrixin"
+     CDS             261..968
+                     /gene="MMP3"
+                     /codon_start=1
+                     /product="matrix metalloproteinase 3 preproprotein"
+                     /protein_id="XP_006271.2"
+                     /db_xref="GI:13639668"
+                     /translation="MQKFLGLEVTGKLDSDTLEVMRKPRCGVPDVGHFRTFPGIPKWR
+                     KTHLTYRIVNYTPDLPKDAVDSAVEKALKVWEEVTPLTFSRLYEGEADIMISFAVREH
+                     GDFYPFDGPGNVLAHAYAPGPGINGDAHFDDDEQWTKDTTGTNLFLVAAHEIGHSLGL
+                     FHSANTEALMYPLYHSLTDLTRFRLSQDDINGIQSLYDLPLTPLRPPWYPRNLSLQNL
+                     GRQPTVILLCPLMLSAL"
+     misc_feature    375..851
+                     /note="ZnMc; Region: Zinc-dependent metalloprotease"
+     misc_feature    384..746
+                     /note="Astacin; Region: Astacin (Peptidase family M12A)"
+     misc_feature    705..839
+                     /note="Fragilysin; Region: Fragilysin metallopeptidase
+                     (M10C) enterotoxin"
+BASE COUNT      505 a    394 c    426 g    493 t      1 others
+ORIGIN      
+        1 acaaggaggc aggcaagaca gcaaggcata gagacaacat agagctaagt aaagccagtg
+       61 gaaatgaaga gtcttccaat cctactgttg ctgtgcgtgg cagtttgctc agcctatcca
+      121 ttggatggag ctgcaagggg tgaggacacc agcatgaacc ttgttcagaa tatctagaaa
+      181 actactacga cctcaaaaaa gatgtgaaac agtttgttag gagaaaggac agtggtcctg
+      241 ttgttaaaaa aatccgagaa atgcagaagt tccttggatt ggaggtgacg gggaagctgg
+      301 actccgacac tctggaggtg atgcgcaagc ccaggtgtgg agttcctgat gttggtcact
+      361 tcagaacctt tcctggcatc ccgaagtgga ggaaaaccca ccttacatac aggattgtga
+      421 attatacacc agatttgcca aaagatgctg ttgattctgc tgttgagaaa gctctgaaag
+      481 tctgggaaga ggtgactcca ctcacattct ccaggctgta tgaaggagag gctgatataa
+      541 tgatctcttt tgcagttaga gaacatggag acttttaccc ttttgatgga cctggaaatg
+      601 ttttggccca tgcctatgcc cctgggccag ggattaatgg agatgcccac tttgatgatg
+      661 atgaacaatg gacaaaggat acaacaggga ccaatttatt tctcgttgct gctcatgaaa
+      721 ttggccactc cctgggtctc tttcactcag ccaacactga agctttgatg tacccactct
+      781 atcactcact cacagacctg actcggttcc gcctgtctca agatgatata aatggcattc
+      841 agtccctcta tgacctcccc ctgactcccc tgagaccccc ctggtaccca cggaacctgt
+      901 ccctccagaa cctgggacgc cagccaactg tgatcctgct ttgtcctttg atgctgtcag
+      961 cactctgagg ggagaaatcc tgatctttaa agacaggcac ttttggcgca aatccctcag
+     1021 gaagcttgaa cctgaattgc atttgatctc ttcattttgg ccatctcttc cttcaggcgt
+     1081 ggatgccgca tatgaagtta ctagcaagga cctcgttttc atttttaaag ngaaatcaat
+     1141 tctgggctat cagaggaaat gaggtacgag ctggataccc aagaggcatc cacaccctag
+     1201 gtttccctcc aaccgtgagg aaaatcgatg cagccatttc tgataaggaa aagaacaaaa
+     1261 catatttctt tgtagaggac aaatactgga ggtgagatgc aagagaaatt ccatggagcc
+     1321 aggctttccc aagcaaatag ctgaagactt tccagggatt gactcaaaga ttgatgctgt
+     1381 ttttgaagaa tttgggttct tttatttctt tactggatct tcacagttgg agtttgaccc
+     1441 aaatgcaaag aaagtgacac acactttgaa gagtaacagc tggcttaatt gttgaaagag
+     1501 atatgtagaa ggcacaatat gggcacttta aatgaagcta ataattcttc acctaagtct
+     1561 ctgtgaattg aaatgttcgt tttctcctgc ctgtgctgtg actcgagtca cactcaaggg
+     1621 aacttgagcg tgaatctgta tcttgccggt catttttatg ttattacagg gcattcaaat
+     1681 gggctgctgc ttagcttgca ccttgtcaca tagagtgatc tttcccaaga gaaggggaag
+     1741 cactcgtgtg caacagacaa gtgactgtat ctgtgtagac tatttgctta tttaataaag
+     1801 acgatttgtc agttatttt
+//
+LOCUS       NM_021964    3032 bp    mRNA            PRI       14-MAR-2001
+DEFINITION  Homo sapiens zinc finger protein 148 (pHZ-52) (ZNF148), mRNA.
+ACCESSION   NM_021964
+VERSION     NM_021964.1  GI:11415035
+KEYWORDS    .
+SOURCE      human.
+  ORGANISM  Homo sapiens
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Primates; Catarrhini; Hominidae; Homo.
+REFERENCE   1  (bases 1 to 3032)
+  AUTHORS   Wang Y, Kobori JA and Hood L.
+  TITLE     The ht beta gene encodes a novel CACCC box-binding protein that
+            regulates T-cell receptor gene expression
+  JOURNAL   Mol. Cell. Biol. 13 (9), 5691-5701 (1993)
+  MEDLINE   93361003
+   PUBMED   8355710
+REFERENCE   2  (bases 1 to 3032)
+  AUTHORS   Tommerup N and Vissing H.
+  TITLE     Isolation and fine mapping of 16 novel human zinc finger-encoding
+            cDNAs identify putative candidate genes for developmental and
+            malignant disorders
+  JOURNAL   Genomics 27 (2), 259-264 (1995)
+  MEDLINE   96044430
+   PUBMED   7557990
+REFERENCE   3  (bases 1 to 3032)
+  AUTHORS   Law DJ, Tarle SA and Merchant JL.
+  TITLE     The human ZBP-89 homolog, located at chromosome 3q21, represses
+            gastrin gene expression
+  JOURNAL   Mamm. Genome 9 (2), 165-167 (1998)
+  MEDLINE   98119026
+   PUBMED   9457682
+REFERENCE   4  (bases 1 to 3032)
+  AUTHORS   Antona V, Cammarata G, De Gregorio L, Dragani TA, Giallongo A and
+            Feo S.
+  TITLE     The gene encoding the transcriptional repressor BERF-1 maps to a
+            region of conserved synteny on mouse chromosome 16 and human
+            chromosome 3 and a related pseudogene maps to mouse chromosome 8
+  JOURNAL   Cytogenet. Cell Genet. 83 (1-2), 90-92 (1998)
+  MEDLINE   99126341
+   PUBMED   9925940
+REFERENCE   5  (bases 1 to 3032)
+  AUTHORS   Law GL, Itoh H, Law DJ, Mize GJ, Merchant JL and Morris DR.
+  TITLE     Transcription factor ZBP-89 regulates the activity of the ornithine
+            decarboxylase promoter
+  JOURNAL   J. Biol. Chem. 273 (32), 19955-19964 (1998)
+  MEDLINE   98352017
+   PUBMED   9685330
+REFERENCE   6  (bases 1 to 3032)
+  AUTHORS   Ye,S., Whatling,C., Watkins,H. and Henney,A.
+  TITLE     Human stromelysin gene promoter activity is modulated by
+            transcription factor ZBP-89
+  JOURNAL   FEBS Lett. 450 (3), 268-272 (1999)
+  MEDLINE   99285582
+COMMENT     PROVISIONAL REFSEQ: This record has not yet been subject to final
+            NCBI review. The reference sequence was derived from AJ236885.1.
+FEATURES             Location/Qualifiers
+     source          1..3032
+                     /organism="Homo sapiens"
+                     /db_xref="taxon:9606"
+                     /chromosome="3"
+                     /map="3q21"
+                     /cell_line="Hela cell"
+     gene            1..3032
+                     /gene="ZNF148"
+                     /note="PHZ-52; BERF-1; ZBP-89"
+                     /db_xref="LocusID:7707"
+                     /db_xref="MIM:601897"
+     CDS             392..2776
+                     /gene="ZNF148"
+                     /function="transcription factor"
+                     /note="zinc finger protein 148 (pHZ-52), BERF-1, ZBP-89"
+                     /codon_start=1
+                     /db_xref="LocusID:7707"
+                     /db_xref="MIM:601897"
+                     /product="zinc finger protein 148 (pHZ-52)"
+                     /protein_id="NP_068799.1"
+                     /db_xref="GI:11415036"
+                     /translation="MNIDDKLEGLFLKCGGIDEMQSSRTMVVMGGVSGQSTVSGELQD
+                     SVLQDRSMPHQEILAADEVLQESEMRQQDMISHDELMVHEETVKNDEEQMETHERLPQ
+                     GLQYALNVPISVKQEITFTDVSEQLMRDKKQIREPVDLQKKKKRKQRSPAKILTINED
+                     GSLGLKTPKSHVCEHCNAAFRTNYHLQRHVFIHTGEKPFQCSQCDMRFIQKYLLQRHE
+                     KIHTGEKPFRCDECGMRFIQKYHMERHKRTHSGEKPYQCEYCLQYFSRTDRVLKHKRM
+                     CHENHDKKLNTCAIKGGLLTSEEDSGFSTSPKDNSLPKKKRQKTEKKSSGMDKESALD
+                     KSDLKKDKNDYLPVYSSSTKVKDEYMVAEYAVEMPHSSVGGSHLEDASGEIHPPKLVL
+                     KKINSKRSLKQPLEQNQTISPLSTYEESKVSKYAFELVDKQALLDSEGNADIDQVDNL
+                     QEGPSKPVHSSTNYDDAMQFLKKKRYLQAASNNSREYALNVGTIRSQPSVTQAAVASV
+                     IDESTTASILESQALNVEIKSNHDKNVIPDEVLQTLLDHYSHKANGQHEISFSVADTE
+                     VTSSISINSSEVPEVTPSENVGSSSQASSSDKANMLQEYSKFLQQALDRTSQNDAYLN
+                     SPSLNFVTDNQTLPNQPAFSSIDKQVYATMPINSFRSGMNSPLRTTPDKSHFGLIVGD
+                     SQHSFPFSGDETNHASATSTQDFLDQVTSQKKAEAQPVHQAYQMSSFEQPFRAPYHGS
+                     RAGIATQFSTANGQVNLRGPGTSAEFSEFPLVNVNDNRAGMTSSPDATTGQTFG"
+BASE COUNT      986 a    621 c    658 g    767 t
+ORIGIN      
+        1 gaattccgga gaaaggcgca ggggtgggag ctgttgccga agctgccaca gcaaaagttc
+       61 tcccccctcc ccccttcccc tcctctcaag gcccctagaa aggttggagc tgccggccct
+      121 gcagtcggtg accgctgacg acttcggccg cgcccgcgga tagcgggagg aatcagcagc
+      181 ttggaaattc aagcacgtga tctggcggga tgggcgtttg cctaacgtat ttaatggagg
+      241 aatcggatgg cataagtgat taaggtggta ttgaggattt ctgaagccta tgaaaggtag
+      301 aaactcaacc atgatttctt tttcaactct acagcattcc tttccttgaa gtcttcgttt
+      361 ttaccttagt ctcgggcagt tatacttaag catgaacatt gacgacaaac tggaaggatt
+      421 gtttcttaaa tgtggcggca tagacgaaat gcagtcttcc aggacaatgg ttgtaatggg
+      481 tggagtgtct ggccagtcta ctgtgtctgg agagctacag gattcagtac ttcaagatcg
+      541 aagtatgcct caccaggaga tccttgctgc agatgaagtg ttacaagaaa gtgaaatgag
+      601 acaacaggat atgatatcac atgatgaact catggtccat gaggagacag tgaaaaatga
+      661 tgaagagcag atggaaacac atgaaagact tcctcaagga ctacagtatg cacttaatgt
+      721 ccctataagc gtaaagcagg aaattacttt tactgatgta tctgagcaac tgatgagaga
+      781 caaaaaacaa atcagagagc cagtagactt acagaaaaag aagaagcgga aacaacgttc
+      841 tcccgcaaaa atccttacaa taaatgagga tggatcactt ggtttgaaaa cccctaaatc
+      901 tcacgtttgt gagcactgca atgctgcctt tagaacgaac tatcacttac agagacatgt
+      961 cttcattcat acaggtgaaa aaccatttca atgtagtcaa tgtgacatgc gtttcataca
+     1021 gaagtacctg cttcagagac atgagaagat tcatactggt gaaaaaccat ttcgctgtga
+     1081 tgaatgtggt atgagattca tacaaaaata tcatatggaa aggcataaga gaactcatag
+     1141 tggagaaaaa ccttaccagt gtgaatactg tttacagtat ttttccagaa cagatcgtgt
+     1201 attgaaacat aaacgtatgt gccatgaaaa tcatgacaaa aaactaaata catgtgccat
+     1261 caaaggtggc cttctgacat ctgaggaaga ttctggcttt tctacatcac caaaagacaa
+     1321 ctcactgcca aaaaagaaaa ggcagaaaac ggagaaaaaa tcatctggaa tggacaaaga
+     1381 gagtgctttg gacaaatctg acctgaaaaa agacaaaaat gattacttgc ctgtttattc
+     1441 ttcaagtact aaagtaaaag atgagtatat ggttgcagaa tatgctgttg aaatgccaca
+     1501 ttcgtcagtt gggggctcgc atttagaaga tgcgtcagga gaaatacacc cacctaagtt
+     1561 agttctcaaa aaaattaata gtaagagaag tctgaaacag ccactggagc aaaatcaaac
+     1621 aatttcacct ttatccacat atgaagagag caaagtttca aagtatgctt ttgaacttgt
+     1681 ggataaacag gctttactgg actcagaagg caatgctgac attgatcagg ttgataattt
+     1741 gcaggagggg cccagtaaac ctgtgcatag tagtactaat tatgatgatg ccatgcagtt
+     1801 tttgaagaag aagcggtatc ttcaagcagc aagtaacaac agcagggaat atgcgctgaa
+     1861 tgtgggtacc atacgttctc agccttctgt aacacaagca gctgtggcaa gtgtcattga
+     1921 tgaaagtacc acggcatcca tattagagtc acaggcactg aatgtggaga ttaagagtaa
+     1981 tcatgacaaa aatgttattc cagatgaggt actgcagact ctgttggatc attattccca
+     2041 caaagctaat ggacagcatg agatatcctt cagtgttgca gatactgaag tgacttctag
+     2101 catatcaata aattcttcag aagtaccaga ggtcacccca tcagagaatg ttggatcaag
+     2161 ctcccaagca tcctcatcag ataaagccaa catgttgcag gaatactcca agtttctgca
+     2221 gcaggctttg gacagaacta gccaaaatga tgcctatttg aatagcccga gccttaactt
+     2281 tgtgactgat aaccagaccc tcccaaatca gccagcattc tcttccatag acaagcaggt
+     2341 ctatgccacc atgcccatca atagctttcg atcaggaatg aattctccac taagaacaac
+     2401 tccagataag tcccactttg gactaatagt tggtgattca cagcactcat ttcccttttc
+     2461 aggtgatgag acaaaccatg cttctgccac atcaacacag gactttctgg atcaagtcac
+     2521 ttctcagaag aaagctgagg cccagcctgt ccaccaagct taccaaatga gctcctttga
+     2581 acagcccttc cgtgctccct atcatggatc aagagctgga atagctactc aatttagcac
+     2641 tgccaatgga caggtgaacc ttcggggacc agggacaagt gctgaatttt cagaatttcc
+     2701 cttggtgaat gtaaatgata atagagctgg gatgacatct tcacctgatg ccacaactgg
+     2761 ccagactttt ggctaaaaaa aaaaaaaaag tgaaataata ctggcacttt agaacagatt
+     2821 aatcaagagt ggggttacta tgtgtaaatg gagtgctgta cagatttaag agcaatgcgt
+     2881 aataacaagt taagctgata tacgatgata ataactgcat ttcgtttggt tagtcagcat
+     2941 tctttgaact gccttacatg ttgtcacctt tatagaagca atgcattact tgttttagat
+     3001 cagaaacttg ctattccacc cacaccaagt aa
+//

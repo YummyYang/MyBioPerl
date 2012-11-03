@@ -1,0 +1,2 @@
+In some special case we can't use qw to make an array:
+when I use crontab in mainframe , the cron mechanism must use absolute path in perl promgram. so we must have a new way to make an array.
