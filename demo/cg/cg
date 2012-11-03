@@ -1,0 +1,11 @@
+#!/usr/bin/perl -w
+use strict;
+print "count cg percent.\n";
+
+my $dna = "TTAtTTATTTTTTTTTTTTATCGGCATTTAACCGGGCCACTGGAACCT";
+print "CG percentage : " . cg_percentage($dna) ."\n";
+
+sub cg_percentage{
+	$dna = shift;
+	return (int(100*($dna =~ tr/CGcg//) / (length $dna) ) ). "%";
+}
