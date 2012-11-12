@@ -1,4 +1,5 @@
 #! /usr/bin/perl -w
+# this is a stupid demo for qw.
 use strict;
 print "qw instead.\n";
 
