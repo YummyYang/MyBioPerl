@@ -1,0 +1,16 @@
+#!/usr/bin/perl -w
+use strict;
+print "array size demo.\n";
+my @array = ("a");
+if(@array>0){
+	print "size >0\n";
+}else{
+	print "size <=0\n";
+}
+
+my (@args) = @ARGV;
+if(@args>0){
+	print "args size >0\n";
+}else{
+	print "args size <=0\n";
+}

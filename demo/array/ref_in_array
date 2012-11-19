@@ -1,0 +1,23 @@
+#!/usr/bin/perl -w
+use strict;
+print "save ref in array.\n";
+print "将引用存放在数组里。\n";
+
+my @array = ("aa","bb","cc");
+my $ref = \@array;
+
+print @$ref[1];		#  	@$reference , to access whole array.
+print "\n";
+
+print $$ref[0];	   # ${$ref}[x],要获取复杂元素的单个元素,前面用$,后面用具体形式
+print "\n";
+
+print $ref->[2];	#	pointer ?
+print "\n";
+@array = ();
+print "其中，\@$ref 能用在判断array size.\n";
+if(@$ref >0){
+	print "size > 0\n";
+}else{
+	print "size <=0\n";
+}
