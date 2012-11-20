@@ -1,9 +1,12 @@
 #!/usr/bin/perl -w
 use strict;
 print "array size demo.\n";
-my @array = ("a");
+my @array = ("a","b");
 if(@array>0){
 	print "size >0\n";
+	print "\t the element printed in array is:@array\n";
+	print "\t array size:".@array."\n";
+	print "\t the content printed out of array is:" , @array , ".\n";
 }else{
 	print "size <=0\n";
 }
