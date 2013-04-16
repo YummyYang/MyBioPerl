@@ -43,7 +43,7 @@ sub iub2regexp{
 	$iub =~ s/\^//g;
 
 	for(my $i = 0; $i < length($iub); ++$i){
-		$regular_expression.= $iub2character{substr($iub,$i,1)};
+		$regular_expression .= $iub2character{substr($iub,$i,1)};
 	}
 	return $regular_expression;
 }
@@ -54,7 +54,7 @@ sub iub2regexp{
 sub complementIUB{
 	my($seq) = @_;
 	(my $com = $seq) =~ tr[ACGTRYMKSWBDHVNacgtrymkswbdhvn]
-							[TGCAYRKMWSVHDBNtgcayrkmwsvhdbn];
+			      [TGCAYRKMWSVHDBNtgcayrkmwsvhdbn];
 	return $com;
 }
 
