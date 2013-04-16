@@ -2042,27 +2042,27 @@ sub codon_mutated_and_translated{
 sub get_reversed_genetic_codon{
 	
 	my %reversed_genetic_code = (
-		'A' => 'GCA GCC GCG GCT',	# Alanine
-		'C' => 'TGC TGT',		# Cysteine
-		'D' => 'GAC GAT',		# Aspartic Acid
-		'E' => 'GAA GAG',		# Glutamic Acid
-		'F' => 'TTC TTT',		# Phenylalamine
-		'G' => 'GGA GGC GGG GGT',	# Glycine
-		'H' => 'CAC CAT',		# Histidine
-		'I' => 'ATA ATC ATT',		# Isoleucine
-		'K' => 'AAA AAG',		# Lysine
-		'L' => 'CTA CTC CTG CTT TTA TTG',#Leucine
-		'M' => 'ATG',			# Methionine
-		'N' => 'AAC AAT',		# Asparagine
-		'P' => 'CCA CCC CCG CCT',	# Proline
-		'Q' => 'CAA CAG',		# Glutamine
-		'R' => 'CGA CGC CGG CGT AGA AGG',#Arginine
-		'S' => 'TCA TCC TCG TCT AGC AGT',#Serine
-		'T' => 'ACA ACC ACG ACT',	# Threonine
-		'V' => 'GTA GTC GTG GTT',	# Valine
-		'W' => 'TGG',			# Tryptophan
-		'Y' => 'TAC TAT',		# Tyrosine
-		'_' => 'TAA TAG TGA',		# stop 
+		'A' => 'GCA GCC GCG GCT',		# Alanine
+		'C' => 'TGC TGT',			# Cysteine
+		'D' => 'GAC GAT',			# Aspartic Acid
+		'E' => 'GAA GAG',			# Glutamic Acid
+		'F' => 'TTC TTT',			# Phenylalamine
+		'G' => 'GGA GGC GGG GGT',		# Glycine
+		'H' => 'CAC CAT',			# Histidine
+		'I' => 'ATA ATC ATT',			# Isoleucine
+		'K' => 'AAA AAG',			# Lysine
+		'L' => 'CTA CTC CTG CTT TTA TTG',	# Leucine
+		'M' => 'ATG',				# Methionine
+		'N' => 'AAC AAT',			# Asparagine
+		'P' => 'CCA CCC CCG CCT',		# Proline
+		'Q' => 'CAA CAG',			# Glutamine
+		'R' => 'CGA CGC CGG CGT AGA AGG',	# Arginine
+		'S' => 'TCA TCC TCG TCT AGC AGT',	# Serine
+		'T' => 'ACA ACC ACG ACT',		# Threonine
+		'V' => 'GTA GTC GTG GTT',		# Valine
+		'W' => 'TGG',				# Tryptophan
+		'Y' => 'TAC TAT',			# Tyrosine
+		'_' => 'TAA TAG TGA',			# stop 
 	);                                                       
 	return %reversed_genetic_code;
 }
