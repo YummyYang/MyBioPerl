@@ -2675,9 +2675,9 @@ sub extractSHEET{
 		# IF there's only one chain in the PDB entry,the chain name maybe blank.
 
 		my($this_chain) = strip_space(substr($line,21,1));
-		my($start) 			= strip_space(substr($line,22,4));
-		my($end) 				= strip_space(substr($line,33,4));
-		my($length) 		= $end - $start +1;
+		my($start) = strip_space(substr($line,22,4));
+		my($end) = strip_space(substr($line,33,4));
+		my($length) = $end - $start +1;
 
 		if(defined $chain_hash{$this_chain}){
 			$chain_hash{$this_chain} .= ':'. 'S' x $length. ";$start";
@@ -2707,8 +2707,8 @@ sub extractTURN{
 		# IF there's only one chain in the PDB entry,the chain name maybe blank.
 
 		my($this_chain) = strip_space(substr($line,19,1));
-		my($start) 			= strip_space(substr($line,20,4));
-		my($end) 		= strip_space(substr($line,31,4));
+		my($start) = strip_space(substr($line,20,4));
+		my($end) = strip_space(substr($line,31,4));
 		my($length) = $end - $start +1;
 
 		if(defined $chain_hash{$this_chain}){
@@ -2843,9 +2843,9 @@ sub parse_pdb_record_types_by_re{
 	# This while loop has two statements separated by a comma.
 	# such a list of statement will return the value of the last item 
 	# in the list.
-	while(print("The record types for this file are:\n",
-				join(" ", sort keys %record_types), "\n"),
-			my $query = get_user_input("Show which record type?: ")){
+	while(
+		print("The record types for this file are:\n",join(" ", sort keys %record_types), "\n"),
+		my $query = get_user_input("Show which record type?: ") ){
 
 			if(defined $record_types{$query}){
 				print $record_types{$query},"\n";
@@ -2982,8 +2982,8 @@ sub extract_seqres{
 		my $residues = substr($line, 19, 52);	# space at end
 		
 		# Check if new chain, or continuation of previous chain
-		if("$last_chain" eq ""){											# new chain
-			$sequence = $residues;	# new chain
+		if("$last_chain" eq ""){					# new chain
+			$sequence = $residues;					
 		}elsif("$this_chain" eq "$last_chain"){				# same chain
 			$sequence .= $residues;
 		}elsif($sequence){				# Finish gathering previous chain 
