@@ -1,5 +1,5 @@
 sub info{
-	print "just for fun.\n";
+	print "MyBioPerl is not BioPerl, it is just for fun.\n";
 }
 
 #-------------------------------------------------------------------------#
@@ -3080,7 +3080,7 @@ sub iub3to1{
 	);
 
 	# clean up the input
-	$input =~ s/\n/ /g;
+	$input =~ s/\n/ /g;	#	why NOT chomp??? 2013-04-10 review and commit .
 
 	my $seq = '';
 

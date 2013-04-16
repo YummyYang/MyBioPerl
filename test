@@ -215,9 +215,9 @@ print_iub_table();
 #print "basic string match.\n";
 #basic_string_match();
 
-print "---------------------------------\n";
-print "extract_blast_output_of_top_1:\n";
-print "---------------------------------\n";
-extract_blast_output_of_top_10();
+#print "---------------------------------\n";
+#print "extract_blast_output_of_top_1:\n";
+#print "---------------------------------\n";
+#extract_blast_output_of_top_10();
 
 
