@@ -155,7 +155,7 @@ sub add_annotation{
 }
 
 #######################################################################
-# format restriction map
+# format restriction map 
 # interleave a sequence with annotation lines showing the locations
 # of restriction enzymes.
 #######################################################################
@@ -2062,9 +2062,38 @@ sub get_reversed_genetic_codon{
 		'V' => 'GTA GTC GTG GTT',		# Valine
 		'W' => 'TGG',				# Tryptophan
 		'Y' => 'TAC TAT',			# Tyrosine
-		'_' => 'TAA TAG TGA',			# stop 
+		'_' => 'TAA TAG TGA',			# stop           
 	);                                                       
 	return %reversed_genetic_code;
+}
+
+############################################################### 
+# Amino Acid Name Table.
+############################################################### 
+sub amino_acid_name_table{
+	my %amino_acid_name_table =(
+		'A' =>  ' Alanine      ', 
+		'C' =>  ' Cysteine     ',
+		'D' =>  ' Aspartic Acid',
+		'E' =>  ' Glutamic Acid',
+		'F' =>  ' Phenylalamine',
+		'G' =>  ' Glycine      ',
+		'H' =>  ' Histidine    ',
+		'I' =>  ' Isoleucine   ',
+		'K' =>  ' Lysine       ',
+		'L' =>  ' Leucine      ',
+		'M' =>  ' Methionine   ',
+		'N' =>  ' Asparagine   ',
+		'P' =>  ' Proline      ',
+		'Q' =>  ' Glutamine    ',
+		'R' =>  ' Arginine     ',
+		'S' =>  ' Serine       ',
+		'T' =>  ' Threonine    ',
+		'V' =>  ' Valine       ',
+		'W' =>  ' Tryptophan   ',
+		'Y' =>  ' Tyrosine     ',
+		'_' =>  ' stop         ',
+	);
 }
 
 ############################################################### 
