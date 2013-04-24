@@ -67,6 +67,9 @@ sub revcomIUB{
 	return $revcom;
 }
 
+# TODO : sure we move some simple code here? like Protein Amino Acid coden.
+# or just let them in the 'Protion' secion ?
+
 #######################################################################
 # Parse REBASE bionet file
 # input : bionet file
@@ -1835,7 +1838,6 @@ sub is_fasta{
 
 ############################################################### 
 # get genetic codons
-#
 ############################################################### 
 sub get_genetic_codons{
 
