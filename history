@@ -56,3 +56,10 @@
 	git add
 	git pull
 	git push
+
+2013-07-30 copy directory by symbol
+	I have some folders need to be copy to new space.
+	Those folders are just have 'soft link' in it.
+	so I just use cp -rs to copy it. 
+	thre reuslt is the new folder have 'new soft link' link to 'soft link'.
+
