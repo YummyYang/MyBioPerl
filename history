@@ -57,9 +57,12 @@
 	git pull
 	git push
 
-2013-07-30 copy directory by symbol
+2013-07-30 
+1.copy directory by symbol
 	I have some folders need to be copy to new space.
 	Those folders are just have 'soft link' in it.
 	so I just use cp -rs to copy it. 
 	thre reuslt is the new folder have 'new soft link' link to 'soft link'.
+2.$PERL5LIB
+export PERL5LIB=$PERL5LIB:/usr/lib/perl5/site_perl/5.8.8
 
